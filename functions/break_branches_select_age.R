@@ -19,6 +19,12 @@ break_branches_select_age <- function(tree, number.to.add, min.branch.length = 0
   # Identify the branches leading to tips
   tip.lengths <- tree$edge.length[which(tree$edge[, 2] < length(tree$tip.label))]
   
+  # Extract only those in the 25-75% range of the data to remove less 
+  # likely branch lengths
+  upr <- quantile(tip.lengths, 0.75)
+  lwr <- quantile(tip.lengths, 0.25)
+  tip.lengths <- tip.lengths[which(tip.lengths > lwr & tip.lengths < upr)]
+  
   # Loop through adding taxa
   for(i in 1:number.to.add){
 
