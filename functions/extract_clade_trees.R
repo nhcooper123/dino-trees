@@ -49,6 +49,8 @@ sort_data_by_tips <- function(tree, data, species.col){
 # Get list of clades to include
 clade_list <- function(data, clade.col){
   as.list(unique(data[, clade.col]))
+  # Remove NAs
+  clade.list[is.na(clade.list) == FALSE]
 }
 
 # Get two most extreme taxa in a clade
@@ -62,12 +64,6 @@ extreme_taxa <- function(data, species.col, clade.col, clade){
   min.taxon <- taxa[1]
   max.taxon <- taxa[length(taxa)]
   return(list(min.taxon, max.taxon))
-}
-
-# Extract extreme taxa for all clades
-get_extreme_taxa <- function(data, species.col, clade.col, clade.list) {
-  purrr::map(clade.list, extreme_taxa, data = data, species.col = species.col, 
-             clade.col = clade.col)
 }
 
 # Get most recent common ancestor of extreme species
