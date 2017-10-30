@@ -84,7 +84,7 @@ get_all_clade_species <- function(data, species.col, clade.col, tree){
   # Get list of clades in taxonomy data
   clade.list <- clade_list(data, clade.col)
   # Extract nodes of mrca of clades
-  clade.node.list <- get_clade_node_list(clade.list, data, tree, species.col, clade.col)
+  clade.node.list <- get_clade_node_list(clade.list, data, species.col, clade.col, tree)
   # Extract species in each clade
   get_clade_species_list(clade.node.list, tree)
 }
