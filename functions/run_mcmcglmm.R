@@ -107,7 +107,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   
   # Add ID 
   output$ID[tree.no] <- tree.no
-  output$tree[tree.name] <- tree.name
+  output$tree[tree.no] <- tree.name
   
   # DIC for all three models
   output$null_DIC[tree.no] <- get_dic(null.model)[[1]]
