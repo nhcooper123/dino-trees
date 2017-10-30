@@ -133,7 +133,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no)
   output$asym_lower95_CI[tree.no] <- get_lower_conf_intervals(asym.model)
   output$asym_upper95_CI[tree.no] <- get_upper_conf_intervals(asym.model)
   output$asym_ess[tree.no] <- get_ess(asym.model)
-  output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)
+  output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
   
   return(output)
 }
