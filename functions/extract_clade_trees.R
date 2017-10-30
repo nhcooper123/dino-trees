@@ -107,15 +107,12 @@ get_clade_trees <- function(clade.species.list, tree){
 
 ### Works up to here
 # Write tree from list to file
-write_tree_to_file <- function(tree.to.write, path, tree.name){
+write_tree_to_file <- function(tree.to.write, path){
+  tree.name <- names(tree.to.write)
   ape::write.tree(phy = tree.to.write, file = paste0(path, tree.name, ".tre"))
 }
 
 
-# Get tree name from list to file
-write_tree_to_file <- function(tree.to.write, path, tree.name){
-  ape::write.tree(phy = tree.to.write, file = paste0(path, tree.name, ".tre"))
-}
 
 # Write list of trees to file
 write_treelist_to_file <- function(tree.list, tree.name, path){
