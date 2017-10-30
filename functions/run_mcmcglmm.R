@@ -47,7 +47,7 @@ get_dic <- function(model){
 }
 
 # Get nF for other calculations
-get_nF <- function(model){
+get_nf <- function(model){
   model$Fixed$nfl
 }
 
