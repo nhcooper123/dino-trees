@@ -97,8 +97,11 @@ get_clade_tree <- function(clade.species, tree){
 }
 
 # Extract and output tree for list of clades of interest
+# Convert list to multiphylo object
 get_clade_trees <- function(clade.species.list, tree){
-  purrr::map(clade.species.list, get_clade_tree, tree = tree)
+  tree.list <- purrr::map(clade.species.list, get_clade_tree, tree = tree)
+  class(tree.list) <- "multiPhylo"
+  return(tree.list)
 }
 
 
