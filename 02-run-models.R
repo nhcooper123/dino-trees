@@ -25,8 +25,7 @@ burnin <- 1E05
 #----------------------------------------------------------------
 # Create an empty output dataframe
 #----------------------------------------------------------------
-output <- make_mcmc_output(nvar = 20, ntrees = 10)
-
+output <- make_mcmc_output(nvar = 21, ntrees = 10)
 
 #----------------------------------------------------------------
 # Run models for all the original tree
@@ -36,8 +35,12 @@ output <- make_mcmc_output(nvar = 20, ntrees = 10)
 # Run models for all the full trees with extra species
 #----------------------------------------------------------------
 numbers.to.add <- c(4, 21, 42, 105, 210)
+tree.no <- 0 # start counter
 
 for(x in numbers.to.add){
+  
+  tree.no <- 1 + tree.no
+  tree.name <- paste0("tree_", x)
   
   # Load the tree and node count data
   tree <- read.tree(paste0("data/trees/tree_", x, ".tre"))
@@ -48,10 +51,15 @@ for(x in numbers.to.add){
   output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
                             slow.model = model.outputs[[2]], 
                             asym.model = model.outputs[[3]], 
-                            tree.no = 1)
+                            tree.no = tree.no,
+                            tree.name = tree.name)
 
 }  
-ß
+
+# Still to do
+# for lloyd trees
+# for clade trees
+
 #----------------------------------------------------------------
 # Run models for all the clade trees
 #----------------------------------------------------------------
