@@ -11,21 +11,21 @@ run_three_models <- function(tree, nodecount.data, prior, nitt, thin, burnin){
   inv <- inverseA(tree, scale = FALSE)$Ainv
   
   # Fit null model
-  null <- MCMCglmm(nodecount ~ 0 + time_elapsed, 
-                   data = nodecount.data, random = ~ taxon,
-                   ginverse = list(taxon = inv), family = "poisson", prior = prior,
+  null <- MCMCglmm(nodecount ~ 0 + time, 
+                   data = nodecount.data, random = ~ species,
+                   ginverse = list(species = inv), family = "poisson", prior = prior,
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
   
   # Fit slowdown model
-  slow <- MCMCglmm(nodecount ~ 0 + time_elapsed + time_elapsed^2, 
-                   data = nodecount.data, random = ~ taxon,
-                   ginverse = list(taxon = inv), family = "poisson", prior = prior,
+  slow <- MCMCglmm(nodecount ~ 0 + time + time^2, 
+                   data = nodecount.data, random = ~ species,
+                   ginverse = list(species = inv), family = "poisson", prior = prior,
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
   
   # Fit asymptote model
-  asym <- MCMCglmm(nodecount ~ 0 + time_elapsed + sqrt(time_elapsed), 
-                   data = nodecount.data, random = ~ taxon,
-                   ginverse = list(taxon = inv), family = "poisson", prior = prior,
+  asym <- MCMCglmm(nodecount ~ 0 + time + sqrt(time), 
+                   data = nodecount.data, random = ~ species,
+                   ginverse = list(species = inv), family = "poisson", prior = prior,
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
   
   return(list(null, slow, asym))
@@ -90,7 +90,7 @@ get_pMCMC <- function(model){
 #--------------------------------------------------------
 # Define dataframe for model output
 make_mcmc_output <- function(nvar, ntrees){
-  output <- array(dim = c(ntrees, nvar))
+  output <- data.frame(array(dim = c(ntrees, nvar)))
   colnames(output) <- c("ID", "null_DIC","slow_DIC", "asym_DIC", 
                         "null_post_mean", "null_lower95_CI", "null_upper95_CI", 
                         "null_ess", "null_pMCMC", 
