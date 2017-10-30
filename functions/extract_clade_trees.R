@@ -1,5 +1,5 @@
-# Requires geiger, purrr ape
-
+# Requires geiger, purrr, ape
+library(geiger)
 tree <- read.tree("data/lloyd2008_midpoint.tre")
 taxonomy <- read.csv("data/taxonomy.data.csv")
 
@@ -66,6 +66,7 @@ get_clade_node_list <- function(clade.list, data, species.col, clade.col, tree){
                                   species.col = species.col, clade.col = clade.col)
   clade.node.list <- purrr::map(extreme.taxa.list, get_MRCA_extremes, tree = tree)
   names(clade.node.list) <- unlist(clade.list)
+  return(clade.node.list)
 }
 
 # Extract species coming from node
