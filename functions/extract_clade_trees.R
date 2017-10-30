@@ -1,8 +1,16 @@
-# Requires geiger, purrr, ape
-library(geiger)
-tree <- read.tree("data/lloyd2008_midpoint.tre")
-taxonomy <- read.csv("data/taxonomy.data.csv")
+# Functions to split phylogenies by some grouping - usually a clade
+# Natalie Cooper Oct 2017
 
+# Function takes a dataframe with the taxonomic details of clades,
+# and a phylogeny, then splits the phylogeny into these clades
+# and outputs a multiphylo object - one tree per clade/group
+
+# Requires ape, geiger and purrr
+
+# Main function
+# Data must contain a column with species/taxon names that match the tips
+# of the phylogeny, plus a grouping factor, here "clade" but could
+# be any grouping variable
 extract_clade_trees <- function(tree, data, species.col.name, clade.col.name){
   
   # Extract column numbers for species and clade names in taxonomy data
@@ -20,10 +28,14 @@ extract_clade_trees <- function(tree, data, species.col.name, clade.col.name){
 }
 
 
-## save trees
+## Now save trees
+# This is not part of this function as it makes more sense to do this 
+# outside of these functions and within the analysis pipeline
   
+#--------------------------------------------------------------------------
+# Functions to build the main function
+#--------------------------------------------------------------------------
 
-############################  
 # Identify column numbers
 columnID <- function(data, column.name) { 
   which(names(data) == column.name)
