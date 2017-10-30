@@ -55,6 +55,10 @@ clade_list <- function(data, clade.col){
 # Needs data to be ordered like tip labels
 extreme_taxa <- function(data, species.col, clade.col, clade){
   taxa <- data[, species.col][data[, clade.col] == clade]
+  # Adding taxa will place NAs here
+  # Remove to get true species
+  taxa <- taxa[!is.na(taxa) == TRUE]
+  # ID extremes
   min.taxon <- taxa[1]
   max.taxon <- taxa[length(taxa)]
   return(list(min.taxon, max.taxon))
