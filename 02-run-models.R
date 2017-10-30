@@ -1,9 +1,9 @@
 # Functions to run all the models on all the trees
 
-
 # Load libraries and source functions
 library(MCMCglmm)
 library(ape)
+source("functions/run_mcmcglmm.R")
 
 #----------------------------------------------------------------
 # Set up priors for modelling
