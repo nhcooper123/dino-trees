@@ -25,17 +25,63 @@ burnin <- 1E05
 #----------------------------------------------------------------
 # Create an empty output dataframe
 #----------------------------------------------------------------
-output <- make_mcmc_output(nvar = 21, ntrees = 10)
+output <- make_mcmc_output(nvar = 21, ntrees = 24)
 
 #----------------------------------------------------------------
-# Run models for all the original tree
+# Run models for the original tree
 #----------------------------------------------------------------
+tree.no <- 1 # start counter
+tree.name <- "lloydtree"
+
+# Load the tree and node count data
+tree <- read.tree("data/trees/lloyd2008_midpoint.tre")
+nodecount.data <- read.csv("data/nodecounts/nodecount_lloyd2008.csv")
+
+# Run the models
+model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
+
+# Add model outputs
+output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
+                          slow.model = model.outputs[[2]], 
+                          asym.model = model.outputs[[3]], 
+                          tree.no = tree.no,
+                          tree.name = tree.name)
+
+#----------------------------------------------------------------
+# Run models for the original tree split into three clades
+#----------------------------------------------------------------
+# Read in clade trees
+tree.list <- read.tree("data/trees/lloyd2008_midpoint_clades.tre")
+
+# Loop through each clade  
+for(j in 1:length(tree.list)){
+  # Split multi phylo into one tree
+  tree <- tree.list[[j]]
+  
+  # Get tree number and name
+  tree.no <- 1 + tree.no
+  tree.name <- paste0("lloyd2008_", names(tree.list[j]))
+  
+  # Load the node count data
+  nodecount.data <- read.csv(paste0("data/nodecounts/nodecount_lloyd2008_", 
+                                    names(tree.list[j]), ".csv"))
+  
+  # Run the models
+  model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
+
+  # Add model outputs
+  output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
+                            slow.model = model.outputs[[2]], 
+                            asym.model = model.outputs[[3]], 
+                            tree.no = tree.no,
+                            tree.name = tree.name)
+}
+
 
 #----------------------------------------------------------------
 # Run models for all the full trees with extra species
 #----------------------------------------------------------------
 numbers.to.add <- c(4, 21, 42, 105, 210)
-tree.no <- 0 # start counter
 
 for(x in numbers.to.add){
   
@@ -56,10 +102,36 @@ for(x in numbers.to.add){
 
 }  
 
-# Still to do
-# for lloyd trees
-# for clade trees
+#----------------------------------------------------------------
+# Run models for all the separates trees with extra species
+#----------------------------------------------------------------
+numbers.to.add <- c(4, 21, 42, 105, 210)
 
-#----------------------------------------------------------------
-# Run models for all the clade trees
-#----------------------------------------------------------------
+for(x in numbers.to.add){
+  
+  # Read in clade trees
+  tree.list <- read.tree(paste0("data/trees/tree_", x, "_clades.tre"))
+  
+  # Loop through each clade  
+  for(j in 1:length(tree.list)){
+    # Split multi phylo into one tree
+    tree <- tree.list[[j]]
+    # Get tree number and name
+    tree.no <- 1 + tree.no
+    tree.name <- paste0("tree_", x, "_", names(tree.list[j]))
+  
+    # Load the node count data
+    nodecount.data <- read.csv(paste0("data/nodecounts/nodecount_", x, "_", 
+                                      names(tree.list[j]), ".csv"))
+    
+    # Run model
+    model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
+  
+    # Add model outputs
+    output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
+                              slow.model = model.outputs[[2]], 
+                              asym.model = model.outputs[[3]], 
+                              tree.no = tree.no,
+                              tree.name = tree.name)
+  }
+}
