@@ -51,32 +51,50 @@ numbers.to.add <- c(4, 21, 42, 105, 210)
 # Create all the trees
 for(x in numbers.to.add){
   
-  create_new_trees(tree, number.to.add = x, 
-                   min.branch.length = 5, 
-                   youngest.date = 83.6, 
-                   oldest.date = 100.5, 
-                   path = "data/trees/", 
-                   simulation.name = paste0("tree_", x),
-                   split.by.clade = TRUE, 
-                   data = taxonomy, 
-                   species.col.name = "taxon", 
-                   clade.col.name = "clade")
+  # Create 50 trees for each number of taxa added
+  for(i in 1:50){ 
+    
+    create_new_trees(tree, number.to.add = x, 
+                     min.branch.length = 5, 
+                     youngest.date = 83.6, 
+                     oldest.date = 100.5, 
+                     path = "data/trees/", 
+                     simulation.name = paste0("tree_", x, "_", i),
+                     split.by.clade = TRUE, 
+                     data = taxonomy, 
+                     species.col.name = "taxon", 
+                     clade.col.name = "clade")
+  
+    }
 }
-
+ 
+#-------------------------------------------------------
+# Node counts
+#--------------------------------------------------------
 # Get node counts for all full trees
 for(x in numbers.to.add){
-  # Read in tree
-  tree <- read.tree(paste0("data/trees/tree_", x, ".tre"))
-  # Get node counts
-  create_node_counts(tree, 
+  
+    # Create 50 for each number of taxa added
+    for(i in 1:50){ 
+    
+    # Read in tree
+    tree <- read.tree(paste0("data/trees/tree_", x, "_", i, ".tre"))
+    # Get node counts
+    create_node_counts(tree, 
                      path = "data/nodecounts/", 
-                     simulation.name = paste0("nodecount_", x))
-}
+                     simulation.name = paste0("nodecount_", x, "_", i))
+
+  }
+}  
 
 # Get node counts for all clade trees
 for(x in numbers.to.add){
+  
+  # Create 50 for each number of taxa added
+  for(i in 1:50){ 
+    
   # Read in multiphylo object
-  tree.list <- read.tree(paste0("data/trees/tree_", x, "_clades.tre"))
+  tree.list <- read.tree(paste0("data/trees/tree_", x, "_", i, "_clades.tre"))
   
   # Loop through each clade  
   for(j in 1:length(tree.list)){
@@ -85,6 +103,8 @@ for(x in numbers.to.add){
     # Get node counts
     create_node_counts(tree, path = "data/nodecounts/", 
                        simulation.name = paste0("nodecount_", x , "_", 
-                                                names(tree.list[j])))
+                                               names(tree.list[j]), "_", i))
+  
     }
+  }
 }
