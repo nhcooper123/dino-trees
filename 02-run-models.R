@@ -1,5 +1,7 @@
 # Functions to run all the models on all the trees
 
+##### NEED TO ADD SO IT RUNS ON ALL 50 TREES!!!!
+
 # Load libraries and source functions
 library(MCMCglmm)
 library(ape)
