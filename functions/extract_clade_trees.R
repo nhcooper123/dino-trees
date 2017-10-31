@@ -48,7 +48,7 @@ sort_data_by_tips <- function(tree, data, species.col){
 
 # Get list of clades to include
 clade_list <- function(data, clade.col){
-  as.list(unique(data[, clade.col]))
+  clade.list <- as.list(unique(data[, clade.col]))
   # Remove NAs
   clade.list[is.na(clade.list) == FALSE]
 }
