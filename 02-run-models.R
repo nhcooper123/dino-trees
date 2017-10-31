@@ -25,12 +25,16 @@ burnin <- 1E05
 #----------------------------------------------------------------
 # Create an empty output dataframe
 #----------------------------------------------------------------
-output <- make_mcmc_output(nvar = 21, ntrees = 24)
-
+output <- make_mcmc_output(nvar = 21, ntrees = 2004)
+# 4 trees = lloyd plus three clades
+# 4 * 5 additional trees = 20 * 50 for each = 1000
 #----------------------------------------------------------------
 # Run models for the original tree
 #----------------------------------------------------------------
 tree.no <- 1 # start counter
+# This counter runs through all the models
+# Take care when resetting/not resetting
+
 tree.name <- "lloydtree"
 
 # Load the tree and node count data
@@ -47,6 +51,9 @@ output <- add_mcmc_output(output, null.model = model.outputs[[1]],
                           tree.no = tree.no,
                           tree.name = tree.name)
 
+# Save the outputs as we go
+write.table(file = "outputs/mcmcglmm_outputs.csv", output, col.names = TRUE, row.names = FALSE,
+            quote = FALSE)
 #----------------------------------------------------------------
 # Run models for the original tree split into three clades
 #----------------------------------------------------------------
@@ -75,8 +82,11 @@ for(j in 1:length(tree.list)){
                             asym.model = model.outputs[[3]], 
                             tree.no = tree.no,
                             tree.name = tree.name)
+  
+  # Save the outputs as we go
+  write.table(file = "outputs/mcmcglmm_outputs.csv", output, col.names = FALSE, row.names = FALSE,
+              append = TRUE, quote = FALSE)
 }
-
 
 #----------------------------------------------------------------
 # Run models for all the full trees with extra species
@@ -99,7 +109,10 @@ for(x in numbers.to.add){
                             asym.model = model.outputs[[3]], 
                             tree.no = tree.no,
                             tree.name = tree.name)
-
+  
+  # Save the outputs as we go
+  write.table(file = "outputs/mcmcglmm_outputs.csv", output, col.names = FALSE, row.names = FALSE,
+              append = TRUE, quote = FALSE)
 }  
 
 #----------------------------------------------------------------
@@ -133,5 +146,9 @@ for(x in numbers.to.add){
                               asym.model = model.outputs[[3]], 
                               tree.no = tree.no,
                               tree.name = tree.name)
+    
+    # Save the outputs as we go
+    write.table(file = "outputs/mcmcglmm_outputs.csv", output, col.names = FALSE, 
+                row.names = FALSE, append = TRUE, quote = FALSE)
   }
 }
