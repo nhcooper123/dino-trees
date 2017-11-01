@@ -50,7 +50,9 @@ for(j in 1:length(tree.list)){
 numbers.to.add <- c(4, 21, 42, 105, 210)
 
 # Create all the trees
-for(x in numbers.to.add){
+# for(x in numbers.to.add){
+# For no clear reason when this loop is added, the clade trees output only
+# one clade. If you set x to 4, 21 etc in turn, the code below works...
   
   # Create 50 trees for each number of taxa added
   for(i in 1:50){ 
@@ -67,7 +69,7 @@ for(x in numbers.to.add){
                      clade.col.name = "clade")
   
     }
-}
+#}
  
 #-------------------------------------------------------
 # Node counts
