@@ -54,7 +54,8 @@ output <- add_mcmc_output(output, null.model = model.outputs[[1]],
                           tree.name = tree.name)
 
 # Save the outputs as we go
-write.table(file = "outputs/mcmcglmm_outputs.csv", output, col.names = TRUE, row.names = FALSE,
+write.table(file = "outputs/mcmcglmm_outputs.csv", output, 
+            col.names = TRUE, row.names = FALSE,
             quote = FALSE)
 #----------------------------------------------------------------
 # Run models for the original tree split into three clades
@@ -86,7 +87,8 @@ for(j in 1:length(tree.list)){
                             tree.name = tree.name)
   
   # Save the outputs as we go
-  write.table(file = "outputs/mcmcglmm_outputs.csv", output, col.names = FALSE, row.names = FALSE,
+  write.table(file = "outputs/mcmcglmm_outputs.csv", output, 
+              col.names = FALSE, row.names = FALSE,
               append = TRUE, quote = FALSE)
 }
 
@@ -99,25 +101,29 @@ for(x in numbers.to.add){
   
   # Run for the 50 trees for each number of taxa added
   for(i in 1:50){ 
+      
+      # Get tree number and name
+      tree.no <- 1 + tree.no
+      tree.name <- paste0("tree_", x, "_", i)
   
-  tree.no <- 1 + tree.no
-  tree.name <- paste0("tree_", x, "_", i)
-  
-  # Load the tree and node count data
-  tree <- read.tree(paste0("data/trees/tree_", x, "_", i, ".tre"))
-  nodecount.data <- read.csv(paste0("data/nodecounts/nodecount_", x, "_", i, ".csv"))
-  model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
+      # Load the tree and node count data
+      tree <- read.tree(paste0("data/trees/tree_", x, "_", i, ".tre"))
+      nodecount.data <- read.csv(paste0("data/nodecounts/nodecount_", x, "_", i, ".csv"))
+    
+      # Run models
+      model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
 
-  # Add model outputs
-  output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
+      # Add model outputs
+      output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
                             slow.model = model.outputs[[2]], 
                             asym.model = model.outputs[[3]], 
                             tree.no = tree.no,
                             tree.name = tree.name)
   
-  # Save the outputs as we go
-  write.table(file = "outputs/mcmcglmm_outputs.csv", output, col.names = FALSE, row.names = FALSE,
-              append = TRUE, quote = FALSE)
+      # Save the outputs as we go
+      write.table(file = "outputs/mcmcglmm_outputs.csv", output, 
+                  col.names = FALSE, row.names = FALSE,
+                  append = TRUE, quote = FALSE)
   }  
 }
 #----------------------------------------------------------------
@@ -130,34 +136,35 @@ for(x in numbers.to.add){
   # Run for the 50 trees for each number of taxa added
   for(i in 1:50){ 
     
-  # Read in clade trees
-  tree.list <- read.tree(paste0("data/trees/tree_", x, "_", i, "_clades.tre"))
+    # Read in clade trees
+    tree.list <- read.tree(paste0("data/trees/tree_", x, "_", i, "_clades.tre"))
   
-  # Loop through each clade  
-  for(j in 1:length(tree.list)){
-    # Split multi phylo into one tree
-    tree <- tree.list[[j]]
-    # Get tree number and name
-    tree.no <- 1 + tree.no
-    tree.name <- paste0("tree_", x, "_", names(tree.list[j]), "_", i)
+    # Loop through each clade  
+    for(j in 1:length(tree.list)){
+      # Split multi phylo into one tree
+      tree <- tree.list[[j]]
+      # Get tree number and name
+      tree.no <- 1 + tree.no
+      tree.name <- paste0("tree_", x, "_", names(tree.list[j]), "_", i)
   
-    # Load the node count data
-    nodecount.data <- read.csv(paste0("data/nodecounts/nodecount_", x, "_", 
+      # Load the node count data
+      nodecount.data <- read.csv(paste0("data/nodecounts/nodecount_", x, "_", 
                                       names(tree.list[j]), "_", i, ".csv"))
     
-    # Run model
-    model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
+      # Run models
+      model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
   
-    # Add model outputs
-    output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
+      # Add model outputs
+      output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
                               slow.model = model.outputs[[2]], 
                               asym.model = model.outputs[[3]], 
                               tree.no = tree.no,
                               tree.name = tree.name)
     
-    # Save the outputs as we go
-    write.table(file = "outputs/mcmcglmm_outputs.csv", output, col.names = FALSE, 
-                row.names = FALSE, append = TRUE, quote = FALSE)
+      # Save the outputs as we go
+      write.table(file = "outputs/mcmcglmm_outputs.csv", output, 
+                  col.names = FALSE, row.names = FALSE, 
+                  append = TRUE, quote = FALSE)
     }
   }
 }
