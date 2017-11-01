@@ -1,6 +1,16 @@
 # Functions to get MCMCglmm running and get outputs
-# Requires MCMCglmm, coda
+# Natalie Cooper Oct 2017
 
+# Requires MCMCglmm and coda
+
+# Main function (run_three_models) requires a dataframe of node counts, with column headings
+# species, nodecount, and time (could change this to make it more flexible).
+# Also needs the accompanying tree
+# The function runs all three models needed - null, slowdown and asymptote.
+
+# Other functions make the process of extracting outputs from MCMCglmm
+# models made using run_three_models easier, and automates the input of 
+# these into a dataframe.
 
 #------------------------------------------------------
 # Run each of the three models on a tree
@@ -30,13 +40,6 @@ run_three_models <- function(tree, nodecount.data, prior, nitt, thin, burnin){
   
   return(list(null, slow, asym))
 }
-
-# Run models and extract outputs
-
-
-add_mcmc_output(output, null.model, slow.model, asym.model, tree.no)
-
-
 
 #--------------------------------------------------------
 # MCMC outputs
