@@ -1,21 +1,63 @@
-# Extinction Rates of the Dinosaurs
+# Extinction Rates of the Dinosaurs (working title)
 
-### Required packages: ape, MCMCglmm
+*This README is a work in progress...*
 
-### Data required: Phylogenetic tree, data table containing taxon names, time elapsed and nodecount.
+Author(s): Joseph Bonsor and [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk). Paper written in collaboration with Paul Barrett.  
 
-* This README is a work in progress... *
+This repository contains all the code and data used in the manuscript [Link to final published pdf will be here]().
 
-These scripts are designed to break up long branches on a phylogenetic tree to fill in gaps left by missing fossil taxa. The hypothetical taxa are inserted to represent new finds filling in the fossil record.
+To cite the paper: 
+> Joseph Bonsor, Paul Barrett \& Natalie Cooper. 2017. TITLE [Journal tbc].
 
-Initial loading of functions within R environment:
+To cite this repo: 
+> Joseph Bonsor \& Natalie Cooper. 2017. GitHub: NaturalHistoryMuseum/dino-trees: Release for publication. DOI.
 
-1.	Load the functions “make_age_data” and “branch_in_period” from the “1_Get_data.R” script.
-2.	Load the function “break_branches_select_age” from the 2_Break_Branches_in_Gap.R” script.
-3.	Load the function “get_node_count” from the “3_Nodecount.R” script.
+[![DOI]()]()
 
-The loops contained within the script “4_repeat_runs.R” takes the original tree and adds a specified amount of new taxa (for example, increments of 10%) to break up long branches within a specified time period. 
+## Data
+These analyses are based on the dinosaur phylogeny of Lloyd et al 2008 (REF). 
+To aid reproducibility we include all our simulated trees in this GitHub repo in the `data/trees` folder, and all the node count and time elapsed data from these trees in the `data/nodecounts` folder. However, we include the code used to produce these too (see below).
 
-The next part of the script then runs “get_node_count” on all the newly generated trees and produces spreadsheets containing the data required for running the models.
+## Analyses
+All code used to run analyses and make figures is included in the `analyses/` folder. Functions are in the `functions/` folder. Before starting remember to either set your working directory to the **dino-trees** folder on your computer, or open an RStudio project from that folder.
 
-The models are then run on all the newly generated trees and data files and the values extracted from the produced MCMCglmms and used to populate a spreadsheet.
+### Required packages
+* ape
+* geiger
+* MCMCglmm 
+* picante
+* purrr
+
+### Required functions (in the `functions/` folder)
+* branch_in_period.R         
+* break_branches_select_age.R 
+* extract_clade_trees.R      
+* get_node_count.R            
+* make_trees.R                
+* run_mcmcglmm.R
+
+### Required data
+* phylogenetic tree
+* dataframe containing taxon names, time elapsed and node counts
+
+## Running the analyses 
+The main analyses are in two scripts:
+
+1. 01-making-trees.R. This script creates 50 simulated trees for each of 1%, 5%, 10%, 25% and 50% taxa (out of the 420 original taxa) added. It splits each tree into the three main dinosaur clades. It then extracts node counts and time elapsed data for each species in each tree. Trees are written out to the `data/trees` folder, node count and time elapsed data to the `data/nodecounts/` folder. 
+2. 02-running-models.R. This script runs the three models on each of the simulated trees, the original tree, and all the trees split into the three main dinosaur clades. It outputs a csv file with all the required MCMCglmm outputs for all 1004 trees. *WARNING This takes a VERY LONG time to run*. I've not had time to optimise the code very well. So if you decide to run these models be prepared to wait for a week or so... (sorry!).
+
+## Functions
+A brief description of the functions included in the repo is below.
+
+* branch_in_period.R         
+* break_branches_select_age.R 
+
+These functions select branches of the phylogeny that are within a user specified age range
+
+* extract_clade_trees.R      
+* get_node_count.R            
+* make_trees.R                
+* run_mcmcglmm.R
+
+## Session Info
+For reproducibility purposes, here is the output of `devtools:session_info()` used to perform the analyses in the publication.
