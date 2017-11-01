@@ -7,10 +7,13 @@
 
 # Requires ape, geiger and purrr
 
+#-----------------------------------------------------------------------------------
 # Main function
 # Data must contain a column with species/taxon names that match the tips
 # of the phylogeny, plus a grouping factor, here "clade" but could
 # be any grouping variable
+#-----------------------------------------------------------------------------------
+
 extract_clade_trees <- function(tree, data, species.col.name, clade.col.name){
   
   # Extract column numbers for species and clade names in taxonomy data

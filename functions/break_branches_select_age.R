@@ -13,6 +13,10 @@
 # Requires ape
 # Requires functions in branch_in_period.R
 
+#-----------------------------------------------------------------------------------
+# Break branches in a selected age bin
+#-----------------------------------------------------------------------------------
+
 break_branches_select_age <- function(tree, number.to.add, min.branch.length = 0.1, 
                                       youngest.date, oldest.date){
   

@@ -1,5 +1,6 @@
 # Analysis - step 1
-# Create trees and extract node counts
+# Simulate trees and extract node counts
+# Natalie Cooper Oct 2017, modified from Joe Bonsor summer 2017
 
 # Load libraries and source functions
 library(ape)

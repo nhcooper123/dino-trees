@@ -1,6 +1,6 @@
-# Functions to run all the models on all the trees
-
-##### NEED TO ADD SO IT RUNS ON ALL 50 TREES!!!!
+# Analysis step 2
+# Run all the models on all the simulated trees
+# Natalie Cooper Oct 2017, modified from Joe Bonsor summer 2017
 
 # Load libraries and source functions
 library(MCMCglmm)

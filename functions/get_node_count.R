@@ -1,7 +1,13 @@
 # Function to get node counts sensu Sakamoto et al 2016 PNAS
-# Input any phylogeny, but only sensible with non ultrametric
-# Requires ape and reshape2
 # Natalie Cooper 2017
+
+# Input any phylogeny, but only sensible with non ultrametric
+
+# Requires ape and reshape2
+
+#-----------------------------------------------------------------------------------
+# Node count function
+#-----------------------------------------------------------------------------------
 
 get_node_count <- function(phy){
   

@@ -1,6 +1,12 @@
-# Function to create new trees with X taxa added
-# Requires break_branches_select_age and extract_clade_trees
-# Plus ape
+# Helper functions to create new trees with X taxa added
+# and to get node counts of these trees
+
+# Requires break_branches_select_age, extract_clade_trees and get_node_count
+# Plus ape and picante
+
+#-----------------------------------------------------------------------------------
+# Simulate trees with extra taxa
+#-----------------------------------------------------------------------------------
 
 create_new_trees <- function(tree, number.to.add, min.branch.length, 
                              youngest.date, oldest.date, path, simulation.name,
@@ -28,9 +34,8 @@ create_new_trees <- function(tree, number.to.add, min.branch.length,
 }
 
 #---------------------------------------------------------------------------------------
-# Function to get node counts for trees
-# Requires get_node_count
-# Plus picante
+# Extract node counts for trees
+#---------------------------------------------------------------------------------------
 
 create_node_counts <- function(tree, path, simulation.name){
   nodecount <- get_node_count(tree)
