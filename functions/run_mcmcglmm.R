@@ -94,7 +94,7 @@ get_pMCMC <- function(model){
 # Define dataframe for model output
 make_mcmc_output <- function(nvar, ntrees){
   output <- data.frame(array(dim = c(ntrees, nvar)))
-  colnames(output) <- c("ID", "tree", "null_DIC","slow_DIC", "asym_DIC", 
+  colnames(output) <- c("tree.ID", "tree", "null_DIC","slow_DIC", "asym_DIC", 
                         "null_post_mean", "null_lower95_CI", "null_upper95_CI", 
                         "null_ess", "null_pMCMC", 
                         "slow_post_mean", "slow_lower95_CI", "slow_upper95_CI", 
@@ -109,7 +109,7 @@ make_mcmc_output <- function(nvar, ntrees){
 add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no, tree.name){
   
   # Add ID 
-  output$ID[tree.no] <- tree.no
+  output$tree.ID[tree.no] <- tree.no
   output$tree[tree.no] <- tree.name
   
   # DIC for all three models
