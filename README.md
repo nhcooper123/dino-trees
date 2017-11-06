@@ -61,3 +61,10 @@ These functions select branches of the phylogeny that are within a user specifie
 
 ## Session Info
 For reproducibility purposes, here is the output of `devtools:session_info()` used to perform the analyses in the publication.
+
+## Checkpoint for reproducibility
+To rerun all the code with packages as they existed on CRAN at time of our analyses we recommend using the `checkpoint` package, and running this code prior to the analysis:
+
+```{r}
+checkpoint("2017-08-17") 
+```
