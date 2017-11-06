@@ -54,7 +54,7 @@ output <- add_mcmc_output(output, null.model = model.outputs[[1]],
                           tree.name = tree.name)
 
 # Save the outputs as we go
-write.table(file = "outputs/mcmcglmm_outputs.csv", output, 
+write.csv(file = "outputs/mcmcglmm_outputs.csv", output, 
             col.names = TRUE, row.names = FALSE,
             quote = FALSE)
 #----------------------------------------------------------------
@@ -87,7 +87,7 @@ for(j in 1:length(tree.list)){
                             tree.name = tree.name)
   
   # Save the outputs as we go
-  write.table(file = "outputs/mcmcglmm_outputs.csv", output, 
+  write.csv(file = "outputs/mcmcglmm_outputs.csv", output, 
               col.names = FALSE, row.names = FALSE,
               append = TRUE, quote = FALSE)
 }
@@ -121,7 +121,7 @@ for(x in numbers.to.add){
                             tree.name = tree.name)
   
       # Save the outputs as we go
-      write.table(file = "outputs/mcmcglmm_outputs.csv", output, 
+      write.csv(file = "outputs/mcmcglmm_outputs.csv", output, 
                   col.names = FALSE, row.names = FALSE,
                   append = TRUE, quote = FALSE)
   }  
@@ -162,7 +162,7 @@ for(x in numbers.to.add){
                               tree.name = tree.name)
     
       # Save the outputs as we go
-      write.table(file = "outputs/mcmcglmm_outputs.csv", output, 
+      write.csv(file = "outputs/mcmcglmm_outputs.csv", output, 
                   col.names = FALSE, row.names = FALSE, 
                   append = TRUE, quote = FALSE)
     }
