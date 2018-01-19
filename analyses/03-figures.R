@@ -1,4 +1,5 @@
 # Figures
+# Attempts to make smoothed model predictions figures for paper
 
 # Load libraries
 library(tidyverse)
@@ -13,48 +14,50 @@ null <- readRDS("outputs/lloydwhole_null.rds")
 asym <- readRDS("outputs/lloydwhole_asym.rds")
 slow <- readRDS("outputs/lloydwhole_slow.rds")
 
-str(null)
+# Reminder of what models look like
+# null model
+# null <- MCMCglmm(nodecount ~ 0 + time, 
+#                 data = nodecount.data, random = ~ species,
+#                 ginverse = list(species = inv), family = "poisson", prior = prior,
+#                 nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
+# slowdown model
+# nodecount ~ 0 + time + time^2 
+# asymptote model
+# nodecount ~ 0 + time + sqrt(time) 
 
-# Fit null model
-null <- MCMCglmm(nodecount ~ 0 + time, 
-                 data = nodecount.data, random = ~ species,
-                 ginverse = list(species = inv), family = "poisson", prior = prior,
-                 nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
-
-# Fit slowdown model
-slow <- MCMCglmm(nodecount ~ 0 + time + time^2, 
-                 data = nodecount.data, random = ~ species,
-                 ginverse = list(species = inv), family = "poisson", prior = prior,
-                 nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
-
-# Fit asymptote model
-asym <- MCMCglmm(nodecount ~ 0 + time + sqrt(time), 
-                 data = nodecount.data, random = ~ species,
-                 ginverse = list(species = inv), family = "poisson", prior = prior,
-                 nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
-
-
-# Add null model smoothed
+#------------------------------
+# Add null model predicted line
+#------------------------------
 # Create new x variable
+# Must contain time, species and nodecount
 newX <- expand.grid(time = seq(from = min(node$time), 
                                to = max(node$time), 
                                length = 100),
                     species = node$species)
-# Weird trick to get predict.MCMCglmm to run
 newX$nodecount <- 0
 
 # Create new y using predict
 newY <- predict.MCMCglmm(null, newdata = newX, type = "response", 
                          marginal = ~species, interval = "confidence") 
 
-# housekeeping
-addnull <- data.frame(newX, nodecount = newY)
+newY <- data.frame(newY)
+# OK currently this is producing a prediction for each time point for each species...
+# can we pick one species at random instead??? That would maybe fix it?
 
-addnull <- mutate(addnull, ucl=exp(nodecount + 1.96*se.fit))
 
-ggplot(node, aes(x = time, y = nodecount)) + 
+
+# Stick newX$time and newY together
+addnull <- data.frame(time = newX$time, nodecount = newY$fit, 
+                      species = newX$species)
+
+# Manipulate confidence intervals
+addnull <- mutate(addnull, ucl = exp(nodecount + 1.96*se.fit))
+addnull <- mutate(addnull, lcl = exp(nodecount - 1.96*se.fit))
+
+# Plot!
+ggplot(group_by(addnull, species), aes(x = time, y = exp(nodecount))) + 
   theme_bw(base_size = 15) +
   # add line of fitted values on response scale from type = 'response'
-  geom_line(data = addnull) +
+  geom_point() +
   geom_ribbon(data = addnull,  aes(ymin = lcl, ymax = ucl), alpha = 0.5)
 
