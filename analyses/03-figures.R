@@ -33,7 +33,7 @@ slow <- readRDS("outputs/lloydwhole_slow.rds")
 newX <- expand.grid(time = seq(from = min(node$time), 
                                to = max(node$time), 
                                length = 100),
-                    species = node$species)
+                    species = node$species[300])
 newX$nodecount <- 0
 
 # Create new y using predict
@@ -42,22 +42,82 @@ newY <- predict.MCMCglmm(null, newdata = newX, type = "response",
 
 newY <- data.frame(newY)
 # OK currently this is producing a prediction for each time point for each species...
-# can we pick one species at random instead??? That would maybe fix it?
+# can we pick one species at random instead??? That would maybe fix
 
 
 
 # Stick newX$time and newY together
 addnull <- data.frame(time = newX$time, nodecount = newY$fit, 
-                      species = newX$species)
-
-# Manipulate confidence intervals
-addnull <- mutate(addnull, ucl = exp(nodecount + 1.96*se.fit))
-addnull <- mutate(addnull, lcl = exp(nodecount - 1.96*se.fit))
-
+                      species = newX$species, lwr = newY$lwr,
+                      upr = newY$upr)
 # Plot!
 ggplot(group_by(addnull, species), aes(x = time, y = exp(nodecount))) + 
   theme_bw(base_size = 15) +
   # add line of fitted values on response scale from type = 'response'
-  geom_point() +
-  geom_ribbon(data = addnull,  aes(ymin = lcl, ymax = ucl), alpha = 0.5)
+  geom_line() +
+  geom_ribbon(data = addnull,  aes(ymin = exp(lwr), ymax = exp(upr)), alpha = 0.5)
+
+#------------------------------
+# Add slow model predicted line
+#------------------------------
+# Create new x variable
+# Must contain time, species and nodecount
+newX <- expand.grid(time = seq(from = min(node$time), 
+                               to = max(node$time), 
+                               length = 100),
+                    species = node$species[300])
+newX$nodecount <- 0
+
+# Create new y using predict
+newY <- predict.MCMCglmm(slow, newdata = newX, type = "response", 
+                         marginal = ~species, interval = "confidence") 
+
+newY <- data.frame(newY)
+# OK currently this is producing a prediction for each time point for each species...
+# can we pick one species at random instead??? That would maybe fix
+
+
+
+# Stick newX$time and newY together
+addslow <- data.frame(time = newX$time, nodecount = newY$fit, 
+                      species = newX$species, lwr = newY$lwr,
+                      upr = newY$upr)
+# Plot!
+ggplot(group_by(addslow, species), aes(x = time, y = exp(nodecount))) + 
+  theme_bw(base_size = 15) +
+  # add line of fitted values on response scale from type = 'response'
+  geom_line() +
+  geom_ribbon(data = addslow,  aes(ymin = exp(lwr), ymax = exp(upr)), alpha = 0.5)
+
+#------------------------------
+# Add symptote model predicted line
+#------------------------------
+# Create new x variable
+# Must contain time, species and nodecount
+newX <- expand.grid(time = seq(from = min(node$time), 
+                               to = max(node$time), 
+                               length = 100),
+                    species = node$species[300])
+newX$nodecount <- 0
+
+# Create new y using predict
+newY <- predict.MCMCglmm(asym, newdata = newX, type = "response", 
+                         marginal = ~species, interval = "confidence") 
+
+newY <- data.frame(newY)
+# OK currently this is producing a prediction for each time point for each species...
+# can we pick one species at random instead??? That would maybe fix
+
+
+
+# Stick newX$time and newY together
+addasym <- data.frame(time = newX$time, nodecount = newY$fit, 
+                      species = newX$species, lwr = newY$lwr,
+                      upr = newY$upr)
+# Plot!
+ggplot(group_by(addasym, species), aes(x = time, y = exp(nodecount))) + 
+  theme_bw(base_size = 15) +
+  # add line of fitted values on response scale from type = 'response'
+  geom_line() +
+  geom_ribbon(data = addasym,  aes(ymin = exp(lwr), ymax = exp(upr)), alpha = 0.5)
 
