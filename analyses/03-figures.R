@@ -4,6 +4,7 @@
 # Load libraries
 library(tidyverse)
 library(MCMCglmm)
+source("functions/get_predictions.R")
 
 # Read in phylogeny and nodecount data
 node <- read.csv("data/nodecounts/nodecount_lloyd2008.csv")
@@ -16,9 +17,9 @@ slow <- readRDS("outputs/lloydwhole_slow.rds")
 # Get predictions for each million year
 # time bin for all three models
 # And add speciation rates
-null.ds <- get_speciation_rates(get_predictions(null, nodecount.data))
-slow.ds <- get_speciation_rates(get_predictions(slow, nodecount.data, slowdown = TRUE))
-asym.ds <- get_speciation_rates(get_predictions(asym, nodecount.data))
+null.ds <- get_speciation_rates(get_predictions(null, node))
+# slow.ds <- get_speciation_rates(get_predictions(slow, node, slowdown = TRUE))
+asym.ds <- get_speciation_rates(get_predictions(asym, node))
 
 # Get mean values for each time across all species
 null.mean <- 
