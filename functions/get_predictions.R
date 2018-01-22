@@ -50,23 +50,16 @@ get_predictions <- function(model, nodecount.data, slowdown = FALSE){
   newY <- predict.MCMCglmm(model, newdata = newX, type = "response", marginal = ~species) 
   tidy_predictions(newX, newY)
 }
-
-#---------------------------------------
-# Get predictions for each million year
-# time bin for all three models
-# Export list of prediction dataframes
-#---------------------------------------
-get_all_predictions <- function(nodecount.data, null, slow, asym){
-  null.ds <- get_predictions(null, nodecount.data)
-  slow.ds <- get_predictions(slow, nodecount.data, slowdown = TRUE)
-  asym.ds <- get_predictions(asym, nodecount.data)
-
-  return(list(null.ds, slow.ds, aysm.ds))
-}
-
 #---------------------------------------
 # Extract speciation rates
+# There's an apply solution but my brain
+# can't work it out!
 #---------------------------------------
-for(x in 1:99){
-xxx <- add1$newY[x + 1] - add1$newY[x]
+get_speciation_rates <- function(prediction.ds){
+  prediction.ds$speciation <- rep("NA", length(prediction.ds[, 1]))
+  for(x in 1:(length(add1[, 1]) - 1)){
+    prediction.ds$speciation[x + 1] <- prediction.ds$newY[x + 1] - prediction.ds$newY[x]
+  }
+  return(prediction.ds)
 }
+  
