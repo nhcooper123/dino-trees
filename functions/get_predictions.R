@@ -54,6 +54,7 @@ get_predictions <- function(model, nodecount.data, slowdown = FALSE){
 #---------------------------------------
 # Get predictions for each million year
 # time bin for all three models
+# Export list of prediction dataframes
 #---------------------------------------
 get_all_predictions <- function(nodecount.data, null, slow, asym){
   null.ds <- get_predictions(null, nodecount.data)
