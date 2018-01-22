@@ -11,8 +11,8 @@ node <- read.csv("data/nodecounts/nodecount_lloyd2008.csv")
 
 # Read in outputs from full tree MCMCglmm models
 null <- readRDS("outputs/lloydwhole_null.rds")
+#slow <- readRDS("outputs/lloydwhole_slow.rds")
 asym <- readRDS("outputs/lloydwhole_asym.rds")
-slow <- readRDS("outputs/lloydwhole_slow.rds")
 
 # Get predictions for each million year
 # time bin for all three models
