@@ -125,6 +125,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   output$null_upper95_CI[tree.no] <- get_upper_conf_intervals(null.model)
   output$null_ess[tree.no] <- get_ess(null.model)
   output$null_pMCMC[tree.no]<- get_pMCMC(null.model)
+  saveRDS(null.model, file = paste0("outputs/", tree.name, tree.no, "_null.rds"))
   
   # Outputs for slow down
   output$slow_post_mean[tree.no] <- get_post_mean(slow.model)
@@ -132,6 +133,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   output$slow_upper95_CI[tree.no] <- get_upper_conf_intervals(slow.model)
   output$slow_ess[tree.no] <- get_ess(slow.model)
   output$slow_pMCMC[tree.no]<- get_pMCMC(slow.model)
+  saveRDS(slow.model, file = paste0("outputs/", tree.name, tree.no, "_slow.rds"))
   
   # Outputs for asymtote
   output$asym_post_mean[tree.no] <- get_post_mean(asym.model)[[1]]
@@ -140,6 +142,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   output$asym_upper95_CI[tree.no] <- get_upper_conf_intervals(asym.model)
   output$asym_ess[tree.no] <- get_ess(asym.model)
   output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
+  saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_aym.rds"))
   
   return(output)
 }
