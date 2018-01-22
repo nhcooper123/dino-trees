@@ -27,7 +27,9 @@ run_three_models <- function(tree, nodecount.data, prior, nitt, thin, burnin){
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
   
   # Fit slowdown model
-  slow <- MCMCglmm(nodecount ~ 0 + time + time^2, 
+  # Create new time^2 variable
+  nodecount.data$time2 <- nodecount.data$time^2
+  slow <- MCMCglmm(nodecount ~ 0 + time + time2, 
                    data = nodecount.data, random = ~ species,
                    ginverse = list(species = inv), family = "poisson", prior = prior,
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
