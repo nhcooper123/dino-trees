@@ -1,12 +1,11 @@
 # Figures
-# Attempts to make smoothed model predictions figures for paper
+# Smoothed model predictions figures for paper
 
 # Load libraries
 library(tidyverse)
 library(MCMCglmm)
 
 # Read in phylogeny and nodecount data
-tree <- read.tree("data/trees/lloyd2008_midpoint.tre")
 node <- read.csv("data/nodecounts/nodecount_lloyd2008.csv")
 
 # Read in outputs from full tree MCMCglmm models
@@ -14,110 +13,75 @@ null <- readRDS("outputs/lloydwhole_null.rds")
 asym <- readRDS("outputs/lloydwhole_asym.rds")
 slow <- readRDS("outputs/lloydwhole_slow.rds")
 
-# Reminder of what models look like
-# null model
-# null <- MCMCglmm(nodecount ~ 0 + time, 
-#                 data = nodecount.data, random = ~ species,
-#                 ginverse = list(species = inv), family = "poisson", prior = prior,
-#                 nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
-# slowdown model
-# nodecount ~ 0 + time + time^2 
-# asymptote model
-# nodecount ~ 0 + time + sqrt(time) 
+# Get predictions for each million year
+# time bin for all three models
+# And add speciation rates
+null.ds <- get_speciation_rates(get_predictions(null, nodecount.data))
+slow.ds <- get_speciation_rates(get_predictions(slow, nodecount.data, slowdown = TRUE))
+asym.ds <- get_speciation_rates(get_predictions(asym, nodecount.data))
 
-#------------------------------
-# Add null model predicted line
-#------------------------------
-# Create new x variable
-# Must contain time, species and nodecount
-newX <- expand.grid(time = seq(from = min(node$time), 
-                               to = max(node$time), 
-                               length = 100),
-                    species = node$species[300])
-newX$nodecount <- 0
+# Get mean values for each time across all species
+null.mean <- 
+  null.ds %>%
+  group_by(time) %>%
+  summarise(meanY = mean(nodecount))
 
-# Create new y using predict
-newY <- predict.MCMCglmm(null, newdata = newX, type = "response", 
-                         marginal = ~species, interval = "confidence") 
+slow.mean <- 
+  slow.ds %>%
+  group_by(time) %>%
+  summarise(meanY = mean(nodecount))
 
-newY <- data.frame(newY)
-# OK currently this is producing a prediction for each time point for each species...
-# can we pick one species at random instead??? That would maybe fix
+asym.mean <- 
+  asym.ds %>%
+  group_by(time) %>%
+  summarise(meanY = mean(nodecount))
 
+# Plot the lines 
+ggplot(group_by(null.ds, species), aes(x = time, y = log(nodecount))) + 
+  # All lines
+  geom_line(alpha = 0.2) +
+  geom_line(data = group_by(slow.ds, species), col = "blue", alpha = 0.2) +
+  geom_line(data = group_by(asym.ds, species), col = "red", alpha = 0.2) +
+  # Mean lines
+  geom_line(data = null.mean, aes(x = time, y = meanY),  alpha = 1) +
+  geom_line(data = slow.mean, aes(x = time, y = meanY), col = "blue", alpha = 1) +
+  geom_line(data = asym.mean, aes(x = time, y = meanY), col = "red", alpha = 1) +
+  # Details
+  labs(x = "time elapsed (MY)", y = "log(node count)") +
+  theme_bw(base_size = 15)
 
+####### Add Time periods ?strap ######
 
-# Stick newX$time and newY together
-addnull <- data.frame(time = newX$time, nodecount = newY$fit, 
-                      species = newX$species, lwr = newY$lwr,
-                      upr = newY$upr)
-# Plot!
-ggplot(group_by(addnull, species), aes(x = time, y = exp(nodecount))) + 
-  theme_bw(base_size = 15) +
-  # add line of fitted values on response scale from type = 'response'
-  geom_line() +
-  geom_ribbon(data = addnull,  aes(ymin = exp(lwr), ymax = exp(upr)), alpha = 0.5)
+#--------------------------------------------
+# Plot net speciation rates
+#--------------------------------------------
 
-#------------------------------
-# Add slow model predicted line
-#------------------------------
-# Create new x variable
-# Must contain time, species and nodecount
-newX <- expand.grid(time = seq(from = min(node$time), 
-                               to = max(node$time), 
-                               length = 100),
-                    species = node$species[300])
-newX$nodecount <- 0
+# Get mean values for each time across all species
+null.means <- 
+  null.ds %>%
+  group_by(time) %>%
+  summarise(meanS = mean(speciation))
 
-# Create new y using predict
-newY <- predict.MCMCglmm(slow, newdata = newX, type = "response", 
-                         marginal = ~species, interval = "confidence") 
+slow.means <- 
+  slow.ds %>%
+  group_by(time) %>%
+  summarise(meanS = mean(speciation))
 
-newY <- data.frame(newY)
-# OK currently this is producing a prediction for each time point for each species...
-# can we pick one species at random instead??? That would maybe fix
+asym.means <- 
+  asym.ds %>%
+  group_by(time) %>%
+  summarise(meanS = mean(speciation))
 
-
-
-# Stick newX$time and newY together
-addslow <- data.frame(time = newX$time, nodecount = newY$fit, 
-                      species = newX$species, lwr = newY$lwr,
-                      upr = newY$upr)
-# Plot!
-ggplot(group_by(addslow, species), aes(x = time, y = exp(nodecount))) + 
-  theme_bw(base_size = 15) +
-  # add line of fitted values on response scale from type = 'response'
-  geom_line() +
-  geom_ribbon(data = addslow,  aes(ymin = exp(lwr), ymax = exp(upr)), alpha = 0.5)
-
-#------------------------------
-# Add symptote model predicted line
-#------------------------------
-# Create new x variable
-# Must contain time, species and nodecount
-newX <- expand.grid(time = seq(from = min(node$time), 
-                               to = max(node$time), 
-                               length = 100),
-                    species = node$species[300])
-newX$nodecount <- 0
-
-# Create new y using predict
-newY <- predict.MCMCglmm(asym, newdata = newX, type = "response", 
-                         marginal = ~species, interval = "confidence") 
-
-newY <- data.frame(newY)
-# OK currently this is producing a prediction for each time point for each species...
-# can we pick one species at random instead??? That would maybe fix
-
-
-
-# Stick newX$time and newY together
-addasym <- data.frame(time = newX$time, nodecount = newY$fit, 
-                      species = newX$species, lwr = newY$lwr,
-                      upr = newY$upr)
-# Plot!
-ggplot(group_by(addasym, species), aes(x = time, y = exp(nodecount))) + 
-  theme_bw(base_size = 15) +
-  # add line of fitted values on response scale from type = 'response'
-  geom_line() +
-  geom_ribbon(data = addasym,  aes(ymin = exp(lwr), ymax = exp(upr)), alpha = 0.5)
-
+# Plot speciation rates
+ggplot(group_by(null.ds, species), aes(x = time, y = speciation)) + 
+  # All lines
+  geom_line(alpha = 0.2) +
+  geom_line(data = group_by(slow.ds, species), col = "blue", alpha = 0.2) +
+  geom_line(data = group_by(asym.ds, species), col = "red", alpha = 0.2) +
+  # Mean lines
+  geom_line(data = null.means, aes(x = time, y = meanY),  alpha = 1) +
+  geom_line(data = slow.means, aes(x = time, y = meanY), col = "blue", alpha = 1) +
+  geom_line(data = asym.means, aes(x = time, y = meanY), col = "red", alpha = 1) +
+  # Details
+  labs(x = "time elapsed (MY)", y = expression(paste0("net speciation rates ", MY^-1, sep = ""))) +
+  theme_bw(base_size = 15)
