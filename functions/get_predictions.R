@@ -44,7 +44,7 @@ get_newX <- function(nodecount.data, slowdown = FALSE, n.samples){
 #---------------------------------------
 tidy_predictions <- function(newX, newY){
   newY <- data.frame(newY)
-  data.frame(time = newX$time, nodecount = newY$fit, 
+  data.frame(time = newX$time, nodecount = newY$newY, 
              species = newX$species)
 }
 
