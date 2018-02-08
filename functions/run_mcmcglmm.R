@@ -94,12 +94,13 @@ get_pMCMC <- function(model){
 # MCMC output files to save
 #--------------------------------------------------------
 # Define dataframe for model output
-make_mcmc_output <- function(nvar, ntrees){
-  output <- data.frame(array(dim = c(ntrees, nvar)))
+make_mcmc_output <- function(ntrees){
+  output <- data.frame(array(dim = c(ntrees, 22)))
   colnames(output) <- c("tree.ID", "tree", "null_DIC","slow_DIC", "asym_DIC", 
                         "null_post_mean", "null_lower95_CI", "null_upper95_CI", 
                         "null_ess", "null_pMCMC", 
-                        "slow_post_mean", "slow_lower95_CI", "slow_upper95_CI", 
+                        "slow_post_mean", "slow_post_mean_2" ,
+                        "slow_lower95_CI", "slow_upper95_CI", 
                         "slow_ess", "slow_pMCMC", 
                         "asym_post_mean", "asym_post_mean_sqrt", "asym_lower95_CI", 
                         "asym_upper95_CI", 
@@ -128,7 +129,8 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   saveRDS(null.model, file = paste0("outputs/", tree.name, tree.no, "_null.rds"))
   
   # Outputs for slow down
-  output$slow_post_mean[tree.no] <- get_post_mean(slow.model)
+  output$slow_post_mean[tree.no] <- get_post_mean(slow.model)[[1]]
+  output$slow_post_mean_2[tree.no] <- get_post_mean(slow.model)[[2]]
   output$slow_lower95_CI[tree.no] <- get_lower_conf_intervals(slow.model)
   output$slow_upper95_CI[tree.no] <- get_upper_conf_intervals(slow.model)
   output$slow_ess[tree.no] <- get_ess(slow.model)
