@@ -65,8 +65,8 @@ get_predictions <- function(model, nodecount.data, slowdown = FALSE, n.samples){
 #---------------------------------------
 get_speciation_rates <- function(prediction.ds){
   prediction.ds$speciation <- rep("NA", length(prediction.ds[, 1]))
-  for(x in 1:(length(add1[, 1]) - 1)){
-    prediction.ds$speciation[x + 1] <- prediction.ds$newY[x + 1] - prediction.ds$newY[x]
+  for(x in 1:(length(prediction.ds[, 1]) - 1)){
+    prediction.ds$speciation[x + 1] <- prediction.ds$nodecount[x + 1] - prediction.ds$nodecount[x]
   }
   return(prediction.ds)
 }
