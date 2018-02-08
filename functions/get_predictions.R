@@ -7,19 +7,31 @@
 # for further plotting
 
 # Requires MCMCglmm
+
+#----------------------------------------------
+# Select a sample of species to predict with
+
+select_species <- function(species.list, n.samples){
+  sample(species.list, n.samples)
+}
+  
 #-----------------------------------------------
 # Create new x variable for predicting on
 # slowdown model requires time2
 # All models require time, nodecount and species
 #-----------------------------------------------
-get_newX <- function(nodecount.data, slowdown = FALSE){
+get_newX <- function(nodecount.data, slowdown = FALSE, n.samples){
+  
+  # Randomly sample species
+  species.list <- select_species(nodecount.data$species, n.samples)
+  
   if(slowdown == FALSE){
   newX <- expand.grid(time = seq(from = 0, to = 177, by = 1),
-                      species = nodecount.data$species)
+                      species = species.list)
   }else{
   newX <- expand.grid(time = seq(from = 0, to = 177, by = 1),
                       time2 = (seq(from = 0, to = 177, by = 1))^2,
-                      species = nodecount.data$species)  
+                      species = species.list)  
   }
   newX$nodecount <- 0
   return(newX)
@@ -41,11 +53,11 @@ tidy_predictions <- function(newX, newY){
 # time bin for one model
 # Export tidy dataframe of predictions
 #---------------------------------------
-get_predictions <- function(model, nodecount.data, slowdown = FALSE){
+get_predictions <- function(model, nodecount.data, slowdown = FALSE, n.samples){
   if(slowdown == FALSE){
-    newX <- get_newX(nodecount.data)
+    newX <- get_newX(nodecount.data, n.samples)
   }else{
-    newX <- get_newX(nodecount.data, slowdown = TRUE)  
+    newX <- get_newX(nodecount.data, slowdown = TRUE, n.samples)  
   }
   newY <- predict.MCMCglmm(model, newdata = newX, type = "response", marginal = ~species) 
   tidy_predictions(newX, newY)
