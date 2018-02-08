@@ -54,11 +54,7 @@ tidy_predictions <- function(newX, newY){
 # Export tidy dataframe of predictions
 #---------------------------------------
 get_predictions <- function(model, nodecount.data, slowdown = FALSE, n.samples){
-  if(slowdown == FALSE){
-    newX <- get_newX(nodecount.data, n.samples)
-  }else{
-    newX <- get_newX(nodecount.data, slowdown = TRUE, n.samples)  
-  }
+  newX <- get_newX(nodecount.data, slowdown = slowdown, n.samples)
   newY <- predict.MCMCglmm(model, newdata = newX, type = "response", marginal = ~species) 
   tidy_predictions(newX, newY)
 }
