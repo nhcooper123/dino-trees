@@ -17,9 +17,15 @@ asym <- readRDS("outputs/lloydwhole_asym.rds")
 # Get predictions for each million year
 # time bin for all three models
 # And add speciation rates
-null.ds <- get_speciation_rates(get_predictions(null, node))
-# slow.ds <- get_speciation_rates(get_predictions(slow, node, slowdown = TRUE))
-asym.ds <- get_speciation_rates(get_predictions(asym, node))
+# Need to set seed to ensure the same species are sampled each time
+set.seed(123)
+null.ds <- get_speciation_rates(get_predictions(null, node, n.samples = 2))
+
+set.seed(123)
+# slow.ds <- get_speciation_rates(get_predictions(slow, node, slowdown = TRUE, n.samples = 2))
+
+set.seed(123)
+asym.ds <- get_speciation_rates(get_predictions(asym, node, n.samples = 2))
 
 # Get mean values for each time across all species
 null.mean <- 
@@ -27,10 +33,10 @@ null.mean <-
   group_by(time) %>%
   summarise(meanY = mean(nodecount))
 
-slow.mean <- 
-  slow.ds %>%
-  group_by(time) %>%
-  summarise(meanY = mean(nodecount))
+#slow.mean <- 
+#  slow.ds %>%
+#  group_by(time) %>%
+#  summarise(meanY = mean(nodecount))
 
 asym.mean <- 
   asym.ds %>%
@@ -40,13 +46,13 @@ asym.mean <-
 # Plot the lines 
 ggplot(group_by(null.ds, species), aes(x = time, y = log(nodecount))) + 
   # All lines
-  geom_line(alpha = 0.2) +
-  geom_line(data = group_by(slow.ds, species), col = "blue", alpha = 0.2) +
-  geom_line(data = group_by(asym.ds, species), col = "red", alpha = 0.2) +
+  #geom_line(alpha = 0.2) +
+  #geom_line(data = group_by(slow.ds, species), col = "blue", alpha = 0.2) +
+  #geom_line(data = group_by(asym.ds, species), col = "red", alpha = 0.2) +
   # Mean lines
   geom_line(data = null.mean, aes(x = time, y = meanY),  alpha = 1) +
-  geom_line(data = slow.mean, aes(x = time, y = meanY), col = "blue", alpha = 1) +
-  geom_line(data = asym.mean, aes(x = time, y = meanY), col = "red", alpha = 1) +
+  #geom_line(data = slow.mean, aes(x = time, y = meanY), col = "blue", alpha = 1) +
+  geom_line(data = asym.mean, aes(x = time, y = log(meanY)), col = "red", alpha = 1) +
   # Details
   labs(x = "time elapsed (MY)", y = "log(node count)") +
   theme_bw(base_size = 15)
@@ -55,34 +61,37 @@ ggplot(group_by(null.ds, species), aes(x = time, y = log(nodecount))) +
 
 #--------------------------------------------
 # Plot net speciation rates
+### A mess below here ###
+# Currently doesn't seem to calculate speciation rates correctly
+# Also considers them to be non numeric...
 #--------------------------------------------
 
 # Get mean values for each time across all species
-null.means <- 
+null.meanS <- 
   null.ds %>%
   group_by(time) %>%
   summarise(meanS = mean(speciation))
 
-slow.means <- 
+slow.meanS <- 
   slow.ds %>%
   group_by(time) %>%
   summarise(meanS = mean(speciation))
 
-asym.means <- 
+asym.meanS <- 
   asym.ds %>%
   group_by(time) %>%
   summarise(meanS = mean(speciation))
 
 # Plot speciation rates
-ggplot(group_by(null.ds, species), aes(x = time, y = speciation)) + 
+ggplot(group_by(null.ds,species), aes(x = time, y = as.numeric(speciation))) + 
   # All lines
-  geom_line(alpha = 0.2) +
-  geom_line(data = group_by(slow.ds, species), col = "blue", alpha = 0.2) +
-  geom_line(data = group_by(asym.ds, species), col = "red", alpha = 0.2) +
+  #geom_line(alpha = 0.2) +
+  #geom_line(data = group_by(slow.ds, species), col = "blue", alpha = 0.2) +
+  #geom_line(data = group_by(asym.ds, species), col = "red", alpha = 0.2) +
   # Mean lines
-  geom_line(data = null.means, aes(x = time, y = meanY),  alpha = 1) +
-  geom_line(data = slow.means, aes(x = time, y = meanY), col = "blue", alpha = 1) +
-  geom_line(data = asym.means, aes(x = time, y = meanY), col = "red", alpha = 1) +
+  geom_line(data = null.meanS, aes(x = time, y = meanS),  alpha = 1) +
+  #geom_line(data = slow.meanS, aes(x = time, y = meanY), col = "blue", alpha = 1) +
+  geom_line(data = asym.meanS, aes(x = time, y = meanS), col = "red", alpha = 1) +
   # Details
-  labs(x = "time elapsed (MY)", y = expression(paste0("net speciation rates ", MY^-1, sep = ""))) +
+  labs(x = "time elapsed (MY)", y = paste0(expression("net speciation rates ", MY^-1, sep = ""))) +
   theme_bw(base_size = 15)
