@@ -14,11 +14,11 @@
 #-----------------------------------------------
 get_newX <- function(nodecount.data, slowdown = FALSE){
   if(slowdown == FALSE){
-  newX <- expand.grid(time = seq(from = 0, to = 177, by = 1),
+  newX <- expand.grid(time = seq(from = 1, to = 177, by = 1),
                       species = nodecount.data$species)
   }else{
-  newX <- expand.grid(time = seq(from = 0, to = 177, by = 1),
-                      time2 = (seq(from = 0, to = 177, by = 1))^2,
+  newX <- expand.grid(time = seq(from = 1, to = 177, by = 1),
+                      time2 = (seq(from = 1, to = 177, by = 1))^2,
                       species = nodecount.data$species)  
   }
   newX$nodecount <- 0
@@ -30,9 +30,9 @@ get_newX <- function(nodecount.data, slowdown = FALSE){
 # make newY into dataframe and join 
 # newX and newY
 #---------------------------------------
-tidy_predictions <- function(newX, newY){
+tidy_predictions <- function(newX, newY$newY){
   newY <- data.frame(newY)
-  data.frame(time = newX$time, nodecount = newY$fit, 
+  data.frame(time = newX$time, nodecount = newY, 
              species = newX$species)
 }
 
