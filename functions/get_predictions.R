@@ -44,7 +44,7 @@ get_newX <- function(nodecount.data, slowdown = FALSE, n.samples){
 # make newY into dataframe and join 
 # newX and newY
 #---------------------------------------
-tidy_predictions <- function(newX, newY$newY){
+tidy_predictions <- function(newX, newY){
   newY <- data.frame(newY)
   data.frame(time = newX$time, nodecount = newY$newY, 
              species = newX$species)
@@ -66,7 +66,7 @@ get_predictions <- function(model, nodecount.data, slowdown = FALSE, n.samples){
 # can't work it out!
 #---------------------------------------
 get_speciation_rates <- function(prediction.ds){
-  prediction.ds$speciation <- rep("NA", length(prediction.ds[, 1]))
+  prediction.ds$speciation <- rep(NA, length(prediction.ds[, 1]))
   for(x in 1:(length(prediction.ds[, 1]) - 1)){
     prediction.ds$speciation[x + 1] <- prediction.ds$nodecount[x + 1] - prediction.ds$nodecount[x]
   }
