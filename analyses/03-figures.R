@@ -61,11 +61,7 @@ ggplot(group_by(null.ds, species), aes(x = time, y = log(nodecount))) +
 
 #--------------------------------------------
 # Plot net speciation rates
-### A mess below here ###
-# Currently doesn't seem to calculate speciation rates correctly
-# Also considers them to be non numeric...
 #--------------------------------------------
-
 # Get mean values for each time across all species
 null.meanS <- 
   null.ds %>%
