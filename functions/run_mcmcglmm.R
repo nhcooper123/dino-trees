@@ -43,6 +43,38 @@ run_three_models <- function(tree, nodecount.data, prior, nitt, thin, burnin){
   return(list(null, slow, asym))
 }
 
+
+#---------------------------------------------------------------
+# Run each of the three models on a tree with variable intercept
+#----------------------------------------------------------------
+run_three_models_intercept <- function(tree, nodecount.data, prior, nitt, thin, burnin){
+  
+  # Inverse tree vcv matrix for glmm
+  inv <- inverseA(tree, scale = FALSE)$Ainv
+  
+  # Fit null model
+  null <- MCMCglmm(nodecount ~ time, 
+                   data = nodecount.data, random = ~ species,
+                   ginverse = list(species = inv), family = "poisson", prior = prior,
+                   nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
+  
+  # Fit slowdown model
+  # Create new time^2 variable
+  nodecount.data$time2 <- nodecount.data$time^2
+  slow <- MCMCglmm(nodecount ~ time + time2, 
+                   data = nodecount.data, random = ~ species,
+                   ginverse = list(species = inv), family = "poisson", prior = prior,
+                   nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
+  
+  # Fit asymptote model
+  asym <- MCMCglmm(nodecount ~ time + sqrt(time), 
+                   data = nodecount.data, random = ~ species,
+                   ginverse = list(species = inv), family = "poisson", prior = prior,
+                   nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
+  
+  return(list(null, slow, asym))
+}
+
 #--------------------------------------------------------
 # MCMC outputs
 #--------------------------------------------------------
