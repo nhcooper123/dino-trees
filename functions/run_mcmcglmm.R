@@ -97,13 +97,13 @@ get_post_mean <- function(model){
 # Upper 95% CI
 get_upper_conf_intervals <- function(model){
   nF <- get_nf(model)
-  coda::HPDinterval(model$Sol[, 1:3, drop = FALSE])[,'upper']
+  coda::HPDinterval(model$Sol[, 1:nF, drop = FALSE])[,'upper']
 }
 
 # Lower 95% CIs
 get_lower_conf_intervals <- function(model){
   nF <- get_nf(model)
-  coda::HPDinterval(model$Sol[, 1:3, drop = FALSE])[,'lower']
+  coda::HPDinterval(model$Sol[, 1:nF, drop = FALSE])[,'lower']
 }  
   
 # Effective sample size
