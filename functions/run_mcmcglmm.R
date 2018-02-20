@@ -180,3 +180,69 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   
   return(output)
 }
+
+#--------------------------------------------------------
+# MCMC output files to save for intercept models
+#--------------------------------------------------------
+# Define dataframe for model output
+make_mcmc_output_intercept <- function(ntrees){
+  output <- data.frame(array(dim = c(ntrees, 25)))
+  colnames(output) <- c("tree.ID", "tree", "null_DIC","slow_DIC", "asym_DIC", 
+                        "null_post_mean_intercept", "null_post_mean",
+                        "null_lower95_CI", "null_upper95_CI", 
+                        "null_ess", "null_pMCMC", 
+                        "slow_post_mean_intercept", "slow_post_mean", "slow_post_mean_2" ,
+                        "slow_lower95_CI", "slow_upper95_CI", 
+                        "slow_ess", "slow_pMCMC", 
+                        "asym_post_mean_intercept", "asym_post_mean", "asym_post_mean_sqrt", 
+                        "asym_lower95_CI", "asym_upper95_CI", 
+                        "asym_ess", "asym_pMCMC")
+  return(output)
+}
+
+# Add model outputs to dataframe
+add_mcmc_output_intercept <- function(output, null.model, slow.model, asym.model, tree.no, tree.name){
+  
+  # Add ID 
+  output$tree.ID[tree.no] <- tree.no
+  output$tree[tree.no] <- tree.name
+  
+  # DIC for all three models
+  output$null_DIC[tree.no] <- get_dic(null.model)[[1]]
+  output$slow_DIC[tree.no] <- get_dic(slow.model)[[1]]
+  output$asym_DIC[tree.no] <- get_dic(asym.model)[[1]]
+  
+  # Outputs for null
+  nF <- get_nf(null.model)
+  output$null_post_mean_intercept[tree.no] <- get_post_mean(null.model)[[1]]
+  output$null_post_mean[tree.no] <- get_post_mean(null.model)[[2]]
+  output$null_lower95_CI[tree.no] <- coda::HPDinterval(null.model$Sol[, 1:nF, drop = FALSE])[2]
+  output$null_upper95_CI[tree.no] <- coda::HPDinterval(null.model$Sol[, 1:nF, drop = FALSE])[4]
+  output$null_ess[tree.no] <- get_ess(null.model)
+  output$null_pMCMC[tree.no]<- get_pMCMC(null.model)[[1]]
+  saveRDS(null.model, file = paste0("outputs/", tree.name, tree.no, "_null.rds"))
+  
+  # Outputs for slow down
+  nF <- get_nf(slow.model)
+  output$slow_post_mean_intercept[tree.no] <- get_post_mean(slow.model)[[1]]
+  output$slow_post_mean[tree.no] <- get_post_mean(slow.model)[[2]]
+  output$slow_post_mean_2[tree.no] <- get_post_mean(slow.model)[[3]]
+  output$slow_lower95_CI[tree.no] <- coda::HPDinterval(slow.model$Sol[, 1:nF, drop = FALSE])[2]
+  output$slow_upper95_CI[tree.no] <- coda::HPDinterval(slow.model$Sol[, 1:nF, drop = FALSE])[4]
+  output$slow_ess[tree.no] <- get_ess(slow.model)
+  output$slow_pMCMC[tree.no]<- get_pMCMC(slow.model)[[1]]
+  saveRDS(slow.model, file = paste0("outputs/", tree.name, tree.no, "_slow.rds"))
+  
+  # Outputs for asymtote
+  nF <- get_nf(asym.model)
+  output$asym_post_mean_intercept[tree.no] <- get_post_mean(asym.model)[[1]]
+  output$asym_post_mean[tree.no] <- get_post_mean(asym.model)[[2]]
+  output$asym_post_mean_sqrt[tree.no] <- get_post_mean(asym.model)[[3]]
+  output$asym_lower95_CI[tree.no] <- coda::HPDinterval(asym.model$Sol[, 1:nF, drop = FALSE])[2]
+  output$asym_upper95_CI[tree.no] <- coda::HPDinterval(asym.model$Sol[, 1:nF, drop = FALSE])[4]
+  output$asym_ess[tree.no] <- get_ess(asym.model)
+  output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
+  saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_aym.rds"))
+  
+  return(output)
+}
