@@ -16,13 +16,13 @@ prior <- list(R = list(V = 1, nu = 0.002),
                                   alpha.mu = 0, alpha.V = 25^2)))
 
 # Number of iterations
-nitt <- 1E06
+nitt <- 5E05
 
 # Sampling interval
 thin <- 1E03
 
 # Burnin
-burnin <- 1E05
+burnin <- 5E04
 
 #----------------------------------------------------------------
 # Create an empty output dataframe
