@@ -27,7 +27,7 @@ burnin <- 5E04
 #----------------------------------------------------------------
 # Create an empty output dataframe
 #----------------------------------------------------------------
-output2 <- make_mcmc_output_intercept(ntrees = 2004)
+output2 <- make_mcmc_output_intercept(ntrees = 1004)
 # 4 trees = lloyd plus three clades
 # 4 * 5 additional trees = 20 * 50 for each = 1000
 #----------------------------------------------------------------
