@@ -182,7 +182,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   output$asym_upper95_CI_sqrt[tree.no] <- get_upper_conf_intervals(asym.model)[[2]] 
   output$asym_ess[tree.no] <- get_ess(asym.model)
   output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
-  saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_aym.rds"))
+  saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_asym.rds"))
   
   return(output)
 }
@@ -264,7 +264,7 @@ add_mcmc_output_intercept <- function(output, null.model, slow.model, asym.model
   output$asym_upper95_CI_sqrt[tree.no] <- get_upper_conf_intervals(asym.model)[[3]]
   output$asym_ess[tree.no] <- get_ess(asym.model)
   output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
-  saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_aym_intercepts.rds"))
+  saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_asym_intercepts.rds"))
   
   return(output)
 }
