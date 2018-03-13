@@ -6,13 +6,33 @@ library(tidyverse)
 library(MCMCglmm)
 source("functions/get_predictions.R")
 
-# Read in phylogeny and nodecount data
-node <- read.csv("data/nodecounts/nodecount_lloyd2008.csv")
+# List the trees to work with
 
-# Read in outputs from full tree MCMCglmm models
-null <- readRDS("outputs/lloydwhole_null.rds")
-#slow <- readRDS("outputs/lloydwhole_slow.rds")
-asym <- readRDS("outputs/lloydwhole_asym.rds")
+"lloyd2008"
+"4_33"
+"21_16"
+"42_14"
+"105_11"
+"210_17"
+
+#--------------------------------------------------------------
+# For the original trees
+
+# Read in nodecount data
+node <- read.csv("data/nodecounts/nodecount_lloyd2008.csv")
+node_o <- read.csv("data/nodecounts/nodecount_lloyd2008_orni.csv")
+node_s <- read.csv("data/nodecounts/nodecount_lloyd2008_sauro.csv")
+node_t <- read.csv("data/nodecounts/nodecount_lloyd2008_thero.csv")
+
+# Read in outputs from MCMCglmm models
+slow <- readRDS("outputs/selected-models/lloyd2008_slow.rds")
+asym <- readRDS("outputs/selected-models/lloyd2008_asym.rds")
+slow_o <- readRDS("outputs/selected-models/lloyd2008_orni_slow.rds")
+asym_o <- readRDS("outputs/selected-models/lloyd2008_orni_asym.rds")
+slow_s <- readRDS("outputs/selected-models/lloyd2008_sauro_slow.rds")
+asym_s <- readRDS("outputs/selected-models/lloyd2008_sauro_asym.rds")
+slow_t <- readRDS("outputs/selected-models/lloyd2008_thero_slow.rds")
+asym_t <- readRDS("outputs/selected-models/lloyd2008_thero_asym.rds")
 
 # Get predictions for each million year
 # time bin for all three models
@@ -26,21 +46,16 @@ null.ds <- get_speciation_rates(get_predictions(null, node, n.samples = 50))
 ## to at least 15 or up to 40.
 
 set.seed(123)
-# slow.ds <- get_speciation_rates(get_predictions(slow, node, slowdown = TRUE, n.samples = 50))
+slow.ds <- get_predictions(slow, node, slowdown = TRUE, n.samples = 50)
 
 set.seed(123)
-asym.ds <- get_speciation_rates(get_predictions(asym, node, n.samples = 50))
+asym.ds <- get_predictions(asym, node, n.samples = 50)
 
 # Get mean values for each time across all species
-null.mean <- 
-  null.ds %>%
+slow.mean <- 
+  slow.ds %>%
   group_by(time) %>%
   summarise(meanY = mean(nodecount))
-
-#slow.mean <- 
-#  slow.ds %>%
-#  group_by(time) %>%
-#  summarise(meanY = mean(nodecount))
 
 asym.mean <- 
   asym.ds %>%
@@ -64,48 +79,3 @@ ggplot(null.ds, aes(x = time, y = nodecount, group = species)) +
 
 ####### Add Time periods ?strap ######
 
-#--------------------------------------------
-# Plot net speciation rates
-#--------------------------------------------
-# Remove the speciation rate for time 0 as we can't
-# estimate that using our method
-null.ds <- null.ds %>%
-  filter(time > 0)
-
-slow.ds <- slow.ds %>%
-  filter(time > 0)
-
-asym.ds <- asym.ds %>%
-  filter(time > 0)
-
-# Get mean values for each time across all species
-null.meanS <- 
-  null.ds %>%
-  group_by(time) %>%
-  summarise(meanS = mean(speciation))
-
-#slow.meanS <- 
-#  slow.ds %>%
-#  group_by(time) %>%
-#  summarise(meanS = mean(speciation))
-
-asym.meanS <- 
-  asym.ds %>%
-  group_by(time) %>%
-  summarise(meanS = mean(speciation))
-
-# Plot speciation rates
-ggplot(null.ds, aes(x = time, y = speciation, group = species)) + 
-  # All lines for each species with high transparency
-  geom_line(alpha = 0.2) +
-  #geom_line(data = slow.ds, col = "blue", alpha = 0.2) +
-  geom_line(data = asym.ds, col = "red", alpha = 0.2) +
-  # Mean lines for all sampled species
-  geom_line(data = null.meanS, aes(x = time, y = meanS, group = NULL),  alpha = 1) +
-  #geom_line(data = slow.meanS, aes(x = time, y = meanS, group = NULL), col = "blue", alpha = 1) +
-  geom_line(data = asym.meanS, aes(x = time, y = meanS, group = NULL), col = "red", alpha = 1) +
-  # Details
-  labs(x = "time elapsed (MY)", y = expression(paste0("net speciation rate", MY^-1))) +
-  theme_bw(base_size = 15) +
-  # Add 0,0 line to show where speciation = extinction
-  geom_abline(intercept = 0, slope = 0, linetype = 3)
