@@ -116,20 +116,27 @@ asym.mean_t <-
 # Extract time at maximum nodecount, i.e. inflection point
 #-----------------------------------------------------------------
 # All species
-slow.mean_t$time[which(slow.mean_t$meanY == max(slow.mean_t$meanY))]
-asym.mean_t$time[which(asym.mean_t$meanY == max(asym.mean_t$meanY))]
+max1s <- slow.mean_t$time[which(slow.mean_t$meanY == max(slow.mean_t$meanY))]
+max1a <- asym.mean_t$time[which(asym.mean_t$meanY == max(asym.mean_t$meanY))]
 
 # Ornithischia
-slow.mean$time[which(slow.mean$meanY == max(slow.mean$meanY))]
-asym.mean$time[which(asym.mean$meanY == max(asym.mean$meanY))]
+maxos <- slow.mean$time[which(slow.mean$meanY == max(slow.mean$meanY))]
+maxoa <- asym.mean$time[which(asym.mean$meanY == max(asym.mean$meanY))]
 
 # Sauropoda
-slow.mean_s$time[which(slow.mean_s$meanY == max(slow.mean_s$meanY))]
-asym.mean_s$time[which(asym.mean_s$meanY == max(asym.mean_s$meanY))]
+maxss <- slow.mean_s$time[which(slow.mean_s$meanY == max(slow.mean_s$meanY))]
+maxsa <- asym.mean_s$time[which(asym.mean_s$meanY == max(asym.mean_s$meanY))]
 
 # Theropoda
-slow.mean_t$time[which(slow.mean_t$meanY == max(slow.mean_t$meanY))]
-asym.mean_t$time[which(asym.mean_t$meanY == max(asym.mean_t$meanY))]
+maxts <- slow.mean_t$time[which(slow.mean_t$meanY == max(slow.mean_t$meanY))]
+maxta <- asym.mean_t$time[which(asym.mean_t$meanY == max(asym.mean_t$meanY))]
+
+# Output this data
+output <- data.frame(treename, max1s, max1a, maxos, maxoa, maxss, maxsa, maxts, maxta)
+colnames(output) <- c("treename", "slow", "asym", "slow_orni", "asym_orni",
+                      "slow_sauro", "asym_sauro", "slow_thero", "asym_thero")
+write.csv(file = paste0("outputs/tables/inflection_", treename, ".csv"),
+          output, row.names = FALSE)
 
 #-----------------------------------------------------------------
 # Plot the lines for slowdown and asymptote models
