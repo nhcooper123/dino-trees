@@ -3,15 +3,15 @@
 # Natalie Cooper March 2018
 #-----------------------------------------------------------------
 
-make_predictions_figures <- function(treename, col1, col2){
+make_predictions_figures <- function(treename, rep, col1, col2){
 
 #-----------------------------------------------------------------
 # Read in nodecount data
 #-----------------------------------------------------------------
 node <- read.csv(paste0("data/nodecounts/nodecount_", treename, ".csv"))
-node_o <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_orni.csv"))
-node_s <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_sauro.csv"))
-node_t <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_thero.csv"))
+node_o <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_orni", rep, ".csv"))
+node_s <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_sauro", rep, ".csv"))
+node_t <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_thero", rep, ".csv"))
 
 #-----------------------------------------------------------------
 # Read in outputs from MCMCglmm models
@@ -21,16 +21,16 @@ slow <- readRDS(paste0("outputs/selected-models/", treename, "_slow.rds"))
 asym <- readRDS(paste0("outputs/selected-models/", treename, "_aym.rds"))
 
 # Ornithischia
-slow_o <- readRDS(paste0("outputs/selected-models/", treename, "_orni_slow.rds"))
-asym_o <- readRDS(paste0("outputs/selected-models/", treename, "_orni_aym.rds"))
+slow_o <- readRDS(paste0("outputs/selected-models/", treename, "_orni", rep, "_slow.rds"))
+asym_o <- readRDS(paste0("outputs/selected-models/", treename, "_orni", rep, "_aym.rds"))
 
 # Sauropoda
-slow_s <- readRDS(paste0("outputs/selected-models/", treename, "_sauro_slow.rds"))
-asym_s <- readRDS(paste0("outputs/selected-models/", treename, "_sauro_aym.rds"))
+slow_s <- readRDS(paste0("outputs/selected-models/", treename, "_sauro", rep, "_slow.rds"))
+asym_s <- readRDS(paste0("outputs/selected-models/", treename, "_sauro", rep, "_aym.rds"))
 
 # Theropoda
-slow_t <- readRDS(paste0("outputs/selected-models/", treename, "_thero_slow.rds"))
-asym_t <- readRDS(paste0("outputs/selected-models/", treename, "_thero_aym.rds"))
+slow_t <- readRDS(paste0("outputs/selected-models/", treename, "_thero", rep, "_slow.rds"))
+asym_t <- readRDS(paste0("outputs/selected-models/", treename, "_thero", rep, "_aym.rds"))
 
 #-----------------------------------------------------------------
 # Get predictions for each million year
