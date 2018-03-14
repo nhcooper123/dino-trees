@@ -31,9 +31,11 @@ get_newX <- function(nodecount.data, slowdown = FALSE, n.samples){
                       species = species.list)
   }else{
 
-  newX <- expand.grid(time = seq(from = 0, to = 177, by = 1),
-                      time2 = (seq(from = 0, to = 177, by = 1))^2,
-                      species = species.list)  
+  x <- expand.grid(time = seq(from = 0, to = 177, by = 1),
+                   species = species.list)  
+
+  newX <- data.frame(time = x$time, species = x$species, time2 = x$time^2)
+
   }
   newX$nodecount <- 0
   return(newX)
