@@ -1,56 +1,36 @@
 # Figures - Smoothed model predictions figures for paper
+# An exceedingly inelegant function
 # Natalie Cooper March 2018
 #-----------------------------------------------------------------
-# Load libraries
-library(tidyverse)
-library(MCMCglmm)
-library(gridExtra)
-source("functions/get_predictions.R")
 
-# Add rphylopic
-install.packages("remotes")
-remotes::install_github("sckott/rphylopic")
-library(rphylopic) 
+smooth.figures <- function(treename, col1, col2){
 
-# Colour blind friendly palette
-# First is grey
-cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", 
-               "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
-
-# Add silhouettes
-library(png)
-img_sauro <- readPNG("outputs/sauropod.png")
-img_orni <- readPNG("outputs/stegosaurus.png")
-img_thero <- readPNG("outputs/velociraptor.png")
-
-#--------------------------------------------------------------
-# For the original trees
 #-----------------------------------------------------------------
 # Read in nodecount data
 #-----------------------------------------------------------------
-node <- read.csv("data/nodecounts/nodecount_lloyd2008.csv")
-node_o <- read.csv("data/nodecounts/nodecount_lloyd2008_orni.csv")
-node_s <- read.csv("data/nodecounts/nodecount_lloyd2008_sauro.csv")
-node_t <- read.csv("data/nodecounts/nodecount_lloyd2008_thero.csv")
+node <- read.csv(paste0("data/nodecounts/nodecount_", treename, ".csv"))
+node_o <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_orni.csv"))
+node_s <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_sauro.csv"))
+node_t <- read.csv(paste0("data/nodecounts/nodecount_", treename, "_thero.csv"))
 
 #-----------------------------------------------------------------
 # Read in outputs from MCMCglmm models
 #-----------------------------------------------------------------
 # All species
-slow <- readRDS("outputs/selected-models/lloyd2008_slow.rds")
-asym <- readRDS("outputs/selected-models/lloyd2008_aym.rds")
+slow <- readRDS(paste0("outputs/selected-models/", treename, "_slow.rds"))
+asym <- readRDS(paste0("outputs/selected-models/", treename, "_aym.rds"))
 
 # Ornithischia
-slow_o <- readRDS("outputs/selected-models/lloyd2008_orni_slow.rds")
-asym_o <- readRDS("outputs/selected-models/lloyd2008_orni_aym.rds")
+slow_o <- readRDS(paste0("outputs/selected-models/", treename, "_orni_slow.rds"))
+asym_o <- readRDS(paste0("outputs/selected-models/", treename, "_orni_aym.rds"))
 
 # Sauropoda
-slow_s <- readRDS("outputs/selected-models/lloyd2008_sauro_slow.rds")
-asym_s <- readRDS("outputs/selected-models/lloyd2008_sauro_aym.rds")
+slow_s <- readRDS(paste0("outputs/selected-models/", treename, "_sauro_slow.rds"))
+asym_s <- readRDS(paste0("outputs/selected-models/", treename, "_sauro_aym.rds"))
 
 # Theropoda
-slow_t <- readRDS("outputs/selected-models/lloyd2008_thero_slow.rds")
-asym_t <- readRDS("outputs/selected-models/lloyd2008_thero_aym.rds")
+slow_t <- readRDS(paste0("outputs/selected-models/", treename, "_thero_slow.rds"))
+asym_t <- readRDS(paste0("outputs/selected-models/", treename, "_thero_aym.rds"))
 
 #-----------------------------------------------------------------
 # Get predictions for each million year
@@ -59,7 +39,7 @@ asym_t <- readRDS("outputs/selected-models/lloyd2008_thero_aym.rds")
 # each time
 #-----------------------------------------------------------------
 set.seed(123)
-slow.ds <- get_predictions(slow, node, slowdown = TRUE, n.samples = 25)
+slow.ds <- get_predictions(slow, node, slowdown = TRUE, n.samples = 50)
 set.seed(123)
 asym.ds <- get_predictions(asym, node, n.samples = 50)
 
@@ -156,13 +136,13 @@ asym.mean_t$time[which(asym.mean_t$meanY == max(asym.mean_t$meanY))]
 p1 <-
   ggplot(asym.ds, aes(x = time, y = nodecount, group = species)) + 
   # Lines for all species but transparent
-  geom_line(alpha = 0.2, col = cbPalette[4]) +
-  geom_line(data = slow.ds, col = cbPalette[3], alpha = 0.2) +
+  geom_line(alpha = 0.2, col = col1) +
+  geom_line(data = slow.ds, col = col2, alpha = 0.2) +
   # Mean lines
   geom_line(data = slow.mean, aes(x = time, y = meanY, group = NULL),  
-            alpha = 1, col = cbPalette[3]) +
+            alpha = 1, col = col2) +
   geom_line(data = asym.mean, aes(x = time, y = meanY, group = NULL), 
-            col = cbPalette[4], alpha = 1) +
+            col = col1, alpha = 1) +
   # Axis labels
   labs(x = "time elapsed (MY)", y = "node count") +
   # Remove grey background
@@ -174,12 +154,12 @@ p1 <-
 # Ornithischia
 po <-
   ggplot(asym.ds_o, aes(x = time, y = nodecount, group = species)) + 
-  geom_line(alpha = 0.2, col = cbPalette[4]) +
-  geom_line(data = slow.ds_o, col = cbPalette[3], alpha = 0.2) +
+  geom_line(alpha = 0.2, col = col1) +
+  geom_line(data = slow.ds_o, col = col2, alpha = 0.2) +
   geom_line(data = slow.mean_o, aes(x = time, y = meanY, group = NULL),
-            alpha = 1, col = cbPalette[3]) +
+            alpha = 1, col = col2) +
   geom_line(data = asym.mean_o, aes(x = time, y = meanY, group = NULL), 
-            col = cbPalette[4], alpha = 1) +
+            col = col1, alpha = 1) +
   labs(x = "time elapsed (MY)", y = "node count") +
   theme_bw(base_size = 15) +
   ylim(0, 25) +
@@ -190,12 +170,12 @@ po <-
 # Sauropoda
 ps <-
   ggplot(asym.ds_s, aes(x = time, y = nodecount, group = species)) + 
-  geom_line(alpha = 0.2, col = cbPalette[4]) +
-  geom_line(data = slow.ds_s, col = cbPalette[3], alpha = 0.2) +
+  geom_line(alpha = 0.2, col = col1) +
+  geom_line(data = slow.ds_s, col = col2, alpha = 0.2) +
   geom_line(data = slow.mean_s, aes(x = time, y = meanY, group = NULL),
-            alpha = 1, col = cbPalette[3]) +
+            alpha = 1, col = col2) +
   geom_line(data = asym.mean_s, aes(x = time, y = meanY, group = NULL),
-            col = cbPalette[4], alpha = 1) +
+            col = col1, alpha = 1) +
   labs(x = "time elapsed (MY)", y = "node count") +
   theme_bw(base_size = 15)+
   ylim(0, 25) +
@@ -205,12 +185,12 @@ ps <-
 # Theropoda
 pt <-
   ggplot(asym.ds_t, aes(x = time, y = nodecount, group = species)) + 
-  geom_line(alpha = 0.2, col = cbPalette[4]) +
-  geom_line(data = slow.ds_t, col = cbPalette[3], alpha = 0.2) +
+  geom_line(alpha = 0.2, col = col1) +
+  geom_line(data = slow.ds_t, col = col2, alpha = 0.2) +
   geom_line(data = slow.mean_t, aes(x = time, y = meanY, group = NULL), 
-            alpha = 1, col = cbPalette[3]) +
+            alpha = 1, col = col2) +
   geom_line(data = asym.mean_t, aes(x = time, y = meanY, group = NULL),
-            col = cbPalette[4], alpha = 1) +
+            col = col1, alpha = 1) +
   labs(x = "time elapsed (MY)", y = "node count") +
   theme_bw(base_size = 15) +
   ylim(0, 25) +
@@ -219,5 +199,6 @@ pt <-
 
 # Plot all four on one grid
 allplots <- grid.arrange(p1, po, ps, pt, ncol = 2)
-ggsave(file = "outputs/figures/lloyd2008.pdf", allplots)
+ggsave(file = paste0("outputs/figures/", treename, ".pdf"), allplots)
 
+}
