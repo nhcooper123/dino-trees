@@ -218,6 +218,6 @@ pt <-
   add_phylopic(img = img_thero, alpha = 1, x = 20, y = 22.5, ysize = 25)
 
 # Plot all four on one grid
-grid.arrange(p1, po, ps, pt, ncol = 2)
+allplots <- grid.arrange(p1, po, ps, pt, ncol = 2)
+ggsave(file = "outputs/figures/lloyd2008.pdf", allplots)
 
-####### Add Time periods? ######
