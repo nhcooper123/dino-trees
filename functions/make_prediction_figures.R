@@ -1,6 +1,9 @@
 # Figures - Smoothed model predictions figures for paper
 # An exceedingly inelegant function
 # Natalie Cooper March 2018
+
+# Requires make_predictions.R and MCMCglmm, ggplot2, gridExtra,
+# rphylopic, png, img_sauro, img_thero, img_orni.
 #-----------------------------------------------------------------
 
 make_predictions_figures <- function(treename, rep, col1, col2){
