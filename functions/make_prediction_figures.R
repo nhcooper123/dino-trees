@@ -3,7 +3,7 @@
 # Natalie Cooper March 2018
 #-----------------------------------------------------------------
 
-smooth.figures <- function(treename, col1, col2){
+make_predictions_figures <- function(treename, col1, col2){
 
 #-----------------------------------------------------------------
 # Read in nodecount data
