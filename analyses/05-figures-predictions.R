@@ -6,8 +6,8 @@ source("functions/get_predictions.R")
 source("functions/make_prediction_figures.R")
 
 # Add rphylopic
-install.packages("remotes")
-remotes::install_github("sckott/rphylopic")
+#install.packages("remotes")
+#remotes::install_github("sckott/rphylopic")
 library(rphylopic) 
 
 # Colour blind friendly palette
@@ -45,3 +45,4 @@ make_predictions_figures(treename  = "105", rep = "_11",
 # 50% extra
 make_predictions_figures(treename  = "210", rep = "_17", 
                          col1 = cbPalette[4], col2 = cbPalette[3])
+
