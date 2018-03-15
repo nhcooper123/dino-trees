@@ -4,6 +4,7 @@ library(MCMCglmm)
 library(gridExtra)
 source("functions/get_predictions.R")
 source("functions/make_prediction_figures.R")
+source("functions/make_prediction_figures_intercepts.R")
 
 # Add rphylopic
 #install.packages("remotes")
@@ -21,6 +22,7 @@ img_sauro <- readPNG("outputs/sauropod.png")
 img_orni <- readPNG("outputs/stegosaurus.png")
 img_thero <- readPNG("outputs/velociraptor.png")
 
+#-----------------------------------------------------------------
 # Make figures
 # Original trees
 make_predictions_figures(treename  = "lloyd2008", rep = "", tree = "",
@@ -46,3 +48,28 @@ make_predictions_figures(treename  = "105", rep = "_11", tree = "tree_",
 make_predictions_figures(treename  = "210", rep = "_17", tree = "tree_",
                          col1 = cbPalette[4], col2 = cbPalette[3])
 
+#-----------------------------------------------------------------
+# Make figures for intercepts models
+# Original trees
+make_predictions_figures_intercepts(treename  = "lloyd2008", rep = "", tree = "",
+                         col1 = cbPalette[4], col2 = cbPalette[3])
+
+# 1% extra
+make_predictions_figures_intercepts(treename  = "4", rep = "_33", tree = "tree_",
+                         col1 = cbPalette[4], col2 = cbPalette[3])
+
+# 5% extra
+make_predictions_figures_intercepts(treename  = "21", rep = "_21", tree = "tree_",
+                         col1 = cbPalette[4], col2 = cbPalette[3])
+
+# 10% extra
+make_predictions_figures_intercepts(treename  = "42", rep = "_14", tree = "tree_",
+                         col1 = cbPalette[4], col2 = cbPalette[3])
+
+# 25% extra
+make_predictions_figures_intercepts(treename  = "105", rep = "_11", tree = "tree_",
+                         col1 = cbPalette[4], col2 = cbPalette[3])
+
+# 50% extra
+make_predictions_figures_intercepts(treename  = "210", rep = "_17", tree = "tree_",
+                         col1 = cbPalette[4], col2 = cbPalette[3])
