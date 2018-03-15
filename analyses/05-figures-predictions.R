@@ -33,7 +33,7 @@ make_predictions_figures(treename  = "4", rep = "_33", tree = "tree_",
                          col1 = cbPalette[4], col2 = cbPalette[3])
 
 # 5% extra
-make_predictions_figures(treename  = "21", rep = "_21", tree = "tree_",
+make_predictions_figures(treename  = "21", rep = "_16", tree = "tree_",
                          col1 = cbPalette[4], col2 = cbPalette[3])
 
 # 10% extra
@@ -59,7 +59,7 @@ make_predictions_figures_intercepts(treename  = "4", rep = "_33", tree = "tree_"
                          col1 = cbPalette[4], col2 = cbPalette[3])
 
 # 5% extra
-make_predictions_figures_intercepts(treename  = "21", rep = "_21", tree = "tree_",
+make_predictions_figures_intercepts(treename  = "21", rep = "_16", tree = "tree_",
                          col1 = cbPalette[4], col2 = cbPalette[3])
 
 # 10% extra
