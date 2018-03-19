@@ -1,7 +1,8 @@
 # Summarising the results for inflection points
 
-# Load library
+# Load libraries
 library(tidyverse)
+library(xtable)
 
 # List files for each analysis
 files1 <- c("inflection_lloyd2008.csv", "inflection_4.csv", "inflection_21.csv", 
@@ -23,40 +24,8 @@ d2 <- files2 %>%
   map(~ read_csv(file.path(data_path, .))) %>% 
   reduce(rbind)
 
-# Load libraries
-library(tidyverse)
-library(xtable)
+# For now let's just output these as is, may create proper
+# tables later
 
-
-
-# Create tidy names for number of taxa added
-# and clade names
-taxa <- c(rep("-", 4),
-          rep("1%", 4), 
-          rep("5%", 4),
-          rep("10%", 4),
-          rep("25%", 4), 
-          rep("50%", 4))
-
-clade <- rep(c("all", "ornithischians", 
-               "sauropods", "theropods"), 6)
-
-# Formatting the tables
-table_out <- data.frame(taxa, clade, dic[, 3:5])
-colnames(table_out) <- c("% taxa added", "clade", "null DIC",
-                         "slowdown DIC", "asymptote DIC")
-
-table_outi <- data.frame(taxa, clade, dici[, 3:5])
-colnames(table_outi) <- c("% taxa added", "clade", "null DIC",
-                          "slowdown DIC", "asymptote DIC")
-
-# Save tables as .tex files
-sink(file = "outputs/dic_table.tex")
-xtable(table_out, caption = "")
-sink()
-
-sink(file = "outputs/dic_table_intercepts.tex")
-xtable(table_outi, caption = "")
-sink()
-
-# Will need to add caption and bold the lowest values manually
+write_csv(path = "outputs/inflection_table.csv", d1)
+write_csv(path = "outputs/inflection_table_intercepts.csv", d2)
