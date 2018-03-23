@@ -202,7 +202,7 @@ ps <-
   geom_abline(intercept = 0, slope = 0, linetype = 3) +
   ylim(-0.15, 0.65) +
   xlim(0, 200) +
-  add_phylopic(img = img_sauro, alpha = 1, x = 175, y = 0.5, ysize = 35)
+  add_phylopic(img = img_sauro, alpha = 1, x = 175, y = 0.4, ysize = 35)
 
 # Theropoda
 pt <-
