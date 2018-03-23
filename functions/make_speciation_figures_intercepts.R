@@ -6,7 +6,7 @@
 # rphylopic, png, img_sauro, img_thero, img_orni.
 #-----------------------------------------------------------------
 
-make_speciation_figures <- function(treename, tree, rep, col1, col2){
+make_speciation_figures_intercepts <- function(treename, tree, rep, col1, col2){
 
 #-----------------------------------------------------------------
 # Read in nodecount data
@@ -180,7 +180,7 @@ po <-
             col = col1, alpha = 1) +
   labs(x = "time elapsed (MY)", y = expression(paste("net speciation rate (", MY^-1, ")"))) +
   theme_bw(base_size = 15) +
-  ylim(-1.5, 0.65) +
+  ylim(-0.15, 0.65) +
   xlim(0, 200) +
   # Add 0,0 line to show where speciation = extinction
   geom_abline(intercept = 0, slope = 0, linetype = 3) +
@@ -200,9 +200,9 @@ ps <-
   theme_bw(base_size = 15) +
   # Add 0,0 line to show where speciation = extinction
   geom_abline(intercept = 0, slope = 0, linetype = 3) +
-  ylim(-1.5, 0.65) +
+  ylim(-0.15, 0.65) +
   xlim(0, 200) +
-  add_phylopic(img = img_sauro, alpha = 1, x = 175, y = 0.5, ysize = 35)
+  add_phylopic(img = img_sauro, alpha = 1, x = 175, y = 0.4, ysize = 35)
 
 # Theropoda
 pt <-
@@ -217,7 +217,7 @@ pt <-
   theme_bw(base_size = 15) +
   # Add 0,0 line to show where speciation = extinction
   geom_abline(intercept = 0, slope = 0, linetype = 3) +
-  ylim(-1.5, 0.65) +
+  ylim(-0.15, 0.65) +
   xlim(0, 200) +
   add_phylopic(img = img_thero, alpha = 1, x = 175, y = 0.5, ysize = 25)
 
