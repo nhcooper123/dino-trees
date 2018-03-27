@@ -18,9 +18,9 @@ cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73",
 
 # Add silhouettes
 library(png)
-img_sauro <- readPNG("outputs/sauropod.png")
-img_orni <- readPNG("outputs/stegosaurus.png")
-img_thero <- readPNG("outputs/velociraptor.png")
+img_sauro <- readPNG("outputs/img/sauropod.png")
+img_orni <- readPNG("outputs/img/stegosaurus.png")
+img_thero <- readPNG("outputs/img/velociraptor.png")
 
 #-----------------------------------------------------------------
 # Make figures
