@@ -223,6 +223,6 @@ pt <-
 
 # Plot all four on one grid
 allplots <- grid.arrange(p1, po, ps, pt, ncol = 2)
-ggsave(file = paste0("outputs/figures/speciation_", treename, "_intercepts.pdf"), allplots, height = 5)
+ggsave(file = paste0("outputs/figures/speciation_", treename, "_intercepts.pdf"), allplots, width = 5.89, height = 5.71)
 
 }
