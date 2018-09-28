@@ -37,7 +37,7 @@ rownames(timeData) <- dates2$names
 
 # Date the tree...
 tree_dated <- timePaleoPhy(tree1, timeData, type = "mbl", 
-                           vartime = 1, ntrees = 10,
+                           vartime = 1, ntrees = 100,
                            dateTreatment = "minMax", 
                            noisyDrop = TRUE, plot = TRUE)
 
