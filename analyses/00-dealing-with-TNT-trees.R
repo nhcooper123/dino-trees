@@ -27,7 +27,18 @@ sauro_dates <- sauro_pbdb %>%
 dates <- left_join(tree_names, sauro_dates, 
                    by = c("names" = "Genus"))
 
-# Select jsut first occassion
+# Select just first occassion
 # This requires finessing in final analyses
 dates2 <- dates[!duplicated(dates$names), ]
 
+# Remove names column and add it to row names
+timeData <- dates2[, 2:3]
+rownames(timeData) <- dates2$names
+
+# Date the tree...
+tree_dated <- timePaleoPhy(tree1, timeData, type = "mbl", 
+                           vartime = 1, ntrees = 10,
+                           dateTreatment = "minMax", 
+                           noisyDrop = TRUE, plot = TRUE)
+
+write.nexus(tree_dated, file = "GonzalezRiga_dated.nex")
