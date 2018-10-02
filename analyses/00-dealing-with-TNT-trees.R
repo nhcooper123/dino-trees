@@ -49,7 +49,6 @@ for (i in 1:length(tree.list)){
                              dateTreatment = "minMax", 
                              noisyDrop = TRUE, plot = TRUE)
 
-  write.nexus(tree_dated, file = paste0(tree.list[i], ".nex"))
+  write.nexus(tree_dated, file = paste0("data/trees/", tree.list[i], ".nex"))
               
 }
-
