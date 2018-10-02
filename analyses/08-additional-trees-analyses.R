@@ -38,7 +38,7 @@ output2 <- make_mcmc_output_intercept(ntrees = 8)
 # Get node counts and run models
 #--------------------------------------------------------------------
 
-for (i in 2:length(tree.list)){
+for (i in 1:length(tree.list)){
   
   #--------------------------------------------------------------------
   # Get node counts
