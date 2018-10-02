@@ -38,14 +38,20 @@ output2 <- make_mcmc_output_intercept(ntrees = 8)
 # Get node counts and run models
 #--------------------------------------------------------------------
 
-for (i in 1:length(tree.list)){
+for (i in 2:length(tree.list)){
   
   #--------------------------------------------------------------------
   # Get node counts
   #--------------------------------------------------------------------
   
   trees <- read.nexus(paste0("data/trees/", tree.list[i]))
+  # Sample one tree only
   tree <- trees[[sample(1:100, 1)]]
+  # Make binary
+  tree <- multi2di(tree)
+  tree$node.label <- NULL
+  tree$edge.length[which(tree$edge.length == 0)] <- 0.01
+  
   # Get node counts
   create_node_counts(tree, path = "data/nodecounts/", 
                      simulation.name = paste0("nodecount_", tree.list[i]))
@@ -64,8 +70,8 @@ for (i in 1:length(tree.list)){
                                     tree.list[i], ".csv"))
   
   # Run the models
-  model.outputs <- run_three_models(tree1, nodecount.data, prior, nitt, thin, burnin)
-  model.outputs2 <- run_three_models_intercept(tree1, nodecount.data, prior, nitt, thin, burnin)
+  model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
+  model.outputs2 <- run_three_models_intercept(tree, nodecount.data, prior, nitt, thin, burnin)
   
   # Add model outputs
   output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
