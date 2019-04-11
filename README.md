@@ -2,17 +2,16 @@
 
 *This README is a work in progress...*
 
-Author(s): Joseph Bonsor and [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk). Paper written in collaboration with Paul Barrett.  
+Author(s): Joseph Bonsor, Tom Raven, [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk), Paul Barrett.  
 
 This repository contains all the code and data used in the manuscript [Link to final published pdf will be here]().
 
 To cite the paper: 
-> Joseph Bonsor, Paul Barrett \& Natalie Cooper. 2017. TITLE [Journal tbc].
+> Joseph Bonsor, Tom Raven, Paul Barrett \& Natalie Cooper. 2017. TITLE [Journal tbc].
 
 To cite this repo: 
 > Joseph Bonsor \& Natalie Cooper. 2017. GitHub: NaturalHistoryMuseum/dino-trees: Release for publication. DOI.
 
-[![DOI]()]()
 
 ## Data
 These analyses are based on the dinosaur phylogeny of Lloyd et al 2008 (REF). 

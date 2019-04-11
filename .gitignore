@@ -4,6 +4,7 @@
 *.doc
 *.docx
 *.pptx
+*.rds
 
 # Compiled source #
 *.com
@@ -64,3 +65,5 @@ inst/doc
 
 ignore/
 *.Rcheck/
+
+Test code/
