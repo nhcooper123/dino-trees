@@ -6,12 +6,7 @@
 # Load libraries
 #--------------------------------------
 library(paleotree)
-#library(BioGeoBEARS)
 library(tidyverse)
-
-# Read in Nick Matzke's code for dealing with TNT outputs
-#source("functions/tnt_R_utils_v1.R")
-
 #--------------------------------------
 # Dates
 #--------------------------------------
@@ -134,8 +129,6 @@ for (i in 1:length(tree.list)){
   # Join species in tree to dates 
   dates <- left_join(tree_names, dino_dates, 
                      by = "name")
-  
-  print(sort(dates$name[is.na(dates$min_ma)])) }
   
   # Remove names column and add it to row names
   timeData <- dates[, 2:3]
