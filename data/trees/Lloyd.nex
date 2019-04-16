@@ -1,0 +1,853 @@
+#NEXUS
+[R-package APE, Tue Apr 16 17:01:38 2019]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 420;
+	TAXLABELS
+		Pisanosaurus_mertii
+		Eocursor_parvus
+		Lesothosaurus_diagnosticus
+		Scutellosaurus_lawleri
+		Emausaurus_ernsti
+		Scelidosaurus_harrisonii
+		Huayangosaurus_taibaii
+		Paranthodon_africanus
+		Chungkingosaurus_jiangbeiensis
+		Chialingosaurus_kuani
+		Wuerhosaurus_homheni
+		Dacentrurus_armatus
+		Hesperosaurus_mjosi
+		Tuojiangosaurus_multispinus
+		Kentrosaurus_aethiopicus
+		Lexovisaurus_durobrivensis
+		Stegosaurus_armatus
+		Stegosaurus_stenops
+		Struthiosaurus_austriacus
+		Hungarosaurus_tormai
+		Hylaeosaurus_armatus
+		Cedarpelta_bilbeyhallorum
+		Pawpawsaurus_campbelli
+		Sauropelta_edwardsorum
+		Silvisaurus_condrayi
+		Panoplosaurus_mirus
+		Edmontonia_longiceps
+		Edmontonia_rugosidens
+		Gargoyleosaurus_parkpinorum
+		Animantarx_ramaljonesi
+		Minmi_paravertebra
+		Mymoorapelta_maysi
+		Gastonia_burgei
+		Polacanthus_foxii
+		Gobisaurus_domoculus
+		Shamosaurus_scutatus
+		Tianzhenosaurus_youngi
+		Tsagantegia_longicranialis
+		Talarurus_plicatospineus
+		Pinacosaurus_grangeri
+		Pinacosaurus_mephistocephalus
+		Nodocephalosaurus_kirtlandensis
+		Ankylosaurus_magniventris
+		Euoplocephalus_tutus
+		Saichania_chulsanensis
+		Tarchia_gigantea
+		Stormbergia_dangershoeki
+		Heterodontosaurus_tucki
+		Abrictosaurus_consors
+		Stenopelix_valdensis
+		Wannanosaurus_yansiensis
+		Yaverlandia_bitholus
+		Goyocephale_lattimorei
+		Homalocephale_calathocercos
+		Ornatotholus_browni
+		Stegoceras_validum
+		Dwarf_pachycephalosaur
+		Prenocephale_prenes
+		Tylocephale_gilmorei
+		Pachycephalosaurus_wyomingensis
+		Stygimoloch_spinifer
+		Prenocephale_goodwini
+		Sphaerotholus_buchholtzae
+		Prenocephale_edmontonensis
+		Prenocephale_brevis
+		Yinlong_downsi
+		Psittacosaurus_guyangensis
+		Chaoyangsaurus_youngi
+		Xuanhuaceratops_niei
+		Psittacosaurus_mongoliensis
+		Psittacosaurus_sinensis
+		Liaoceratops_yanzigouensis
+		Yamaceratops_dorngobiensis
+		Archaeoceratops_oshimai
+		Montanoceratops_cerorhynchus
+		Protoceratops_hellenikorhinus
+		Prenoceratops_pieganensis
+		Leptoceratops_gracilis
+		Udanoceratops_tschizhovi
+		Bagaceratops_rozhdestvenskyi
+		Graciliceratops_mongoliensis
+		Protoceratops_andrewsi
+		Zuniceratops_christopheri
+		Avaceratops_lammersi
+		Monoclonius_crassus
+		Styracosaurus_albertensis
+		Centrosaurus_apertus
+		Centrosaurus_brinkmani
+		Einiosaurus_procurvicornis
+		Achelousaurus_horneri
+		Pachyrhinosaurus_canadensis
+		Pachyrhinosaurus_n._sp.
+		Vagaceratops_irvinensis
+		Pentaceratops_sternbergii
+		Agujaceratops_mariscalensis
+		Chasmosaurus_belli
+		Chasmosaurus_russelli
+		Anchiceratops_ornatus
+		Arrhinoceratops_brachyops
+		Triceratops_horridus
+		Nedoceratops_hatcheri
+		Torosaurus_latus
+		Agilisaurus_louderbacki
+		Hexinlusaurus_multidens
+		Yandusaurus_hongheensis
+		Othnielia_rex
+		Orodromeus_makelai
+		Zephyrosaurus_schaffi
+		Jeholosaurus_shangyuanensis
+		Hypsilophodon_foxii
+		Gasparinisaura_cincosaltensis
+		Parksosaurus_warreni
+		Thescelosaurus_neglectus
+		Tenontosaurus_dossi
+		Tenontosaurus_tilletti
+		Muttaburrasaurus_langdoni
+		Rhabdodon_priscus
+		Zalmoxes_robustus
+		Zalmoxes_shqiperorum
+		Dysalotosaurus_lettowvorbecki
+		Dryosaurus_altus
+		Camptosaurus_dispar
+		Lurdusaurus_arenatus
+		Equijubus_normani
+		Iguanodon_bernissartensis
+		Mantellisaurus_atherfieldensis
+		Ouranosaurus_nigeriensis
+		Fukuisaurus_tetoriensis
+		Altirhinus_kurzanovi
+		Nanyangosaurus_zhugeii
+		Jinzhousaurus_yangi
+		Probactrosaurus_gobiensis
+		Eolambia_caroljonesa
+		Protohadros_byrdi
+		Bactrosaurus_johnsoni
+		Gilmoreosaurus_mongoliensis
+		Telmatosaurus_transsylvanicus
+		Fontllonga_euhadrosaur
+		Lophorhothon_atopus
+		Gryposaurus_notabilis
+		Brachylophosaurus_canadensis
+		Maiasaura_peeblesorum
+		Edmontosaurus_annectens
+		Edmontosaurus_regalis
+		Kerberosaurus_manakini
+		Prosaurolophus_maximus
+		Naashoibitosaurus_ostromi
+		Secernosaurus_koerneri
+		Saurolophus_osborni
+		Pararhabdodon_isonensis
+		Tsintaosaurus_spinorhinus
+		Jaxartosaurus_aralensis
+		Amurosaurus_riabinini
+		Charonosaurus_jiayinensis
+		Parasaurolophus_walkeri
+		Lambeosaurus_lambei
+		Lambeosaurus_magnicristatus
+		Corythosaurus_casuarius
+		Olorotitan_arharensis
+		Hypacrosaurus_stebingeri
+		Hypacrosaurus_altispinus
+		Nipponosaurus_sachalinensis
+		Saturnalia_tupiniquim
+		Thecodontosaurus_antiquus
+		Pantydraco_caducus
+		Mussaurus_patagonicus
+		Jingshanosaurus_xinwaensis
+		Efraasia_minor
+		Ammosaurus_major
+		Riojasaurus_incertus
+		Lufengosaurus_huenei
+		Gyposaurus_sinensis
+		Massospondylus_carinatus
+		Yunnanosaurus_huangi
+		Plateosaurus_gracilis
+		Plateosauravus_cullingworthi
+		Coloradisaurus_brevis
+		Plateosaurus_engelhardti
+		Unaysaurus_tolentinoi
+		Anchisaurus_polyzelus
+		Melanorosaurus_readi
+		Camelotia_borealis
+		Lessemsaurus_sauropoides
+		Blikanasaurus_cromptoni
+		Antetonitrus_ingenipes
+		Gongxianosaurus_shibeiensis
+		Isanosaurus_attavipachi
+		Tazoudasaurus_naimi
+		Kotasaurus_yamanpalliensis
+		Vulcanodon_karibaensis
+		Shunosaurus_lii
+		Barapasaurus_tagorei
+		Mamenchisaurus_constructus
+		Omeisaurus_junghsiensis
+		Omeisaurus_tianfuensis
+		Patagosaurus_fariasi
+		Cetiosaurus_oxoniensis
+		Losillasaurus_giganteus
+		Zapalasaurus_bonapartei
+		Jobaria_tiguidensis
+		Haplocanthosaurus_priscus
+		Amphicoelias_altus
+		Limaysaurus_tessonei
+		Nigersaurus_taqueti
+		Rayososaurus_agrioensis
+		Rebbachisaurus_garasbae
+		Suuwassea_emilieae
+		Amargasaurus_cazaui
+		Brachytrachelopan_mesai
+		Dicraeosaurus_hansemanni
+		Dinheirosaurus_lourinhanensis
+		Tornieria_africana
+		Barosaurus_lentus
+		Diplodocus_longus
+		Apatosaurus_louisae
+		Apatosaurus_sp.
+		Apatosaurus_ajax
+		Apatosaurus_excelsus
+		Apatosaurus_parvus
+		Atlasaurus_imelakei
+		Haplocanthosaurus_delfsi
+		Camarasaurus_supremus
+		Amazonsaurus_maranhensis
+		Giraffatitan_brancai
+		Europasaurus_holgeri
+		Lapparentosaurus_madagascariensis
+		Brachiosaurus_altithorax
+		Cedarosaurus_weiskopfae
+		Datousaurus_bashanensis
+		Euhelopus_zdanskyi
+		Tehuelchesaurus_benitezii
+		Antarctosaurus_wichmannianus
+		Quaesitosaurus_orientalis
+		Rapetosaurus_krausei
+		Nemegtosaurus_mongoliensis
+		Bellusaurus_sui
+		Phuwiangosaurus_sirindhornae
+		Andesaurus_delgadoi
+		Pleurocoelus_nanus
+		Ampelosaurus_atacis
+		Agustinia_ligabuei
+		Paralititan_stromeri
+		Epachthosaurus_sciuttoi
+		Austrosaurus_mckillopi
+		Malawisaurus_dixeyi
+		Gondwanatitan_faustoi
+		Isisaurus_colberti
+		Titanosaurus_indicus
+		Alamosaurus_sanjuanensis
+		Pellegrinisaurus_powelli
+		Argyrosaurus_superbus
+		Rocasaurus_muniozi
+		Japalpur_titanosaur_indet.
+		Malagasy_Taxon_B
+		Saltasaurus_loricatus
+		Aeolosaurus_rionegrinus
+		Toba_titanosaur
+		Argentinosaurus_huinculensis
+		Opisthocoelicaudia_skarzynskii
+		Peiropolis_titanosaur
+		Lirainosaurus_astibiae
+		Staurikosaurus_pricei
+		Herrerasaurus_ischigualastensis
+		Chindesaurus_bryansmalli
+		Eoraptor_lunensis
+		Guaibasaurus_candelariensis
+		Sarcosaurus_woodi
+		Zupaysaurus_rougieri
+		Dilophosaurus_wetherilli
+		Gojirasaurus_quayi
+		Lophostropheus_airelensis
+		Liliensternus_liliensterni
+		Procompsognathus_triassicus
+		Coelophysis_rhodesiensis
+		Coelophysis_bauri
+		Segisaurus_halli
+		Elaphrosaurus_bambergi
+		Ceratosaurus_nasicornis
+		Spinostropheus_gautieri
+		Velocisaurus_unicus
+		Xenotarsosaurus_bonapartei
+		Rugops_primus
+		Masiakasaurus_knopfleri
+		Noasaurus_leali
+		Ilokelesia_aguadagrandensis
+		Abelisaurus_comahuensis
+		Aucasaurus_garridoi
+		Carnotaurus_sastrei
+		Bajo_Barreal_abelisaur
+		Lameta_abelisaur
+		Majungasaurus_crenatissimus
+		Szechuanosaurus_zigongensis
+		Afrovenator_abakensis
+		Piatnitzkysaurus_floresi
+		Megalosaurus_bucklandii
+		Poekilopleuron_bucklandii
+		Torvosaurus_tanneri
+		Dubreuillosaurus_valesdunensis
+		Eustreptospondylus_oxoniensis
+		Duriavenator_hesperis
+		Chilantaisaurus_tashuikouensis
+		Cristatusaurus_lapparenti
+		Baryonyx_walkeri
+		Suchomimus_tenerensis
+		Irritator_challengeri
+		Spinosaurus_aegypticus
+		Lourinhanosaurus_antunesi
+		Monolophosaurus_jiangi
+		Cryolophosaurus_ellioti
+		Sinraptor_dongi
+		Yangchuanosaurus_shangyouensis
+		Allosaurus_fragilis
+		Neovenator_salerii
+		Acrocanthosaurus_atokensis
+		Tyrannotitan_chubutensis
+		Carcharodontosaurus_saharicus
+		Giganotosaurus_carolinii
+		Mapusaurus_roseae
+		Fukuiraptor_kitadaniensis
+		Tugulusaurus_faciles
+		Magnosaurus_nethercombensis
+		Siamotyrannus_isanensis
+		Dilong_paradoxus
+		Guanlong_wucaii
+		Dryptosaurus_aquilunguis
+		Stokesosaurus_clevelandi
+		Eotyrannus_lengi
+		Alectrosaurus_olseni
+		Alioramus_remotus
+		Albertosaurus_sarcophagus
+		Gorgosaurus_libratus
+		Appalachiosaurus_montgomeriensis
+		Two_Medicine_tyrannosaurine
+		Daspletosaurus_torosus
+		Tyrannosaurus_rex
+		Nanotyrannus_lancensis
+		Tarbosaurus_bataar
+		Nqwebasaurus_thwazi
+		Gasosaurus_constructus
+		Nedcolbertia_justinhofmanni
+		Huaxiagnathus_orientalis
+		Sinosauropteryx_prima
+		Aristosuchus_pusillus
+		Compsognathus_longipes
+		Mirischia_asymmetrica
+		Scipionyx_samniticus
+		Xuanhanosaurus_qilixiaensis
+		Proceratosaurus_bradleyi
+		Deltadromeus_agilis
+		Ornitholestes_hermanni
+		Coelurus_fragilis
+		Pelecanimimus_polyodon
+		Shenzhousaurus_orientalis
+		Harpymimus_okladnikovi
+		Garudimimus_brevipes
+		Archaeornithomimus_asiaticus
+		Sinornithomimus_dongi
+		Anserimimus_planinychus
+		Gallimimus_bullatus
+		Struthiomimus_altus
+		Ornithomimus_edmontonicus
+		Ornithomimus_velox
+		Bagaraatan_ostromi
+		Xinjiangovenator_parvus
+		Quarry_9_coelurosaur
+		Nanshiungosaurus_brevispinus
+		Falcarius_utahensis
+		Nothronychus_mckinleyi
+		Beipiaosaurus_inexpectus
+		Enigmosaurus_mongoliensis
+		Eshanosaurus_deguchiianus
+		Erlikosaurus_andrewsi
+		Segnosaurus_galbinensis
+		Incisivosaurus_gauthieri
+		Caudipteryx_zoui
+		El_Brete_oviraptor
+		Avimimus_portentosus
+		Chirostenotes_pergracilis
+		Nomingia_gobiensis
+		Microvenator_celer
+		Rinchenia_mongoliensis
+		Kamyn_Khondt_oviraptorine
+		Citipati_osmolskae
+		Khaan_mckennai
+		Oviraptor_philoceratops
+		Conchoraptor_gracilis
+		Ingenia_yanshini
+		Alvarezsaurus_calvoi
+		Patagonykus_puertai
+		Shuvuuia_deserti
+		Mononykus_olecranus
+		Parvicursor_remotus
+		Gugyedong_maniraptoran
+		Protarchaeopteryx_robusta
+		Unenlagia_comahuensis
+		Rahonavis_ostromi
+		Archaeopteryx_lithographica
+		Jinfengopteryx_elegans
+		Mei_long
+		Sinovenator_changii
+		Dornogov_troodontid
+		Sinornithoides_youngi
+		Byronosaurus_jaffei
+		Troodon_formosus
+		Zanabazar_junior
+		Saurornithoides_mongoliensis
+		Neuquenraptor_argentinus
+		Microraptor_zhaoianus
+		Sinornithosaurus_millenii
+		Buitreraptor_gonzalezorum
+		Adasaurus_mongoliensis
+		Achillobator_giganticus
+		Dromaeosaurus_albertensis
+		Utahraptor_ostrommaysi
+		Saurornitholestes_langstoni
+		Tsaagan_mangas
+		Velociraptor_mongoliensis
+		Bambiraptor_feinbergorum
+		Deinonychus_antirrhopus
+		Atrociraptor_marshalli
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Pisanosaurus_mertii,
+		2	Eocursor_parvus,
+		3	Lesothosaurus_diagnosticus,
+		4	Scutellosaurus_lawleri,
+		5	Emausaurus_ernsti,
+		6	Scelidosaurus_harrisonii,
+		7	Huayangosaurus_taibaii,
+		8	Paranthodon_africanus,
+		9	Chungkingosaurus_jiangbeiensis,
+		10	Chialingosaurus_kuani,
+		11	Wuerhosaurus_homheni,
+		12	Dacentrurus_armatus,
+		13	Hesperosaurus_mjosi,
+		14	Tuojiangosaurus_multispinus,
+		15	Kentrosaurus_aethiopicus,
+		16	Lexovisaurus_durobrivensis,
+		17	Stegosaurus_armatus,
+		18	Stegosaurus_stenops,
+		19	Struthiosaurus_austriacus,
+		20	Hungarosaurus_tormai,
+		21	Hylaeosaurus_armatus,
+		22	Cedarpelta_bilbeyhallorum,
+		23	Pawpawsaurus_campbelli,
+		24	Sauropelta_edwardsorum,
+		25	Silvisaurus_condrayi,
+		26	Panoplosaurus_mirus,
+		27	Edmontonia_longiceps,
+		28	Edmontonia_rugosidens,
+		29	Gargoyleosaurus_parkpinorum,
+		30	Animantarx_ramaljonesi,
+		31	Minmi_paravertebra,
+		32	Mymoorapelta_maysi,
+		33	Gastonia_burgei,
+		34	Polacanthus_foxii,
+		35	Gobisaurus_domoculus,
+		36	Shamosaurus_scutatus,
+		37	Tianzhenosaurus_youngi,
+		38	Tsagantegia_longicranialis,
+		39	Talarurus_plicatospineus,
+		40	Pinacosaurus_grangeri,
+		41	Pinacosaurus_mephistocephalus,
+		42	Nodocephalosaurus_kirtlandensis,
+		43	Ankylosaurus_magniventris,
+		44	Euoplocephalus_tutus,
+		45	Saichania_chulsanensis,
+		46	Tarchia_gigantea,
+		47	Stormbergia_dangershoeki,
+		48	Heterodontosaurus_tucki,
+		49	Abrictosaurus_consors,
+		50	Stenopelix_valdensis,
+		51	Wannanosaurus_yansiensis,
+		52	Yaverlandia_bitholus,
+		53	Goyocephale_lattimorei,
+		54	Homalocephale_calathocercos,
+		55	Ornatotholus_browni,
+		56	Stegoceras_validum,
+		57	Dwarf_pachycephalosaur,
+		58	Prenocephale_prenes,
+		59	Tylocephale_gilmorei,
+		60	Pachycephalosaurus_wyomingensis,
+		61	Stygimoloch_spinifer,
+		62	Prenocephale_goodwini,
+		63	Sphaerotholus_buchholtzae,
+		64	Prenocephale_edmontonensis,
+		65	Prenocephale_brevis,
+		66	Yinlong_downsi,
+		67	Psittacosaurus_guyangensis,
+		68	Chaoyangsaurus_youngi,
+		69	Xuanhuaceratops_niei,
+		70	Psittacosaurus_mongoliensis,
+		71	Psittacosaurus_sinensis,
+		72	Liaoceratops_yanzigouensis,
+		73	Yamaceratops_dorngobiensis,
+		74	Archaeoceratops_oshimai,
+		75	Montanoceratops_cerorhynchus,
+		76	Protoceratops_hellenikorhinus,
+		77	Prenoceratops_pieganensis,
+		78	Leptoceratops_gracilis,
+		79	Udanoceratops_tschizhovi,
+		80	Bagaceratops_rozhdestvenskyi,
+		81	Graciliceratops_mongoliensis,
+		82	Protoceratops_andrewsi,
+		83	Zuniceratops_christopheri,
+		84	Avaceratops_lammersi,
+		85	Monoclonius_crassus,
+		86	Styracosaurus_albertensis,
+		87	Centrosaurus_apertus,
+		88	Centrosaurus_brinkmani,
+		89	Einiosaurus_procurvicornis,
+		90	Achelousaurus_horneri,
+		91	Pachyrhinosaurus_canadensis,
+		92	Pachyrhinosaurus_n._sp.,
+		93	Vagaceratops_irvinensis,
+		94	Pentaceratops_sternbergii,
+		95	Agujaceratops_mariscalensis,
+		96	Chasmosaurus_belli,
+		97	Chasmosaurus_russelli,
+		98	Anchiceratops_ornatus,
+		99	Arrhinoceratops_brachyops,
+		100	Triceratops_horridus,
+		101	Nedoceratops_hatcheri,
+		102	Torosaurus_latus,
+		103	Agilisaurus_louderbacki,
+		104	Hexinlusaurus_multidens,
+		105	Yandusaurus_hongheensis,
+		106	Othnielia_rex,
+		107	Orodromeus_makelai,
+		108	Zephyrosaurus_schaffi,
+		109	Jeholosaurus_shangyuanensis,
+		110	Hypsilophodon_foxii,
+		111	Gasparinisaura_cincosaltensis,
+		112	Parksosaurus_warreni,
+		113	Thescelosaurus_neglectus,
+		114	Tenontosaurus_dossi,
+		115	Tenontosaurus_tilletti,
+		116	Muttaburrasaurus_langdoni,
+		117	Rhabdodon_priscus,
+		118	Zalmoxes_robustus,
+		119	Zalmoxes_shqiperorum,
+		120	Dysalotosaurus_lettowvorbecki,
+		121	Dryosaurus_altus,
+		122	Camptosaurus_dispar,
+		123	Lurdusaurus_arenatus,
+		124	Equijubus_normani,
+		125	Iguanodon_bernissartensis,
+		126	Mantellisaurus_atherfieldensis,
+		127	Ouranosaurus_nigeriensis,
+		128	Fukuisaurus_tetoriensis,
+		129	Altirhinus_kurzanovi,
+		130	Nanyangosaurus_zhugeii,
+		131	Jinzhousaurus_yangi,
+		132	Probactrosaurus_gobiensis,
+		133	Eolambia_caroljonesa,
+		134	Protohadros_byrdi,
+		135	Bactrosaurus_johnsoni,
+		136	Gilmoreosaurus_mongoliensis,
+		137	Telmatosaurus_transsylvanicus,
+		138	Fontllonga_euhadrosaur,
+		139	Lophorhothon_atopus,
+		140	Gryposaurus_notabilis,
+		141	Brachylophosaurus_canadensis,
+		142	Maiasaura_peeblesorum,
+		143	Edmontosaurus_annectens,
+		144	Edmontosaurus_regalis,
+		145	Kerberosaurus_manakini,
+		146	Prosaurolophus_maximus,
+		147	Naashoibitosaurus_ostromi,
+		148	Secernosaurus_koerneri,
+		149	Saurolophus_osborni,
+		150	Pararhabdodon_isonensis,
+		151	Tsintaosaurus_spinorhinus,
+		152	Jaxartosaurus_aralensis,
+		153	Amurosaurus_riabinini,
+		154	Charonosaurus_jiayinensis,
+		155	Parasaurolophus_walkeri,
+		156	Lambeosaurus_lambei,
+		157	Lambeosaurus_magnicristatus,
+		158	Corythosaurus_casuarius,
+		159	Olorotitan_arharensis,
+		160	Hypacrosaurus_stebingeri,
+		161	Hypacrosaurus_altispinus,
+		162	Nipponosaurus_sachalinensis,
+		163	Saturnalia_tupiniquim,
+		164	Thecodontosaurus_antiquus,
+		165	Pantydraco_caducus,
+		166	Mussaurus_patagonicus,
+		167	Jingshanosaurus_xinwaensis,
+		168	Efraasia_minor,
+		169	Ammosaurus_major,
+		170	Riojasaurus_incertus,
+		171	Lufengosaurus_huenei,
+		172	Gyposaurus_sinensis,
+		173	Massospondylus_carinatus,
+		174	Yunnanosaurus_huangi,
+		175	Plateosaurus_gracilis,
+		176	Plateosauravus_cullingworthi,
+		177	Coloradisaurus_brevis,
+		178	Plateosaurus_engelhardti,
+		179	Unaysaurus_tolentinoi,
+		180	Anchisaurus_polyzelus,
+		181	Melanorosaurus_readi,
+		182	Camelotia_borealis,
+		183	Lessemsaurus_sauropoides,
+		184	Blikanasaurus_cromptoni,
+		185	Antetonitrus_ingenipes,
+		186	Gongxianosaurus_shibeiensis,
+		187	Isanosaurus_attavipachi,
+		188	Tazoudasaurus_naimi,
+		189	Kotasaurus_yamanpalliensis,
+		190	Vulcanodon_karibaensis,
+		191	Shunosaurus_lii,
+		192	Barapasaurus_tagorei,
+		193	Mamenchisaurus_constructus,
+		194	Omeisaurus_junghsiensis,
+		195	Omeisaurus_tianfuensis,
+		196	Patagosaurus_fariasi,
+		197	Cetiosaurus_oxoniensis,
+		198	Losillasaurus_giganteus,
+		199	Zapalasaurus_bonapartei,
+		200	Jobaria_tiguidensis,
+		201	Haplocanthosaurus_priscus,
+		202	Amphicoelias_altus,
+		203	Limaysaurus_tessonei,
+		204	Nigersaurus_taqueti,
+		205	Rayososaurus_agrioensis,
+		206	Rebbachisaurus_garasbae,
+		207	Suuwassea_emilieae,
+		208	Amargasaurus_cazaui,
+		209	Brachytrachelopan_mesai,
+		210	Dicraeosaurus_hansemanni,
+		211	Dinheirosaurus_lourinhanensis,
+		212	Tornieria_africana,
+		213	Barosaurus_lentus,
+		214	Diplodocus_longus,
+		215	Apatosaurus_louisae,
+		216	Apatosaurus_sp.,
+		217	Apatosaurus_ajax,
+		218	Apatosaurus_excelsus,
+		219	Apatosaurus_parvus,
+		220	Atlasaurus_imelakei,
+		221	Haplocanthosaurus_delfsi,
+		222	Camarasaurus_supremus,
+		223	Amazonsaurus_maranhensis,
+		224	Giraffatitan_brancai,
+		225	Europasaurus_holgeri,
+		226	Lapparentosaurus_madagascariensis,
+		227	Brachiosaurus_altithorax,
+		228	Cedarosaurus_weiskopfae,
+		229	Datousaurus_bashanensis,
+		230	Euhelopus_zdanskyi,
+		231	Tehuelchesaurus_benitezii,
+		232	Antarctosaurus_wichmannianus,
+		233	Quaesitosaurus_orientalis,
+		234	Rapetosaurus_krausei,
+		235	Nemegtosaurus_mongoliensis,
+		236	Bellusaurus_sui,
+		237	Phuwiangosaurus_sirindhornae,
+		238	Andesaurus_delgadoi,
+		239	Pleurocoelus_nanus,
+		240	Ampelosaurus_atacis,
+		241	Agustinia_ligabuei,
+		242	Paralititan_stromeri,
+		243	Epachthosaurus_sciuttoi,
+		244	Austrosaurus_mckillopi,
+		245	Malawisaurus_dixeyi,
+		246	Gondwanatitan_faustoi,
+		247	Isisaurus_colberti,
+		248	Titanosaurus_indicus,
+		249	Alamosaurus_sanjuanensis,
+		250	Pellegrinisaurus_powelli,
+		251	Argyrosaurus_superbus,
+		252	Rocasaurus_muniozi,
+		253	Japalpur_titanosaur_indet.,
+		254	Malagasy_Taxon_B,
+		255	Saltasaurus_loricatus,
+		256	Aeolosaurus_rionegrinus,
+		257	Toba_titanosaur,
+		258	Argentinosaurus_huinculensis,
+		259	Opisthocoelicaudia_skarzynskii,
+		260	Peiropolis_titanosaur,
+		261	Lirainosaurus_astibiae,
+		262	Staurikosaurus_pricei,
+		263	Herrerasaurus_ischigualastensis,
+		264	Chindesaurus_bryansmalli,
+		265	Eoraptor_lunensis,
+		266	Guaibasaurus_candelariensis,
+		267	Sarcosaurus_woodi,
+		268	Zupaysaurus_rougieri,
+		269	Dilophosaurus_wetherilli,
+		270	Gojirasaurus_quayi,
+		271	Lophostropheus_airelensis,
+		272	Liliensternus_liliensterni,
+		273	Procompsognathus_triassicus,
+		274	Coelophysis_rhodesiensis,
+		275	Coelophysis_bauri,
+		276	Segisaurus_halli,
+		277	Elaphrosaurus_bambergi,
+		278	Ceratosaurus_nasicornis,
+		279	Spinostropheus_gautieri,
+		280	Velocisaurus_unicus,
+		281	Xenotarsosaurus_bonapartei,
+		282	Rugops_primus,
+		283	Masiakasaurus_knopfleri,
+		284	Noasaurus_leali,
+		285	Ilokelesia_aguadagrandensis,
+		286	Abelisaurus_comahuensis,
+		287	Aucasaurus_garridoi,
+		288	Carnotaurus_sastrei,
+		289	Bajo_Barreal_abelisaur,
+		290	Lameta_abelisaur,
+		291	Majungasaurus_crenatissimus,
+		292	Szechuanosaurus_zigongensis,
+		293	Afrovenator_abakensis,
+		294	Piatnitzkysaurus_floresi,
+		295	Megalosaurus_bucklandii,
+		296	Poekilopleuron_bucklandii,
+		297	Torvosaurus_tanneri,
+		298	Dubreuillosaurus_valesdunensis,
+		299	Eustreptospondylus_oxoniensis,
+		300	Duriavenator_hesperis,
+		301	Chilantaisaurus_tashuikouensis,
+		302	Cristatusaurus_lapparenti,
+		303	Baryonyx_walkeri,
+		304	Suchomimus_tenerensis,
+		305	Irritator_challengeri,
+		306	Spinosaurus_aegypticus,
+		307	Lourinhanosaurus_antunesi,
+		308	Monolophosaurus_jiangi,
+		309	Cryolophosaurus_ellioti,
+		310	Sinraptor_dongi,
+		311	Yangchuanosaurus_shangyouensis,
+		312	Allosaurus_fragilis,
+		313	Neovenator_salerii,
+		314	Acrocanthosaurus_atokensis,
+		315	Tyrannotitan_chubutensis,
+		316	Carcharodontosaurus_saharicus,
+		317	Giganotosaurus_carolinii,
+		318	Mapusaurus_roseae,
+		319	Fukuiraptor_kitadaniensis,
+		320	Tugulusaurus_faciles,
+		321	Magnosaurus_nethercombensis,
+		322	Siamotyrannus_isanensis,
+		323	Dilong_paradoxus,
+		324	Guanlong_wucaii,
+		325	Dryptosaurus_aquilunguis,
+		326	Stokesosaurus_clevelandi,
+		327	Eotyrannus_lengi,
+		328	Alectrosaurus_olseni,
+		329	Alioramus_remotus,
+		330	Albertosaurus_sarcophagus,
+		331	Gorgosaurus_libratus,
+		332	Appalachiosaurus_montgomeriensis,
+		333	Two_Medicine_tyrannosaurine,
+		334	Daspletosaurus_torosus,
+		335	Tyrannosaurus_rex,
+		336	Nanotyrannus_lancensis,
+		337	Tarbosaurus_bataar,
+		338	Nqwebasaurus_thwazi,
+		339	Gasosaurus_constructus,
+		340	Nedcolbertia_justinhofmanni,
+		341	Huaxiagnathus_orientalis,
+		342	Sinosauropteryx_prima,
+		343	Aristosuchus_pusillus,
+		344	Compsognathus_longipes,
+		345	Mirischia_asymmetrica,
+		346	Scipionyx_samniticus,
+		347	Xuanhanosaurus_qilixiaensis,
+		348	Proceratosaurus_bradleyi,
+		349	Deltadromeus_agilis,
+		350	Ornitholestes_hermanni,
+		351	Coelurus_fragilis,
+		352	Pelecanimimus_polyodon,
+		353	Shenzhousaurus_orientalis,
+		354	Harpymimus_okladnikovi,
+		355	Garudimimus_brevipes,
+		356	Archaeornithomimus_asiaticus,
+		357	Sinornithomimus_dongi,
+		358	Anserimimus_planinychus,
+		359	Gallimimus_bullatus,
+		360	Struthiomimus_altus,
+		361	Ornithomimus_edmontonicus,
+		362	Ornithomimus_velox,
+		363	Bagaraatan_ostromi,
+		364	Xinjiangovenator_parvus,
+		365	Quarry_9_coelurosaur,
+		366	Nanshiungosaurus_brevispinus,
+		367	Falcarius_utahensis,
+		368	Nothronychus_mckinleyi,
+		369	Beipiaosaurus_inexpectus,
+		370	Enigmosaurus_mongoliensis,
+		371	Eshanosaurus_deguchiianus,
+		372	Erlikosaurus_andrewsi,
+		373	Segnosaurus_galbinensis,
+		374	Incisivosaurus_gauthieri,
+		375	Caudipteryx_zoui,
+		376	El_Brete_oviraptor,
+		377	Avimimus_portentosus,
+		378	Chirostenotes_pergracilis,
+		379	Nomingia_gobiensis,
+		380	Microvenator_celer,
+		381	Rinchenia_mongoliensis,
+		382	Kamyn_Khondt_oviraptorine,
+		383	Citipati_osmolskae,
+		384	Khaan_mckennai,
+		385	Oviraptor_philoceratops,
+		386	Conchoraptor_gracilis,
+		387	Ingenia_yanshini,
+		388	Alvarezsaurus_calvoi,
+		389	Patagonykus_puertai,
+		390	Shuvuuia_deserti,
+		391	Mononykus_olecranus,
+		392	Parvicursor_remotus,
+		393	Gugyedong_maniraptoran,
+		394	Protarchaeopteryx_robusta,
+		395	Unenlagia_comahuensis,
+		396	Rahonavis_ostromi,
+		397	Archaeopteryx_lithographica,
+		398	Jinfengopteryx_elegans,
+		399	Mei_long,
+		400	Sinovenator_changii,
+		401	Dornogov_troodontid,
+		402	Sinornithoides_youngi,
+		403	Byronosaurus_jaffei,
+		404	Troodon_formosus,
+		405	Zanabazar_junior,
+		406	Saurornithoides_mongoliensis,
+		407	Neuquenraptor_argentinus,
+		408	Microraptor_zhaoianus,
+		409	Sinornithosaurus_millenii,
+		410	Buitreraptor_gonzalezorum,
+		411	Adasaurus_mongoliensis,
+		412	Achillobator_giganticus,
+		413	Dromaeosaurus_albertensis,
+		414	Utahraptor_ostrommaysi,
+		415	Saurornitholestes_langstoni,
+		416	Tsaagan_mangas,
+		417	Velociraptor_mongoliensis,
+		418	Bambiraptor_feinbergorum,
+		419	Deinonychus_antirrhopus,
+		420	Atrociraptor_marshalli
+	;
+	TREE * UNTITLED = [&R] ((1:5.8,(2:8.925,(3:16.11428571,((4:14.87142857,(5:21.71428571,(6:3.607142857,((7:9.383333333,(8:27.125,(9:7.15,(10:8.125,((11:42.85,(12:6.55,13:2.8):2.8):2.8,(14:6.175,((15:14.725,16:0.325):0.325,(17:6.9,18:6.9):6.9):0.325):0.325):0.325):0.325):0.325):9.708333333):9.383333333,(19:87.3,(20:78.45,((21:12.5,(22:29.1625,(23:21.3,(24:5.8625,(25:3.225,(26:22.91666667,(27:9.633333333,28:19.53333333):9.633333333):12.85833333):9.0875):5.8625):5.8625):18.3625):12.5,(29:8.75,(30:56.525,(31:23.55,((32:1.75,(33:12.725,34:9.875):11.625):1.75,(35:46.71666667,(36:12.58333333,((37:14.74375,38:9.24375):9.24375,((39:6.1625,(40:5.45,41:9.1):11.6125):6.1625,(42:11.825,((43:8.075,44:1.825):7.275,(45:2.725,46:3.825):2.725):2.725):15.05):6.1625):18.74583333):12.58333333):16.08333333):1.75):1.75):1.75):1.75):1.75):1.75):20.51666667):12.99047619):3.607142857):3.607142857):3.607142857,(47:10.74285714,(((48:2.685714286,49:2.685714286):2.685714286,((50:24.49583333,(51:66.65,(52:4.55,(53:49.1125,(54:42.775,(55:35.3375,(56:25.35,((57:16.325,(58:11.0875,59:6.3375):6.3375):6.3375,((60:3.94375,61:5.04375):3.94375,((62:0.9125,63:6.0625):0.9125,(64:0.9125,65:0.9125):0.9125):0.9125):19.925):6.3375):6.3375):6.3375):6.3375):10.8875):4.55):29.04583333):24.49583333,(66:25.93333333,(67:68.075,((68:30.95833333,69:4.858333333):4.858333333,((70:9.666666667,71:27.91666667):9.666666667,(72:16.56666667,(73:38.41666667,(74:0.7333333333,((75:18.1,(76:3.1,(77:3.366666667,(78:10.48333333,79:1.683333333):1.683333333):4.783333333):3.1):25.375,((80:14.3,(81:0.05,82:17.9):0.05):14.9,(83:7.425,(84:15.95,((85:8.2,((86:7.75,(87:2.05,88:5.7):2.05):2.05,(89:4.1,(90:2.05,(91:3.225,92:1.525):3.575):2.05):2.05):2.05):2.05,((93:9.8,(94:7.75,(95:2.05,(96:1.825,97:1.825):3.875):2.05):2.05):2.05,((98:4.316666667,99:4.316666667):4.316666667,(100:2.7,(101:2.45,102:1.35):1.35):9.983333333):4.316666667):2.05):2.05):9.475):7.425):7.425):8.158333333):0.7333333333):17.3):16.56666667):19.38333333):4.858333333):4.858333333):4.858333333):10.2297619):2.685714286,(103:23.32,(104:17.49,((105:5.83,106:21.58):5.83,((107:64.78076923,108:26.38076923):26.38076923,(109:40.92307692,(110:36.65961538,(111:83.19615385,(112:91.20769231,(113:88.01923077,(114:44.00576923,(115:46.19230769,(116:56.82884615,((117:42.20769231,(118:3,119:1.05):43.25769231):42.20769231,((120:0.9384615385,121:4.488461538):0.9384615385,(122:2.713461538,(123:33.54,(124:20.83,(125:13.295,(126:4.21,(127:16.18333333,(128:0.5166666667,(129:20.575,(130:17.35,(131:2.225,(132:2,(133:7.0125,(134:2.8125,(135:5.4375,((136:1.8125,137:21.5125):1.8125,(138:20.45833333,((139:2.983333333,((140:2.125,(141:1.0625,142:1.0625):1.0625):1.0625,((143:7.16,144:2.01):2.01,(145:8.44,(146:1.46,(147:0.73,(148:0.55,149:2.5):1.28):0.73):0.73):0.73):3.9175):4.045833333):2.983333333,(150:18.675,(151:9.533333333,(152:0.3416666667,(153:18.34375,((154:12.09375,155:5.84375):5.84375,((156:5.640625,157:5.640625):5.640625,(158:10.875,(159:16.71875,(160:6.4125,(161:10.75625,162:0.40625):0.40625):0.40625):0.40625):0.40625):0.40625):0.40625):0.7479166667):0.3416666667):0.3416666667):0.3416666667):0.3416666667):3.966666667):1.8125):4.625):9.825):9.0125):4.225):2.225):2.225):2.741666667):0.5166666667):4.726666667):4.21):4.21):4.21):6.923461538):2.713461538):0.9384615385):0.9384615385):0.9384615385):0.9384615385):0.9384615385):0.9384615385):0.9384615385):0.9384615385):0.9384615385):0.9384615385):12.59846154):5.83):5.83):13.88714286):2.685714286):2.685714286):2.685714286):11.61071429):14.725):5.8,((163:4.64,((164:13.12115385,165:13.12115385):13.12115385,(166:11.63461538,(167:33.47692308,(168:9.519230769,((169:46.80384615,(170:6.346153846,(((171:19.37948718,172:7.979487179):7.979487179,(173:10.10448718,174:10.10448718):10.10448718):7.979487179,(175:4.230769231,(176:7.273076923,(177:2.115384615,(178:14.60769231,179:1.057692308):1.057692308):1.057692308):1.057692308):1.057692308):1.057692308):1.057692308):1.057692308,(180:29.66923077,((181:7.484615385,(182:15.24230769,183:1.692307692):1.692307692):1.692307692,(184:3.28,(185:2.46,(186:38.09,(187:0.82,(188:28.7625,(189:19.875,(190:3.6375,(191:29.2,(192:4.2,((193:10.36666667,(194:1.283333333,195:1.283333333):1.283333333):12.58333333,(196:5.65,(197:3.526923077,((198:11.57692308,199:34.52692308):11.57692308,(200:10.38076923,(201:18.50769231,((202:16.13681319,((203:49.42600733,(204:17.26300366,205:32.16300366,206:27.21300366):17.26300366):17.26300366,((207:9.843406593,(208:33.6706044,(209:8.247802198,210:2.097802198):2.097802198):2.097802198):2.097802198,((211:3.213736264,(212:2.783333333,(213:0.7666666667,214:0.7666666667):0.7666666667):3.98040293):3.213736264,(215:1.725,(216:1.15,(217:0.575,218:0.575,219:0.575):0.575):0.575):7.002472527):3.213736264):2.097802198):2.097802198):2.097802198,((220:1.605769231,221:16.35576923):1.605769231,(222:17.68846154,(223:55.16538462,(224:18.39230769,((225:13.04615385,(226:0.2730769231,(227:8.025,228:30.625):8.298076923):0.2730769231):0.2730769231,((229:0.3730769231,(230:37.125,231:7.875):8.248076923):0.3730769231,((232:40.225,(233:0.775,(234:6.7,235:2.65):3.425):41):44.55833333,(236:2.166666667,(237:37.44722222,(238:59.79444444,(239:34.26666667,(240:83.08888889,(241:45.26111111,(242:55.58333333,(243:55.83055556,(244:48.35277778,(245:28.175,(246:61.12222222,(247:79.76944444,(248:78.71666667,((249:38.53194444,250:33.38194444):33.38194444,((251:47.40833333,(252:70.45555556,(253:1.052777778,(254:31.8,255:38.65):32.85277778):1.052777778):1.052777778):1.052777778,(256:68.27407407,(257:2.587037037,(258:22.625,(259:16.41666667,(260:3.133333333,261:8.533333333):3.133333333):25.75833333):25.21203704):2.587037037):2.587037037):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):1.052777778):3.219444444):2.166666667):2.912820513):0.3730769231):0.2730769231):0.2730769231):0.2730769231):0.2730769231):0.2730769231):0.2730769231):0.2730769231):0.2730769231):0.2730769231):5.923076923):5.65):9.85):4.2):7.8375):3.6375):3.6375):4.4575):0.82):0.82):0.82):5.896923077):1.692307692):1.692307692):1.057692308):1.057692308):1.057692308):1.057692308):5.697692308):4.64,((262:4.64,(263:2.32,264:11.77):2.32):2.32,(265:3.48,(266:12.03125,(((267:26.071875,268:4.296875):4.296875,(269:34.825,(270:5.15625,((271:7.775,272:6.775):10.2125,(273:1.71875,(274:21.53333333,(275:1.366666667,276:33.76666667):1.366666667):3.085416667):1.71875):1.71875):1.71875):1.71875):1.71875,((277:53.6171875,((278:23.05572917,279:14.65572917):14.65572917,(280:59.0125,(281:31.175,(282:15.5875,((283:14.73333333,284:12.78333333):12.78333333,(285:3.283333333,(286:15.35,((287:7.775,288:7.775):9.041666667,(289:0.6333333333,290:24.98333333,291:24.98333333):0.6333333333):0.6333333333):0.6333333333):0.6333333333):16.22083333):15.5875):15.5875):44.89895833):14.65572917):14.65572917,(292:50.49583333,((((293:7.5,294:0.15):1.25,(295:0.55,296:0.55):0.55):36.3765625,((297:17.15,(298:0.55,299:4):0.55):24.434375,(300:11.9421875,(301:69.165,(302:36.855,((303:7.835,304:17.86):7.835,(305:19.2975,306:27.5475):19.2975):7.835):7.835):19.7771875):11.9421875):11.9421875):11.9421875,((307:58.38125,(308:38.62083333,(309:6.210416667,((310:10.2,311:11.5):10.2,(312:14.825,(313:11.3,(314:5.933333333,(315:2.966666667,(316:14.1,(317:7.05,318:12.9):7.05):10.01666667):2.966666667):14.26666667):26.125):14.825):16.41041667):6.210416667):6.210416667):6.210416667,(319:86.51458333,(320:104.2125,(321:43.66041667,((322:80.36666667,((323:57.23333333,(324:10.46666667,(325:87.825,326:4.625):15.09166667):10.46666667):10.46666667,(327:31.625,(328:46.50714286,(329:45.01428571,((330:17.53571429,331:14.48571429):14.48571429,(332:21.72857143,((333:7.242857143,334:7.242857143):7.242857143,(335:7.783333333,(336:7.866666667,337:1.016666667):1.016666667):15.50238095):7.242857143):7.242857143):7.242857143):7.242857143):38.86785714):31.625):10.46666667):10.46666667,((338:57.4875,(339:15.01875,(340:35.51666667,(341:37.13333333,(342:34.3,(343:27.01666667,(344:2.833333333,345:45.98333333):2.833333333):2.833333333):2.833333333):2.833333333):17.85208333):15.01875):15.01875,(346:101.3041667,((347:29.10138889,(348:14.40069444,(349:60.675,350:8.025):22.42569444):14.40069444):14.40069444,(351:58.475,((352:40.71145833,(353:1.6625,(354:8.675,(355:5.8,(356:5.3,(357:1.1,((358:0.85,359:0.85):12.21666667,(360:5.683333333,(361:0.85,362:2.8):6.533333333):5.683333333):6.783333333):1.1):6.9):14.475):10.3375):42.37395833):40.71145833,((363:85.97291667,364:48.99791667):48.99791667,((365:55.36666667,((366:130.1625,(367:75.63541667,(368:111.5583333,(369:78.53125,(370:106.7041667,(371:0.7770833333,(372:52.575,373:52.575):53.35208333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333,(374:61.2296875,((375:20.40989583,376:73.35989583):20.40989583,(377:43.575,((378:19.6,379:20.7):24.95,(380:2.675,((381:22.8,(382:8.75,383:12.95):8.75):8.75,(384:4.0625,(385:3.925,(386:0.1375,387:0.1375):0.1375):0.1375):26.3875):11.425):2.675):2.675):43.49479167):20.40989583):20.40989583):0.7770833333):0.7770833333,((388:78.4796875,(389:36.68984375,(390:11.78333333,(391:8.816666667,392:4.066666667):4.066666667):40.75651042):36.68984375):36.68984375,(393:76.4203125,(394:61.67109375,((395:81.37265625,(396:95.1984375,(397:7.17421875,398:34.32421875):7.17421875):7.17421875):7.17421875,(((399:7.74,400:7.74):7.74,(401:21.09166667,(402:1.383333333,(403:21.05,(404:1.525,(405:1.4,406:0.3):1.825):22.575):22.43333333):1.383333333):16.86333333):7.74,(407:54.69,(408:22.51,(409:15.48,(410:38.5,((411:58.74,(412:37.21,(413:48.83,414:2.58):2.58):2.58):2.58,(415:44.11,((416:20.985,417:20.985):20.985,(418:39.83,(419:2.14,420:42.44):2.14):2.14):2.14):12.46):2.58):2.58):2.58):2.58):2.58):31.276875):7.17421875):7.17421875):7.17421875):7.17421875):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):0.7770833333):11.08958333):1.71875):5.19875):3.48):2.32):2.32);
+END;
