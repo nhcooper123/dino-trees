@@ -1,0 +1,509 @@
+#NEXUS
+[R-package APE, Tue Apr 16 16:58:10 2019]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 248;
+	TAXLABELS
+		Herrerasaurus
+		Staurikosaurus
+		Eoraptor
+		Daemonosaurus
+		Tawa
+		Skayentakatae
+		Coelophysis_bauri
+		Coelophysis_rhodesiensis
+		Liliensternus
+		Zupaysaurus
+		Dilophosaurus
+		Spinostropheus
+		Elaphrosaurus
+		Limusaurus
+		Ceratosaurus
+		Genyodectes
+		Masiakasaurus
+		Genusaurus
+		Noasaurus
+		Velocisaurus
+		Laevisuchus
+		Eoabelisaurus
+		Rugops
+		Abelisaurus
+		Indosaurus
+		Majungasaurus
+		Rajasaurus
+		Aucasaurus
+		Carnotaurus
+		Ekrixinatosaurus
+		Skorpiovenator
+		Ilokelesia
+		Cryolophosaurus
+		D_sinensis
+		Monolophosaurus
+		Chuandongocoelurus
+		Marshosaurus
+		Condorraptor
+		Piatnizkysaurus
+		Spinosaurus
+		Angaturama
+		Irritator
+		Suchomimus
+		Baryonyx
+		Eustreptospondylus
+		Afrovenator
+		Magnosaurus
+		Dubreuillosaurus
+		Leshansaurus
+		Piveaeausaurus
+		Duriavenator
+		Megalosaurus
+		Torvosaurus
+		Shidaisaurus
+		Metriacanthosaurus
+		Sinraptor_hepingensis
+		Sinraptor_dongi
+		Siamotyrannus
+		Yangchuanosaurus_zigongensis
+		Yangchuanosaurus_magnus
+		CV00214
+		Allosaurus
+		Saurophaganax
+		Neovenator
+		Chilantaisaurus
+		Aerosteon
+		Megaraptor
+		Australovenator
+		Fukuiraptor
+		Eocarcharia
+		Concavenator
+		Acrocanthosaurus
+		Shaochilong
+		Tyrannotitan
+		Carcharodontosaurus
+		Giganotosaurus
+		Mapusaurus
+		Zuolong
+		Tanycolagreus
+		Guanlong
+		Proceratosaurus
+		Sinotyrannus
+		Dilong
+		Stokesosaurus
+		Eotyrannus
+		Xiongguanlong
+		Dryptosaurus
+		Appalachiosaurus
+		Bistahieversor
+		Albertosaurus
+		Gorgosaurus
+		Alioramus
+		Teratophoneus
+		Daspletosaurus
+		Tarbosaurus
+		Tyrannosaurus
+		Nqwebasaurus
+		Pelecanimimus
+		Hexing
+		Shenzhousaurus
+		Harpymimus
+		Beishanlong
+		Garudimimus
+		Archaeornithomimus
+		Sinornithomimus
+		Gallimimus
+		Anserimimus
+		Struthiomimus
+		Dromiceomimus
+		Ornithomimus
+		Ornitholestes
+		Sinosauropteryx
+		Huixagnathus
+		Compsognathus
+		Haplocheirus
+		Patagonykus
+		Alvarezsaurus
+		Parvicursor
+		Mononykus
+		Shuvuuia
+		Incisivosaurus
+		Caudipteryx
+		Protarchaeopteryx
+		Similicaudipteryx
+		Avimimus
+		Microvenator
+		Gigantoraptor
+		Caenagnathasia
+		Elmisaurus
+		Leptorhynchos
+		Hagryphus
+		Chirostenotes
+		Caenagnathus
+		Oviraptor
+		Rinchenia
+		Citipati
+		Khaan
+		Conchoraptor
+		Machairasaurus
+		Nemegtomaia
+		Heyuannia
+		Ingenia
+		Falcarius
+		Beipiaosaurus
+		Alxasaurus
+		Erliansaurus
+		Neimongosaurus
+		Enigmosaurus
+		Suzhousaurus
+		Nanshiungosaurus
+		Segnosaurus
+		Erlikosaurus
+		Therizinosaurus
+		Nothronychus_graffami
+		Nothronychus_mckinleyi
+		Epidexipteryx
+		Anchiornis
+		Xiaotingia
+		IGM100/1323
+		IGM100/1126
+		Jinfengopteryx
+		Mei
+		Sinovenator
+		Xixiasaurus
+		IGM100/44
+		Byronosaurus
+		Sinornithoides
+		Troodon
+		Linhevenator
+		Saurornithoides
+		Zanzabazaar
+		Makhala
+		Rahonavis
+		Buitreraptor
+		Unenlagia
+		Austroraptor
+		Shanag
+		Microraptor_zhaoianus
+		Microraptor_gui
+		Hesperonychus
+		Graciliraptor
+		Sinornithosaurus
+		Tianyuraptor
+		Dromaeosaurus
+		Achillobator
+		Utahraptor
+		Atrociraptor
+		Bambiraptor
+		Tsaagan
+		Saurornitholestes
+		Adasaurus
+		Balaur
+		Velociraptor
+		Deinonychus
+		Archaeopteryx
+		Sapeornis
+		Jeholornis
+		Jixianornis
+		Zhongornis
+		Eoconfuciusornis
+		Changchengornis
+		Confuciusornis_sanctus
+		Confuciusornis_dui
+		Jinzhouornis_zhangjiyingia
+		Protopteryx
+		Otogornis
+		Elsornis
+		Shenqiornis
+		Longipteryx
+		Boluochia
+		Rapaxavis
+		Iberomesornis
+		Shanweiniao
+		Longirostravis
+		Vescornis
+		Pengornis
+		Gobipteryx
+		Neuquenornis
+		Eoenantiornis
+		Concornis
+		Eocathayornis
+		Cathayornis
+		Liaoningornis
+		Eoalulavis
+		Archaeorhynchus
+		Patagopteryx
+		Jianchangornis
+		Schizooura
+		Vorona
+		Zhongjianornis
+		Chaoyangia
+		Hongshanornis
+		Longicrusavis
+		Yixianornis
+		Yanornis
+		Songlingornis
+		Gansus
+		Apsaravis
+		Ambiortus
+		Hollanda
+		Ichthyornis
+		Vegavis
+		Limenavis
+		Enaliornis
+		Baptornis_advenus
+		Baptornis_varneri
+		Parahesperornis
+		Hesperornis
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Herrerasaurus,
+		2	Staurikosaurus,
+		3	Eoraptor,
+		4	Daemonosaurus,
+		5	Tawa,
+		6	Skayentakatae,
+		7	Coelophysis_bauri,
+		8	Coelophysis_rhodesiensis,
+		9	Liliensternus,
+		10	Zupaysaurus,
+		11	Dilophosaurus,
+		12	Spinostropheus,
+		13	Elaphrosaurus,
+		14	Limusaurus,
+		15	Ceratosaurus,
+		16	Genyodectes,
+		17	Masiakasaurus,
+		18	Genusaurus,
+		19	Noasaurus,
+		20	Velocisaurus,
+		21	Laevisuchus,
+		22	Eoabelisaurus,
+		23	Rugops,
+		24	Abelisaurus,
+		25	Indosaurus,
+		26	Majungasaurus,
+		27	Rajasaurus,
+		28	Aucasaurus,
+		29	Carnotaurus,
+		30	Ekrixinatosaurus,
+		31	Skorpiovenator,
+		32	Ilokelesia,
+		33	Cryolophosaurus,
+		34	D_sinensis,
+		35	Monolophosaurus,
+		36	Chuandongocoelurus,
+		37	Marshosaurus,
+		38	Condorraptor,
+		39	Piatnizkysaurus,
+		40	Spinosaurus,
+		41	Angaturama,
+		42	Irritator,
+		43	Suchomimus,
+		44	Baryonyx,
+		45	Eustreptospondylus,
+		46	Afrovenator,
+		47	Magnosaurus,
+		48	Dubreuillosaurus,
+		49	Leshansaurus,
+		50	Piveaeausaurus,
+		51	Duriavenator,
+		52	Megalosaurus,
+		53	Torvosaurus,
+		54	Shidaisaurus,
+		55	Metriacanthosaurus,
+		56	Sinraptor_hepingensis,
+		57	Sinraptor_dongi,
+		58	Siamotyrannus,
+		59	Yangchuanosaurus_zigongensis,
+		60	Yangchuanosaurus_magnus,
+		61	CV00214,
+		62	Allosaurus,
+		63	Saurophaganax,
+		64	Neovenator,
+		65	Chilantaisaurus,
+		66	Aerosteon,
+		67	Megaraptor,
+		68	Australovenator,
+		69	Fukuiraptor,
+		70	Eocarcharia,
+		71	Concavenator,
+		72	Acrocanthosaurus,
+		73	Shaochilong,
+		74	Tyrannotitan,
+		75	Carcharodontosaurus,
+		76	Giganotosaurus,
+		77	Mapusaurus,
+		78	Zuolong,
+		79	Tanycolagreus,
+		80	Guanlong,
+		81	Proceratosaurus,
+		82	Sinotyrannus,
+		83	Dilong,
+		84	Stokesosaurus,
+		85	Eotyrannus,
+		86	Xiongguanlong,
+		87	Dryptosaurus,
+		88	Appalachiosaurus,
+		89	Bistahieversor,
+		90	Albertosaurus,
+		91	Gorgosaurus,
+		92	Alioramus,
+		93	Teratophoneus,
+		94	Daspletosaurus,
+		95	Tarbosaurus,
+		96	Tyrannosaurus,
+		97	Nqwebasaurus,
+		98	Pelecanimimus,
+		99	Hexing,
+		100	Shenzhousaurus,
+		101	Harpymimus,
+		102	Beishanlong,
+		103	Garudimimus,
+		104	Archaeornithomimus,
+		105	Sinornithomimus,
+		106	Gallimimus,
+		107	Anserimimus,
+		108	Struthiomimus,
+		109	Dromiceomimus,
+		110	Ornithomimus,
+		111	Ornitholestes,
+		112	Sinosauropteryx,
+		113	Huixagnathus,
+		114	Compsognathus,
+		115	Haplocheirus,
+		116	Patagonykus,
+		117	Alvarezsaurus,
+		118	Parvicursor,
+		119	Mononykus,
+		120	Shuvuuia,
+		121	Incisivosaurus,
+		122	Caudipteryx,
+		123	Protarchaeopteryx,
+		124	Similicaudipteryx,
+		125	Avimimus,
+		126	Microvenator,
+		127	Gigantoraptor,
+		128	Caenagnathasia,
+		129	Elmisaurus,
+		130	Leptorhynchos,
+		131	Hagryphus,
+		132	Chirostenotes,
+		133	Caenagnathus,
+		134	Oviraptor,
+		135	Rinchenia,
+		136	Citipati,
+		137	Khaan,
+		138	Conchoraptor,
+		139	Machairasaurus,
+		140	Nemegtomaia,
+		141	Heyuannia,
+		142	Ingenia,
+		143	Falcarius,
+		144	Beipiaosaurus,
+		145	Alxasaurus,
+		146	Erliansaurus,
+		147	Neimongosaurus,
+		148	Enigmosaurus,
+		149	Suzhousaurus,
+		150	Nanshiungosaurus,
+		151	Segnosaurus,
+		152	Erlikosaurus,
+		153	Therizinosaurus,
+		154	Nothronychus_graffami,
+		155	Nothronychus_mckinleyi,
+		156	Epidexipteryx,
+		157	Anchiornis,
+		158	Xiaotingia,
+		159	IGM100/1323,
+		160	IGM100/1126,
+		161	Jinfengopteryx,
+		162	Mei,
+		163	Sinovenator,
+		164	Xixiasaurus,
+		165	IGM100/44,
+		166	Byronosaurus,
+		167	Sinornithoides,
+		168	Troodon,
+		169	Linhevenator,
+		170	Saurornithoides,
+		171	Zanzabazaar,
+		172	Makhala,
+		173	Rahonavis,
+		174	Buitreraptor,
+		175	Unenlagia,
+		176	Austroraptor,
+		177	Shanag,
+		178	Microraptor_zhaoianus,
+		179	Microraptor_gui,
+		180	Hesperonychus,
+		181	Graciliraptor,
+		182	Sinornithosaurus,
+		183	Tianyuraptor,
+		184	Dromaeosaurus,
+		185	Achillobator,
+		186	Utahraptor,
+		187	Atrociraptor,
+		188	Bambiraptor,
+		189	Tsaagan,
+		190	Saurornitholestes,
+		191	Adasaurus,
+		192	Balaur,
+		193	Velociraptor,
+		194	Deinonychus,
+		195	Archaeopteryx,
+		196	Sapeornis,
+		197	Jeholornis,
+		198	Jixianornis,
+		199	Zhongornis,
+		200	Eoconfuciusornis,
+		201	Changchengornis,
+		202	Confuciusornis_sanctus,
+		203	Confuciusornis_dui,
+		204	Jinzhouornis_zhangjiyingia,
+		205	Protopteryx,
+		206	Otogornis,
+		207	Elsornis,
+		208	Shenqiornis,
+		209	Longipteryx,
+		210	Boluochia,
+		211	Rapaxavis,
+		212	Iberomesornis,
+		213	Shanweiniao,
+		214	Longirostravis,
+		215	Vescornis,
+		216	Pengornis,
+		217	Gobipteryx,
+		218	Neuquenornis,
+		219	Eoenantiornis,
+		220	Concornis,
+		221	Eocathayornis,
+		222	Cathayornis,
+		223	Liaoningornis,
+		224	Eoalulavis,
+		225	Archaeorhynchus,
+		226	Patagopteryx,
+		227	Jianchangornis,
+		228	Schizooura,
+		229	Vorona,
+		230	Zhongjianornis,
+		231	Chaoyangia,
+		232	Hongshanornis,
+		233	Longicrusavis,
+		234	Yixianornis,
+		235	Yanornis,
+		236	Songlingornis,
+		237	Gansus,
+		238	Apsaravis,
+		239	Ambiortus,
+		240	Hollanda,
+		241	Ichthyornis,
+		242	Vegavis,
+		243	Limenavis,
+		244	Enaliornis,
+		245	Baptornis_advenus,
+		246	Baptornis_varneri,
+		247	Parahesperornis,
+		248	Hesperornis
+	;
+	TREE * phy = [&R] ((1:1,2:2.970236311):1,(3:1,(4:7.641510083,(5:2.948966047,((6:13.94638056,7:1,8:11.7760621):12.96400799,(9:12.90645195,(10:1,(11:3.648058378,(((12:6.027824161,(13:9.741447678,14:1):1):16.96174996,((15:1,16:41.43343029):18.55692364,((17:43.26009124,18:1,19:38.80016095,20:24.38418174,21:43.60394952):64.45535339,(22:1,(23:8.663903437,(24:20.33425264,((25:1,26:1.498677974,27:4.546654785):32.10517127,((28:11.0603382,29:1):18.79353254,(30:1,31:9.226736248,32:11.16177895):1):1):1):1):68.25551434):1):1):1):17.29847872,(33:5.275158506,34:1,(35:17.31538057,36:14.0256853,(((37:19.28168558,(38:1,39:3.06925394):1):7.391660463,(((40:11.97235005,41:4.282376114,42:1):20.42764995,(43:12.42755925,44:1):1):43.6,(45:13.4,((46:12.04877598,47:1,48:7.054258461,49:15.03734105,50:11.4):1,(51:1,(52:1,53:17.62821561):1.725039364):4.9):1):1):1):1,((((54:1,(55:1,56:4.033880313,57:6.494613344,58:49.38154895):5.623196895):5.197311799,(59:1,(60:2.7509656,61:1):11.39643618):1):1,((62:1.969712646,63:1):1,((64:3.436682205,(65:37.14363765,((66:17.37249063,67:1):38.94968831,(68:28.64968831,69:1):1):1):1):1,((70:6.227386179,71:1):1,(72:2.907381268,(73:27.63928304,(74:1,(75:2,(76:1,77:10.17837582):1):18.40869815):1):1):4.99130185):5.249688307):16.31020727):25.46061312):1,(78:17.1628163,((79:25.15698491,((80:8.955592977,(81:1,82:54.55784):1):1,(83:24.70361776,((84:1,85:20.68924376):1,(86:1,(87:20.73330722,(88:8.081699683,(89:13.63330722,((90:9.034585659,91:1):1,(92:4.169401044,(93:3.169401044,(94:1,(95:1,96:1.282190294):2.139635075):1):1):8.463906172):1):1):1):17.18313227):45.28717827):1):20.21699796):1):1,((97:1,(98:2,(99:37.50729815,100:1,(101:9.529530643,(102:1,(103:1,(104:3.573289713,(105:1,((106:1,107:1):13.48824726,(108:1,(109:5.023931051,110:1):12.48824726):1):7.770803605):1):3.632777827):21.05651439):1):6.451656916):1):16.59038168):26.65810182,((111:1.482908041,(112:27.8,(113:26.8,114:1):1):1):15.4484835,((115:1,(116:1,(117:1,(118:1,119:3.547684935,120:3.547684935):11.46373284):4.688582222):67.28268157):10.66580193,((121:2,(122:1,123:1,124:13.12048016,(125:27.27193793,((126:1,(127:25.45597879,(128:1,129:21.3854557,(130:2,131:2,(132:1,133:1):1):19.3854557):1):13.94345708):1,((134:2,(135:1,136:1):1):11.71531488,(137:12.71531488,(138:1,(139:8.091296562,(140:7.091296562,141:9.754350386,142:1):1):3.624018317):1):1):23.6135979):1):17.07108722):1):40.2484835,(143:1,(144:1,(145:1,(146:24.60567885,(147:38.7045421,(148:12.13100209,(149:1,(150:16.2482168,151:2.767699476,152:2.198584813,153:24.55036141,(154:1,155:4.754607844):1):8.426335328):1):1):1):6.878683837):12.54461943):2.106675628):39.14180787,(156:1,((((157:1,158:1.289215358):1,((159:59.50556843,(160:66.86254133,161:1):1):1,((162:2,(163:1,164:39.98402799):1):1,(165:27.1119375,(166:46.45148,(167:1,(168:2,169:2,(170:1,171:1):1):52.1119375):1):1):1.288062497):15.25873837):19.12475654):1,(172:73.90795126,((173:32.69919641,(174:1,(175:1,176:12.92696119):10.3):1):41.90795126,((177:1,(178:4.705781031,179:6.260781757,180:55.4,181:1,182:12.99848755,183:1):15.50795126):1,((184:50.14240372,185:38.41759082,186:1,187:55.4):1,(188:3.709930752,(189:9.591722762,(190:8.16464346,(191:13.32068657,192:15.64480143,193:1,194:13.32068657):1):1):1):40.07931343):15.50795126):1):1):18.87554365):1,(195:1.222279454,(196:34.73010389,(197:34.83922086,(198:24.02227945,((199:5.885602593,(200:1,(201:2,202:2,(203:1,204:1):1):2.885602593):1):17.13667686,((205:16.02227945,206:17.0700835,((207:69.08576194,208:1):5.336517516,((209:1,210:2.048706347):21.13016126,(211:30.27654014,(212:17.02227945,(213:16.02227945,214:16.02227945,(215:15.02227945,216:27.81698023,217:60.7042544,(218:53.42100968,(219:13.02227945,(220:12.02227945,(221:20.23689606,(222:1,(223:1,224:1):9.022279454):1):1):1):1):1):1):1):1):1):1):1):1,(225:15.81994071,(226:54.91961752,227:19.10475721,228:17.23584569,229:72.96865035,230:22.14622278,231:23.83330916,(((232:1,233:1):1,(234:11.87157015,(235:9.256492315,236:1):1):1.209005873):11.81994071,(237:16.01232162,((238:57.78968919,239:1):1,(240:20.52420607,(241:17.15749843,(242:36.1,(243:30,244:1,(245:5.784494889,(246:16.56870664,(247:1,248:3.035506329):1):1):11.0316525):1):1):1):33.21994071):1):1):1):1):6.202338743):1):1):1):1):1):12.36121546):1.864988584):1):1):1):1):1.672132216):1):2.099892977):2.579491306):1):13.55399306):1):1):20.30014911):1):1):1):1):2.626784434):3.816730087);
+END;
