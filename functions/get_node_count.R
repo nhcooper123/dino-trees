@@ -39,3 +39,13 @@ get_node_count <- function(phy){
 # mytree <- rtree(50)
 # nodes <- get_node_count(mytree)
 # nodes
+
+#---------------------------------------------------------------------------------------
+# Extract node counts for trees
+#---------------------------------------------------------------------------------------
+
+create_node_counts <- function(tree, path, tree.name){
+  nodecount <- get_node_count(tree)
+  write.csv(nodecount, paste0(path, tree.name, ".csv"))
+}
+
