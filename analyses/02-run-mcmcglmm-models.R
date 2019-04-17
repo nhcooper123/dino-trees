@@ -32,8 +32,8 @@ burnin <- 5E04
 tree.list <- list.files("data/trees", pattern = ".nex")
 
 # Make output files # 17 trees
-output <- make_mcmc_output(ntrees = length(tree.list))
-output2 <- make_mcmc_output_intercept(ntrees = length(tree.list))
+output <- make_mcmc_output(ntrees = 2100)
+output2 <- make_mcmc_output_intercept(ntrees = 2100)
 
 #----------------------------------------------------------------
 # Run models
@@ -79,6 +79,9 @@ for(i in 1:length(tree.list)){
       # Save the outputs
       write_csv(output, path = "outputs/mcmcglmm_outputs.csv")
       write_csv(output2, path = "outputs/mcmcglmm_outputs_intercepts.csv")
+      
+      # Add to counter
+      tree.no <- tree.no + 1
     }
   }
   else{
