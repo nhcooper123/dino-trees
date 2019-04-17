@@ -4,6 +4,7 @@
 # Load libraries
 library(tidyverse)
 library(xtable)
+source("functions/run_mcmcglmm.R")
 
 # Load the data
 ds <- read.csv("outputs/mcmcglmm_outputs.csv")
@@ -30,11 +31,11 @@ dsi <- read.csv("outputs/mcmcglmm_outputs_intercepts.csv")
              "Ornithischia")
             
 # Formatting the tables
-table_out <- data.frame(tree, clade, dic[, 3:5])
+table_out <- data.frame(tree, clade, ds[, 3:5])
 colnames(table_out) <- c("tree", "clade", "null DIC",
                          "slowdown DIC", "asymptote DIC")
 
-table_outi <- data.frame(tree, clade, dici[, 3:5])
+table_outi <- data.frame(tree, clade, dsi[, 3:5])
 colnames(table_outi) <- c("tree", "clade", "null DIC",
                          "slowdown DIC", "asymptote DIC")
   
