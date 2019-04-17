@@ -49,8 +49,6 @@ for (i in 1:length(tree.list)){
 taxonomy <- read.csv("data/dino-taxonomy.csv")
 clades1 <- c("Dinosauromorpha", "Ornithischia", "Sauropodomorpha", "Theropoda")
 clades2 <- c("Ornithischia", "Sauropodomorpha", "Theropoda")
-
-
 #------------------
 # Benson trees
 #------------------
@@ -97,12 +95,17 @@ for(k in 1:length(tree.list)){
   # Read in tree
   tree <- read.nexus(paste0("data/trees/", tree.list[[k]]))
   
-  # If there is > 1 tree then select one tree (randomly chosen #57)
+  # If there is > 1 tree then run on all 100 dated trees
   if(class(tree) == "multiPhylo"){
-    tree <- tree[[57]]
+    for(j in 1:100){
+      tree <- tree[[j]]
+    
+      # Get node counts
+      create_node_counts(tree, path = "data/nodecounts/", 
+                       tree.name = paste0("nodecount_", tree.list[k], "_", j))
+    }
   }
-  
-  # Get node counts
+  # Otherwise just get node counts
   create_node_counts(tree, path = "data/nodecounts/", 
                      tree.name = paste0("nodecount_", tree.list[k]))
 }
