@@ -25,7 +25,14 @@ for (i in 1:length(tree.list)){
   
   # If there is > 1 tree then select MPR tree
   if(class(tree1) == "multiPhylo"){
-  tree1 <- tree1[[1]]
+    tree1 <- tree1[[1]]
+  }
+  
+  if(is.rooted(tree1) == FALSE){
+    tree <- root(tree, outgroup = c("Lagerpeton_chanarensis", "Dromomeron_gregorii", "Dromomeron_romeri",
+                                    "Marasuchus_lilloensis", "Lewisuchus_admixtus", "Asilisaurus_kongwe",
+                                    "Eucoelophysis_baldwini", "Silesaurus_opolensis", "Sacisaurus_agudoensis",
+                                    "Diodorus_scytobrachion"))
   }
   
   # Remove names column and add it to row names
