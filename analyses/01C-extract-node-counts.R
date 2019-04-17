@@ -24,15 +24,17 @@ for(k in 1:length(tree.list)){
     
     for(j in 1:100){
       
-      tree <- tree[[j]]
+      tree1 <- tree[[j]]
       
       # Get node counts
-      create_node_counts(tree, path = "data/nodecounts/", 
-                         tree.name = paste0("nodecount_", tree.list[k]))
+      create_node_counts(tree1, path = "data/nodecounts/", 
+                         tree.name = paste0("nodecount_", tree.list[k], "_", j))
     }
   }
+  else{
   
   # Otherwise just get node counts
   create_node_counts(tree, path = "data/nodecounts/", 
                      tree.name = paste0("nodecount_", tree.list[k]))
+  }
 }
