@@ -54,8 +54,8 @@ for (i in 1:length(tree.list)){
 #--------------------------------------------------------------------
 # Read in taxonomy
 taxonomy <- read.csv("data/dino-taxonomy.csv")
-clades1 <- c("Dinosauromorpha", "Ornithischia", "Sauropodomorpha", "Theropoda")
-clades2 <- c("Ornithischia", "Sauropodomorpha", "Theropoda")
+clades1 <- c("Ceratopsidae", "Dinosauromorpha", "Hadrosauriformes", "Ornithischia", "Sauropodomorpha", "Theropoda")
+clades2 <- c("Ceratopsidae", "Hadrosauriformes", "Ornithischia", "Sauropodomorpha", "Theropoda")
 #------------------
 # Benson trees
 #------------------
