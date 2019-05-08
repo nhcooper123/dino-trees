@@ -57,26 +57,69 @@ write.nexus(tree_dated2, file = "data/trees/Benson2.nex")
 # Extract clade trees for the whole dinosaur trees
 #--------------------------------------------------------------------
 # Read in taxonomy
-taxonomy <- read.csv("data/dino-taxonomy.csv")
-clades1 <- c("Ceratopsidae", "Dinosauromorpha", "Hadrosauriformes", "Ornithischia", "Sauropodomorpha", "Theropoda")
-clades2 <- c("Ceratopsidae", "Hadrosauriformes", "Ornithischia", "Sauropodomorpha", "Theropoda")
+taxonomy <- read_csv("data/dino-taxonomy.csv")
+clades1 <- c("Ornithischia", "Sauropodomorpha", "Theropoda")
+clades2 <- c("Ceratopsidae", "Hadrosauriformes")
 
-# Split into clades for each of the 100 dated trees
-for (i in 1:100) {
-  # Create clade tree and write to file
-  # Note 10 species = early dinosaurs that do not fit into any of the three clades
-  clade.list <- extract_clade_trees(tree_dated1[[i]], taxonomy, 
-                                  species.col.name = "taxon", 
-                                  clade.col.name = "clade")
+# Benson tree 1
+# Loop through 100 trees
+for(j in 1:100){
+  tree <- tree_dated1[[j]]
 
-  # Root trees that are not rooted
-  clade.list[["Sauropodomorpha"]] <- root(clade.list[["Sauropodomorpha"]], outgroup = c("Pampdromaeus"))
-  clade.list[["Ornithischia"]] <- root(clade.list[["Ornithischia"]], outgroup = c("Pisanosaurus_mertii"))
+  for(i in 1:3){
+    to_drop <- filter(taxonomy, clade != clades1[i])
+    species_drop <- pull(to_drop, taxon)  
+    clade_tree <- drop.tip(tree, species_drop)
   
-  # Write clade trees 
-  for (j in 2:4){
-    write.nexus(phy = clade.list[[j]], 
-                file = paste0("data/trees/Benson_", clades1[j], "_", i, ".nex"))
+    # Write clade trees to file
+    write.nexus(phy = clade_tree, 
+                file = paste0("data/trees/Benson1_", clades1[i], "_", j, ".nex"))
+  }
+}
+
+# Small clades
+for(j in 1:100){
+  tree <- tree_dated1[[j]]
+  
+  for(i in 1:2){
+    to_drop <- filter(taxonomy, clade2 != clades2[i] | is.na(clade2))
+    species_drop <- pull(to_drop, taxon)  
+    clade_tree <- drop.tip(tree, species_drop)
+    
+    # Write clade trees to file
+    write.nexus(phy = clade_tree, 
+                file = paste0("data/trees/Benson1_", clades2[i], "_", j, ".nex"))
+  }
+}
+
+# Benson tree 2
+# Loop through 100 trees
+for(j in 1:100){
+  tree <- tree_dated2[[j]]
+  
+  for(i in 1:3){
+    to_drop <- filter(taxonomy, clade != clades1[i])
+    species_drop <- pull(to_drop, taxon)  
+    clade_tree <- drop.tip(tree, species_drop)
+    
+    # Write clade trees to file
+    write.nexus(phy = clade_tree, 
+                file = paste0("data/trees/Benson2_", clades1[i], "_", j, ".nex"))
+  }
+}
+
+# Small clades
+for(j in 1:100){
+  tree <- tree_dated2[[j]]
+  
+  for(i in 1:2){
+    to_drop <- filter(taxonomy, clade2 != clades2[i] | is.na(clade2))
+    species_drop <- pull(to_drop, taxon)  
+    clade_tree <- drop.tip(tree, species_drop)
+    
+    # Write clade trees to file
+    write.nexus(phy = clade_tree, 
+                file = paste0("data/trees/Benson2_", clades2[i], "_", j, ".nex"))
   }
 }
 
@@ -84,14 +127,25 @@ for (i in 1:100) {
 # Lloyd trees
 #------------------
 # Read in phylogeny
-lloyd <- read.nexus("data/trees/Lloyd.nex")
+tree <- read.nexus("data/trees/Lloyd.nex")
 
-# Create clade tree and write to file
-clade.list <- extract_clade_trees(lloyd, taxonomy, 
-                                  species.col.name = "taxon", 
-                                  clade.col.name = "clade")
-# Write clade trees 
-for (j in 1:3){
-  write.nexus(phy = clade.list[[j]], 
-              file = paste0("data/trees/Lloyd_", clades2[j], ".nex"))
-}
+for(i in 1:3){
+  to_drop <- filter(taxonomy, clade != clades1[i])
+  species_drop <- pull(to_drop, taxon)  
+  clade_tree <- drop.tip(tree, species_drop)
+    
+  # Write clade trees to file
+  write.nexus(phy = clade_tree, 
+              file = paste0("data/trees/Lloyd_", clades1[i], ".nex"))
+  }
+
+# Small clades
+for(i in 1:2){
+  to_drop <- filter(taxonomy, clade2 != clades2[i] | is.na(clade2))
+  species_drop <- pull(to_drop, taxon)  
+  clade_tree <- drop.tip(tree, species_drop)
+    
+  # Write clade trees to file
+  write.nexus(phy = clade_tree, 
+              file = paste0("data/trees/Lloyd_", clades2[i], ".nex"))
+  }
