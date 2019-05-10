@@ -67,3 +67,4 @@ ignore/
 *.Rcheck/
 
 Test code/
+data/
