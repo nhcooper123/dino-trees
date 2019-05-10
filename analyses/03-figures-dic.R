@@ -32,7 +32,9 @@ ds <-
   # Gather so DICs are in one column
   gather(model, DIC, c(null_DIC, asym_DIC, slow_DIC)) %>%
   # Make null model the reference level
-  mutate(model = relevel(as.factor(model), ref = "null_DIC"))
+  mutate(model = relevel(as.factor(model), ref = "null_DIC")) %>%
+  mutate(tree = factor(tree, levels = c("Arbour", "Chiba", "Cruzado", "Mallon", 
+                                        "Raven", "Thompson", "Carbadillo", "GonzalezR", "Cau")))
 
 ds_intercepts <-
   ds_intercepts %>%
@@ -48,7 +50,9 @@ ds_intercepts <-
   # Gather so DICs are in one column
   gather(model, DIC, c(null_DIC, asym_DIC, slow_DIC)) %>%
   # Make null model the reference level
-  mutate(model = relevel(as.factor(model), ref = "null_DIC"))
+  mutate(model = relevel(as.factor(model), ref = "null_DIC"))  %>%
+  mutate(tree = factor(tree, levels = c("Arbour", "Chiba", "Cruzado", "Mallon", 
+                                        "Raven", "Thompson", "Carbadillo", "GonzalezR", "Cau")))
 
 ####### do we want to order trees by clade?######
 
