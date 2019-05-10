@@ -108,11 +108,11 @@ to_plot_saka <-
 
 #------------------------------------- 
 # Combine with other data  
-plot_data <- rbind(to_plot_i, to_plot_saka)
+plot_data_i <- rbind(to_plot_i, to_plot_saka)
 
 # Tidy up tree names
-plot_data <-
-    plot_data %>%
+plot_data_i <-
+    plot_data_i %>%
     ungroup(tree) %>%
     mutate(tree = case_when(tree == "Arbour.phy.nex" ~ "Arbour",
                             tree == "Carbadillo.phy.nex" ~ "Carbadillo",
@@ -132,4 +132,21 @@ plot_data <-
                             tree == "Lloyd_midpoint_3-Group" ~ "Lloyd_3",
                             tree == "Lloyd_midpoint_5-Group" ~ "Lloyd_5",
                             tree == "Lloyd_midpoint_Dinosauria" ~ "Lloyd"))
+# Write to file
+write_csv(plot_data_i, path = "outputs/best-models-intercepts.csv")
 
+# Tidy up tree names for only clade data with no intercepts
+plot_data <-
+  to_plot %>%
+  ungroup(tree) %>%
+  mutate(tree = case_when(tree == "Arbour.phy.nex" ~ "Arbour",
+                          tree == "Carbadillo.phy.nex" ~ "Carbadillo",
+                          tree == "Cau.phy.nex" ~ "Cau",
+                          tree == "Chiba.phy.nex" ~ "Chiba",
+                          tree == "Cruzado.phy.nex" ~ "Cruzado",
+                          tree == "GonzalezRiga.phy.nex" ~ "GonzalezR",
+                          tree == "Mallon.phy.nex" ~ "Mallon",
+                          tree == "Raven.phy.nex" ~ "Raven",
+                          tree == "Thompson.phy.nex" ~ "Thompson"))
+
+write_csv(plot_data, path = "outputs/best-models.csv")
