@@ -46,7 +46,7 @@ sum_all_i <-
                                 null_asym > 4 & null_slow > 4 & (asym_slow > -4 &  asym_slow < 4) ~ "asymptote/slowdown",
                                 (null_asym < 4 & null_asym > -4) & null_slow > 4 & asym_slow < -4 ~ "null/asympote",
                                 null_asym > 4 & (null_slow < 4 & null_slow > -4) & asym_slow > 4 ~ "null/slowdown",
-                                abs(null_asym) < 4 & abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none"))
+                                abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none"))
 
 to_plot_i <- 
   sum_all_i %>%
@@ -54,5 +54,3 @@ to_plot_i <-
   add_count(best_model, name = "best") %>%
   select(tree, best_model, best) %>%
   distinct()
-
-##### still some NAs to fix here#####
