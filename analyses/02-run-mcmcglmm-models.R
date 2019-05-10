@@ -7,6 +7,7 @@
 #------------------------------------
 library(MCMCglmm)
 library(ape)
+library(tidyverse)
 source("functions/run_mcmcglmm.R")
 #----------------------------------------------------------------
 # Set up priors for modelling
@@ -53,6 +54,7 @@ for(i in 1:length(tree.list)){
     for(j in 1:100){
       
       tree1 <- tree[[j]]
+      tree1$node.label <- NULL
       
       # Load the node count data
       # Note this breaks if you use read_csv
@@ -89,7 +91,7 @@ for(i in 1:length(tree.list)){
     # Load the node count data
     # Note this breaks if you use read_csv
     nodecount.data <- read.csv(paste0("data/nodecounts/nodecount_", 
-                                      tree.list[i], "_", j, ".csv"))
+                                      tree.list[i], ".csv"))
     
     # Run the models
     model.outputs <- run_three_models(tree, nodecount.data, prior, nitt, thin, burnin)
