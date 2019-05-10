@@ -160,7 +160,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   output$null_upper95_CI[tree.no] <- get_upper_conf_intervals(null.model)
   output$null_ess[tree.no] <- get_ess(null.model)
   output$null_pMCMC[tree.no]<- get_pMCMC(null.model)
-  saveRDS(null.model, file = paste0("outputs/", tree.name, tree.no, "_null.rds"))
+  #saveRDS(null.model, file = paste0("outputs/", tree.name, tree.no, "_null.rds"))
   
   # Outputs for slow down
   output$slow_post_mean[tree.no] <- get_post_mean(slow.model)[[1]]
@@ -171,7 +171,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   output$slow_upper95_CI_2[tree.no] <- get_upper_conf_intervals(slow.model)[[2]]
   output$slow_ess[tree.no] <- get_ess(slow.model)
   output$slow_pMCMC[tree.no]<- get_pMCMC(slow.model)[[1]]
-  saveRDS(slow.model, file = paste0("outputs/", tree.name, tree.no, "_slow.rds"))
+  #saveRDS(slow.model, file = paste0("outputs/", tree.name, tree.no, "_slow.rds"))
   
   # Outputs for asymtote
   output$asym_post_mean[tree.no] <- get_post_mean(asym.model)[[1]]
@@ -182,7 +182,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   output$asym_upper95_CI_sqrt[tree.no] <- get_upper_conf_intervals(asym.model)[[2]] 
   output$asym_ess[tree.no] <- get_ess(asym.model)
   output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
-  saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_asym.rds"))
+  #saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_asym.rds"))
   
   return(output)
 }
@@ -234,7 +234,7 @@ add_mcmc_output_intercept <- function(output, null.model, slow.model, asym.model
   output$null_upper95_CI[tree.no] <- get_upper_conf_intervals(null.model)[[2]]
   output$null_ess[tree.no] <- get_ess(null.model)
   output$null_pMCMC[tree.no]<- get_pMCMC(null.model)[[1]]
-  saveRDS(null.model, file = paste0("outputs/", tree.name, tree.no, "_null_intercepts.rds"))
+  #saveRDS(null.model, file = paste0("outputs/", tree.name, tree.no, "_null_intercepts.rds"))
   
   # Outputs for slow down
   nF <- get_nf(slow.model)
@@ -249,7 +249,7 @@ add_mcmc_output_intercept <- function(output, null.model, slow.model, asym.model
   output$slow_upper95_CI_2[tree.no] <- get_upper_conf_intervals(slow.model)[[3]]
   output$slow_ess[tree.no] <- get_ess(slow.model)
   output$slow_pMCMC[tree.no]<- get_pMCMC(slow.model)[[1]]
-  saveRDS(slow.model, file = paste0("outputs/", tree.name, tree.no, "_slow_intercepts.rds"))
+  #saveRDS(slow.model, file = paste0("outputs/", tree.name, tree.no, "_slow_intercepts.rds"))
   
   # Outputs for asymtote
   nF <- get_nf(asym.model)
@@ -264,7 +264,7 @@ add_mcmc_output_intercept <- function(output, null.model, slow.model, asym.model
   output$asym_upper95_CI_sqrt[tree.no] <- get_upper_conf_intervals(asym.model)[[3]]
   output$asym_ess[tree.no] <- get_ess(asym.model)
   output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
-  saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_asym_intercepts.rds"))
+  #saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_asym_intercepts.rds"))
   
   return(output)
 }
