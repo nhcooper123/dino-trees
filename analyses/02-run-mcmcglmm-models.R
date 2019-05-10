@@ -33,8 +33,8 @@ burnin <- 5E04
 tree.list <- list.files("data/trees", pattern = ".nex")
 
 # Make output files # 17 trees
-output <- make_mcmc_output(ntrees = 2100)
-output2 <- make_mcmc_output_intercept(ntrees = 2100)
+output <- make_mcmc_output(ntrees = 800)
+output2 <- make_mcmc_output_intercept(ntrees = 800)
 
 #----------------------------------------------------------------
 # Run models
