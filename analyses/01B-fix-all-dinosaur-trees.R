@@ -7,7 +7,6 @@
 #--------------------------------------
 library(paleotree)
 library(tidyverse)
-source("functions/extract_clade_trees.R")
 #--------------------------------------
 # Benson trees
 #------------------
@@ -20,12 +19,12 @@ benson2 <- benson[[2]]
 benson1 <- root(benson1, outgroup = c("Lagerpeton_chanarensis", "Dromomeron_gregorii", "Dromomeron_romeri",
                                   "Marasuchus_lilloensis", "Lewisuchus_admixtus", "Asilisaurus_kongwe",
                                   "Eucoelophysis_baldwini", "Silesaurus_opolensis", "Sacisaurus_agudoensis",
-                                  "Diodorus_scytobrachion"))
+                                  "Diodorus_scytobrachion"), resolve.root = TRUE)
 
 benson2 <- root(benson2, outgroup = c("Lagerpeton_chanarensis", "Dromomeron_gregorii", "Dromomeron_romeri",
                                     "Marasuchus_lilloensis", "Lewisuchus_admixtus", "Asilisaurus_kongwe",
                                     "Eucoelophysis_baldwini", "Silesaurus_opolensis", "Sacisaurus_agudoensis",
-                                    "Diodorus_scytobrachion"))
+                                    "Diodorus_scytobrachion"), resolve.root = TRUE)
 
 # Remove node labels
 benson1$node.label <- NULL
@@ -39,12 +38,12 @@ timeData <- dates1[, 2:3]
 rownames(timeData) <- dates1$name
   
 # Date the trees...
-tree_dated1 <- timePaleoPhy(tree1, timeData, type = "mbl", 
+tree_dated1 <- timePaleoPhy(benson1, timeData, type = "mbl", 
                            vartime = 1, ntrees = 100,
                            dateTreatment = "minMax", 
                            noisyDrop = TRUE, plot = FALSE)
 
-tree_dated2 <- timePaleoPhy(tree1, timeData, type = "mbl", 
+tree_dated2 <- timePaleoPhy(benson1, timeData, type = "mbl", 
                            vartime = 1, ntrees = 100,
                            dateTreatment = "minMax", 
                            noisyDrop = TRUE, plot = FALSE)
@@ -70,6 +69,15 @@ for(j in 1:100){
     to_drop <- filter(taxonomy, clade != clades1[i])
     species_drop <- pull(to_drop, taxon)  
     clade_tree <- drop.tip(tree, species_drop)
+    
+    # Root trees that are not rooted
+    if(clades1[i] == "Sauropodomorpha"){
+      clade_tree <- root(clade_tree, outgroup = c("Pampdromaeus"), resolve.root = TRUE)
+    }
+    
+    if(clades1[i] == "Ornithischia"){
+      clade_tree <- root(clade_tree, outgroup = c("Pisanosaurus_mertii"), resolve.root = TRUE)
+    }
   
     # Write clade trees to file
     write.nexus(phy = clade_tree, 
@@ -101,6 +109,15 @@ for(j in 1:100){
     to_drop <- filter(taxonomy, clade != clades1[i])
     species_drop <- pull(to_drop, taxon)  
     clade_tree <- drop.tip(tree, species_drop)
+    
+    # Root trees that are not rooted
+    if(clades1[i] == "Sauropodomorpha"){
+      clade_tree <- root(clade_tree, outgroup = c("Pampdromaeus"), resolve.root = TRUE)
+    }
+    
+    if(clades1[i] == "Ornithischia"){
+      clade_tree <- root(clade_tree, outgroup = c("Pisanosaurus_mertii"), resolve.root = TRUE)
+    }
     
     # Write clade trees to file
     write.nexus(phy = clade_tree, 
