@@ -98,7 +98,7 @@ ggplot(ds, aes(x = DIC, fill = model)) +
         legend.spacing.x = unit(0.2, 'cm'),
         axis.text.x = element_text(angle = 45))
 
-ggsave("outputs/figure-dic.png", width = 20, units = "cm")
+ggsave("outputs/figure-dic.png", width = 20, height = 20, units = "cm")
 
 # For clade trees with intercepts
 ggplot(ds_intercepts, aes(x = DIC, fill = model)) +
@@ -117,4 +117,4 @@ ggplot(ds_intercepts, aes(x = DIC, fill = model)) +
         legend.spacing.x = unit(0.2, 'cm'),
         axis.text.x = element_text(angle = 45))
 
-ggsave("outputs/figure-dic-intercepts.png", width = 20, units = "cm")
+ggsave("outputs/figure-dic-intercepts.png", width = 20, height = 20, units = "cm")
