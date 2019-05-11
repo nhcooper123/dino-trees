@@ -14,7 +14,7 @@ library(tidyverse)
 ds <- read_csv("outputs/mcmcglmm_outputs.csv")
 
 # Extract best models
-# Get delta DICs then pcik best models based on 4 units DIC difference
+# Get delta DICs then pick best models based on 4 units DIC difference
 sum_all <-
   ds %>%
   mutate(null_asym = null_DIC - asym_DIC) %>%
