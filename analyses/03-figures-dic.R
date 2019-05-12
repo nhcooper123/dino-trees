@@ -21,10 +21,10 @@ ds_intercepts <- read_csv("outputs/mcmcglmm_outputs_intercepts.csv")
 ds <-
   ds %>%
   mutate(tree = case_when(tree == "Arbour.phy.nex" ~ "Arbour",
-                          tree == "Carbadillo.phy.nex" ~ "Carbadillo",
+                          tree == "Carballido.phy.nex" ~ "Carballido",
                           tree == "Cau.phy.nex" ~ "Cau",
                           tree == "Chiba.phy.nex" ~ "Chiba",
-                          tree == "Cruzado.phy.nex" ~ "Cruzado",
+                          tree == "Cruzado.phy.nex" ~ "CruzadoC",
                           tree == "GonzalezRiga.phy.nex" ~ "GonzalezR",
                           tree == "Mallon.phy.nex" ~ "Mallon",
                           tree == "Raven.phy.nex" ~ "Raven",
@@ -34,17 +34,17 @@ ds <-
   # Make null model the reference level
   mutate(model = relevel(as.factor(model), ref = "null_DIC")) %>%
   mutate(tree = fct_relevel(tree, 
-                            "Arbour", "Chiba", "Cruzado", "Mallon", "Raven", "Thompson",
-                            "Carbadillo", "GonzalezR",
+                            "Arbour", "Chiba", "CruzadoC", "Mallon", "Raven", "Thompson",
+                            "Carballido", "GonzalezR",
                             "Cau"))
 
 ds_intercepts <-
   ds_intercepts %>%
   mutate(tree = case_when(tree == "Arbour.phy.nex" ~ "Arbour",
-                          tree == "Carbadillo.phy.nex" ~ "Carbadillo",
+                          tree == "Carballido.phy.nex" ~ "Carballido",
                           tree == "Cau.phy.nex" ~ "Cau",
                           tree == "Chiba.phy.nex" ~ "Chiba",
-                          tree == "Cruzado.phy.nex" ~ "Cruzado",
+                          tree == "Cruzado.phy.nex" ~ "CruzadoC",
                           tree == "GonzalezRiga.phy.nex" ~ "GonzalezR",
                           tree == "Mallon.phy.nex" ~ "Mallon",
                           tree == "Raven.phy.nex" ~ "Raven",
@@ -54,11 +54,9 @@ ds_intercepts <-
   # Make null model the reference level
   mutate(model = relevel(as.factor(model), ref = "null_DIC"))  %>%
   mutate(tree = fct_relevel(tree, 
-                            "Arbour", "Chiba", "Cruzado", "Mallon", "Raven", "Thompson",
-                            "Carbadillo", "GonzalezR",
+                            "Arbour", "Chiba", "CruzadoC", "Mallon", "Raven", "Thompson",
+                            "Carballido", "GonzalezR",
                             "Cau"))
-
-####### do we want to order trees by clade?######
 
 #--------------------------------------------------------------------------
 # Create dataset for 4 unit lines which differ depending on the scale
@@ -67,16 +65,16 @@ line_data_new <- data.frame(x = c(282, 420, 730,
                                   133, 312, 392,
                                   132, 112, 225),
                             y = rep(1, 9), 
-                            tree = c("Arbour", "Carbadillo", "Cau", 
-                                     "Chiba", "Cruzado", "GonzalezR", 
+                            tree = c("Arbour", "Carballido", "Cau", 
+                                     "Chiba", "CruzadoC", "GonzalezR", 
                                      "Mallon", "Raven", "Thompson"))
 
 line_data_new_intercepts <- data.frame(x = c(282, 418, 714,
                                              132, 310, 392.5,
                                              131, 113, 227),
                                        y = rep(1.1, 9), 
-                                       tree = c("Arbour", "Carbadillo", "Cau", 
-                                                "Chiba", "Cruzado", "GonzalezR", 
+                                       tree = c("Arbour", "Carballido", "Cau", 
+                                                "Chiba", "CruzadoC", "GonzalezR", 
                                                 "Mallon", "Raven", "Thompson"))
 #-------------------------------------------------------------------------------
 # Plot all DICs 
