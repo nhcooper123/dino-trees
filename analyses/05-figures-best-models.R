@@ -29,8 +29,8 @@ ds_i <- read_csv("outputs/best-models-intercepts.csv")
 # Relevel to order by model as required and by clade
 ds <- ds %>%
   mutate(tree = fct_relevel(tree, 
-                            "Arbour", "Chiba", "Cruzado", "Mallon", "Raven", "Thompson",
-                            "Carbadillo", "GonzalezR",
+                            "Arbour", "Chiba", "CruzadoC", "Mallon", "Raven", "Thompson",
+                            "Carballido", "GonzalezR",
                             "Cau"))
 
 ds_i <- ds_i %>%
@@ -38,8 +38,8 @@ ds_i <- ds_i %>%
   mutate(tree = fct_relevel(tree, "Benson1", "Benson2", "Lloyd",
                             "Benson1_3", "Benson2_3", "Lloyd_3",
                             "Benson1_5", "Benson2_5", "Lloyd_5",
-                            "Arbour", "Chiba", "Cruzado", "Mallon", "Raven", "Thompson",
-                            "Carbadillo", "GonzalezR",
+                            "Arbour", "Chiba", "CruzadoC", "Mallon", "Raven", "Thompson",
+                            "Carballido", "GonzalezR",
                             "Cau"))
 
 # No intercept
@@ -54,21 +54,17 @@ ggplot(ds, aes(x = tree, y = best, fill = best_model)) +
         legend.spacing.x = unit(0.2, 'cm'),
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   add_phylopic(img = steg, alpha = 1, x = 3.5, y = 85, ysize = 15) +
-  add_phylopic(img = pod, alpha = 1, x = 7.5, y = 86, ysize = 18) +
+  add_phylopic(img = pod, alpha = 1, x = 7.5, y = 86, ysize = 22) +
   add_phylopic(img = raptor, alpha = 1, x = 8.9, y = 83, ysize = 12)
 
-grid.brackets(52, 68, 222, 68, lwd = 2, col = "black",
+grid.brackets(54, 78, 322, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-grid.brackets(226, 68, 280, 68, lwd = 2, col = "black",
+grid.brackets(326, 78, 413, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-grid.brackets(284, 68, 310, 68, lwd = 2, col = "black",
+grid.brackets(417, 78, 460, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
 
-# Save plot via export
-  
-library(grid)
-grid.locator(unit="native") 
-
+#### Save plot via export or it won't save the brackets####
 
 # Intercept
 ggplot(ds_i, aes(x = tree, y = best, fill = best_model)) +
@@ -82,7 +78,7 @@ ggplot(ds_i, aes(x = tree, y = best, fill = best_model)) +
         legend.spacing.x = unit(0.2, 'cm'),
         axis.text.x = element_text(angle = 45, hjust = 1)) +
   add_phylopic(img = steg, alpha = 1, x = 12.5, y = 85, ysize = 15) +
-  add_phylopic(img = pod, alpha = 1, x = 16.5, y = 86, ysize = 18) +
+  add_phylopic(img = pod, alpha = 1, x = 16.5, y = 86, ysize = 22) +
   add_phylopic(img = raptor, alpha = 1, x = 17.9, y = 83, ysize = 10)
 
 grid.brackets(50, 68, 179, 68, lwd = 2, col = "black",
@@ -93,3 +89,5 @@ grid.brackets(270, 68, 297, 68, lwd = 2, col = "black",
               type = 4, tick = NA)
 grid.brackets(299, 68, 313, 68, lwd = 2, col = "black",
               type = 4, tick = NA)
+
+#### Save plot via export or it won't save the brackets####

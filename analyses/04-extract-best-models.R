@@ -115,10 +115,10 @@ plot_data_i <-
     plot_data_i %>%
     ungroup(tree) %>%
     mutate(tree = case_when(tree == "Arbour.phy.nex" ~ "Arbour",
-                            tree == "Carbadillo.phy.nex" ~ "Carbadillo",
+                            tree == "Carballido.phy.nex" ~ "Carballido",
                             tree == "Cau.phy.nex" ~ "Cau",
                             tree == "Chiba.phy.nex" ~ "Chiba",
-                            tree == "Cruzado.phy.nex" ~ "Cruzado",
+                            tree == "Cruzado.phy.nex" ~ "CruzadoC",
                             tree == "GonzalezRiga.phy.nex" ~ "GonzalezR",
                             tree == "Mallon.phy.nex" ~ "Mallon",
                             tree == "Raven.phy.nex" ~ "Raven",
@@ -140,10 +140,10 @@ plot_data <-
   to_plot %>%
   ungroup(tree) %>%
   mutate(tree = case_when(tree == "Arbour.phy.nex" ~ "Arbour",
-                          tree == "Carbadillo.phy.nex" ~ "Carbadillo",
+                          tree == "Carballido.phy.nex" ~ "Carballido",
                           tree == "Cau.phy.nex" ~ "Cau",
                           tree == "Chiba.phy.nex" ~ "Chiba",
-                          tree == "Cruzado.phy.nex" ~ "Cruzado",
+                          tree == "Cruzado.phy.nex" ~ "CruzadoC",
                           tree == "GonzalezRiga.phy.nex" ~ "GonzalezR",
                           tree == "Mallon.phy.nex" ~ "Mallon",
                           tree == "Raven.phy.nex" ~ "Raven",
