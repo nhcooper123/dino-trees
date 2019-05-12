@@ -98,8 +98,7 @@ ds_saka <- ds_saka %>%
 # Exclude all but midpoint trees for now
 to_plot_saka <- 
   sum_all_saka %>%
-  filter(`dating method` == "midpoint") %>%
-  unite(tree, tree, `dating method`, clade, sep = "_") %>%
+  unite(tree, tree, clade, sep = "_") %>%
   group_by(tree) %>%
   add_count(best_model, name = "best") %>%
   select(tree, best_model, best) %>%
