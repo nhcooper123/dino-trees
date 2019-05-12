@@ -103,7 +103,7 @@ to_plot_saka <-
   add_count(best_model, name = "best") %>%
   select(tree, best_model, best) %>%
   # Make into % for comparison with other data
-  mutate(best = best * 100)
+  mutate(best = best * (100/3))
 
 #------------------------------------- 
 # Combine with other data  
