@@ -122,15 +122,15 @@ plot_data_i <-
                             tree == "Mallon.phy.nex" ~ "Mallon",
                             tree == "Raven.phy.nex" ~ "Raven",
                             tree == "Thompson.phy.nex" ~ "Thompson",
-                            tree == "Benson1_midpoint_3-Group" ~ "Benson1_3",
-                            tree == "Benson1_midpoint_5-Group" ~ "Benson1_5",
-                            tree == "Benson1_midpoint_Dinosauria" ~ "Benson1",
-                            tree == "Benson2_midpoint_3-Group" ~ "Benson2_3",
-                            tree == "Benson2_midpoint_5-Group" ~ "Benson2_5",
-                            tree == "Benson2_midpoint_Dinosauria" ~ "Benson2",
-                            tree == "Lloyd_midpoint_3-Group" ~ "Lloyd_3",
-                            tree == "Lloyd_midpoint_5-Group" ~ "Lloyd_5",
-                            tree == "Lloyd_midpoint_Dinosauria" ~ "Lloyd"))
+                            tree == "Benson1_3-Group" ~ "Benson1_3",
+                            tree == "Benson1_5-Group" ~ "Benson1_5",
+                            tree == "Benson1_Dinosauria" ~ "Benson1",
+                            tree == "Benson2_3-Group" ~ "Benson2_3",
+                            tree == "Benson2_5-Group" ~ "Benson2_5",
+                            tree == "Benson2_Dinosauria" ~ "Benson2",
+                            tree == "Lloyd_3-Group" ~ "Lloyd_3",
+                            tree == "Lloyd_5-Group" ~ "Lloyd_5",
+                            tree == "Lloyd_Dinosauria" ~ "Lloyd"))
 # Write to file
 write_csv(plot_data_i, path = "outputs/best-models-intercepts.csv")
 
