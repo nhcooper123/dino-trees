@@ -69,8 +69,8 @@ for(i in 1:length(tree.list)){
                                        tree.name = tree.list[i])
       
       # Save the outputs
-      write_csv(output, path = "outputs/mcmcglmm_outputs.csv")
-      write_csv(output2, path = "outputs/mcmcglmm_outputs_intercepts.csv")
+      write_csv(output, path = "outputs/mcmcglmm_outputs_sakamoto.csv")
+      write_csv(output2, path = "outputs/mcmcglmm_outputs_intercepts_sakamot.csv")
       
       # Add to counter
       tree.no <- tree.no + 1
