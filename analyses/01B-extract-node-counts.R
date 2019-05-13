@@ -19,22 +19,30 @@ for(k in 1:length(tree.list)){
   # Read in tree
   tree <- read.nexus(paste0("data/trees/", tree.list[[k]]))
   
-  # If there is > 1 tree then run on all 100 dated trees
-  if(class(tree) == "multiPhylo"){
-    
-    for(j in 1:100){
+  # Run on all 100 dated trees
+  for(j in 1:100){
       
       tree1 <- tree[[j]]
       
       # Get node counts
       create_node_counts(tree1, path = "data/nodecounts/", 
                          tree.name = paste0("nodecount_", tree.list[k], "_", j))
-    }
   }
-  else{
+}
+
+#--------------------------------------
+# Extract node counts for sakamoto trees
+#--------------------------------------
+# Extract list of trees from folder
+tree.list <- list.files("data/trees_sakamoto", pattern = ".txt")
+
+# Get nodecounts for all trees
+for(k in 1:length(tree.list)){
   
-  # Otherwise just get node counts
-  create_node_counts(tree, path = "data/nodecounts/", 
-                     tree.name = paste0("nodecount_", tree.list[k]))
-  }
+  # Read in tree
+  tree <- read.tree(paste0("data/trees_sakamoto/", tree.list[[k]]))
+
+   # Get node counts
+   create_node_counts(tree, path = "data/nodecounts/", 
+                      tree.name = paste0("nodecount_", tree.list[k]))
 }
