@@ -35,7 +35,7 @@ run_three_models <- function(tree, nodecount.data, prior, nitt, thin, burnin){
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
   
   # Fit asymptote model
-  asym <- MCMCglmm(nodecount ~ 0 + time + sqrt(time), 
+  asym <- MCMCglmm(nodecount ~ 0 + sqrt(time), 
                    data = nodecount.data, random = ~ species,
                    ginverse = list(species = inv), family = "poisson", prior = prior,
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
@@ -67,7 +67,7 @@ run_three_models_intercept <- function(tree, nodecount.data, prior, nitt, thin, 
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
   
   # Fit asymptote model
-  asym <- MCMCglmm(nodecount ~ time + sqrt(time), 
+  asym <- MCMCglmm(nodecount ~ sqrt(time), 
                    data = nodecount.data, random = ~ species,
                    ginverse = list(species = inv), family = "poisson", prior = prior,
                    nitt = nitt, thin = thin, burnin = burnin, pl = TRUE)
@@ -127,7 +127,7 @@ get_pMCMC <- function(model){
 #--------------------------------------------------------
 # Define dataframe for model output
 make_mcmc_output <- function(ntrees){
-  output <- data.frame(array(dim = c(ntrees, 26)))
+  output <- data.frame(array(dim = c(ntrees, 23)))
   colnames(output) <- c("tree.ID", "tree", "null_DIC","slow_DIC", "asym_DIC", 
                         "null_post_mean", "null_lower95_CI", "null_upper95_CI", 
                         "null_ess", "null_pMCMC", 
@@ -135,8 +135,7 @@ make_mcmc_output <- function(ntrees){
                         "slow_lower95_CI", "slow_upper95_CI", 
                         "slow_lower95_CI_2", "slow_upper95_CI_2",
                         "slow_ess", "slow_pMCMC", 
-                        "asym_post_mean", "asym_post_mean_sqrt", 
-                        "asym_lower95_CI", "asym_upper95_CI",
+                        "asym_post_mean_sqrt", 
                         "asym_lower95_CI_sqrt", "asym_upper95_CI_sqrt", 
                         "asym_ess", "asym_pMCMC")
   return(output)
@@ -174,12 +173,9 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
   #saveRDS(slow.model, file = paste0("outputs/", tree.name, tree.no, "_slow.rds"))
   
   # Outputs for asymtote
-  output$asym_post_mean[tree.no] <- get_post_mean(asym.model)[[1]]
-  output$asym_post_mean_sqrt[tree.no] <- get_post_mean(asym.model)[[2]]
-  output$asym_lower95_CI[tree.no] <- get_lower_conf_intervals(asym.model)[[1]]
-  output$asym_upper95_CI[tree.no] <- get_upper_conf_intervals(asym.model)[[1]]
-  output$asym_lower95_CI_sqrt[tree.no] <- get_lower_conf_intervals(asym.model)[[2]]
-  output$asym_upper95_CI_sqrt[tree.no] <- get_upper_conf_intervals(asym.model)[[2]] 
+  output$asym_post_mean_sqrt[tree.no] <- get_post_mean(asym.model)
+  output$asym_lower95_CI_sqrt[tree.no] <- get_lower_conf_intervals(asym.model)
+  output$asym_upper95_CI_sqrt[tree.no] <- get_upper_conf_intervals(asym.model)
   output$asym_ess[tree.no] <- get_ess(asym.model)
   output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
   #saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_asym.rds"))
@@ -192,7 +188,7 @@ add_mcmc_output <- function(output, null.model, slow.model, asym.model, tree.no,
 #--------------------------------------------------------
 # Define dataframe for model output
 make_mcmc_output_intercept <- function(ntrees){
-  output <- data.frame(array(dim = c(ntrees, 35)))
+  output <- data.frame(array(dim = c(ntrees, 32)))
   colnames(output) <- c("tree.ID", "tree", "null_DIC","slow_DIC", "asym_DIC", 
                         "null_post_mean_intercept", "null_post_mean",
                         "null_lower95_CI_intercept", "null_upper95_CI_intercept", 
@@ -203,9 +199,8 @@ make_mcmc_output_intercept <- function(ntrees){
                         "slow_lower95_CI", "slow_upper95_CI", 
                         "slow_lower95_CI_2", "slow_upper95_CI_2",
                         "slow_ess", "slow_pMCMC", 
-                        "asym_post_mean_intercept", "asym_post_mean", "asym_post_mean_sqrt", 
-                        "asym_lower95_CI_intercept", "asym_upper95_CI_intercept",
-                        "asym_lower95_CI", "asym_upper95_CI", 
+                        "asym_post_mean_intercept", "asym_post_mean_sqrt", 
+                        "asym_lower95_CI_intercept", "asym_upper95_CI_intercept", 
                         "asym_lower95_CI_sqrt", "asym_upper95_CI_sqrt",
                         "asym_ess", "asym_pMCMC")
 
@@ -254,14 +249,11 @@ add_mcmc_output_intercept <- function(output, null.model, slow.model, asym.model
   # Outputs for asymtote
   nF <- get_nf(asym.model)
   output$asym_post_mean_intercept[tree.no] <- get_post_mean(asym.model)[[1]]
-  output$asym_post_mean[tree.no] <- get_post_mean(asym.model)[[2]]
-  output$asym_post_mean_sqrt[tree.no] <- get_post_mean(asym.model)[[3]]
+  output$asym_post_mean_sqrt[tree.no] <- get_post_mean(asym.model)[[2]]
   output$asym_lower95_CI_intercept[tree.no] <- get_lower_conf_intervals(asym.model)[[1]]
   output$asym_upper95_CI_intercept[tree.no] <- get_upper_conf_intervals(asym.model)[[1]]
-  output$asym_lower95_CI[tree.no] <- get_lower_conf_intervals(asym.model)[[2]]
-  output$asym_upper95_CI[tree.no] <- get_upper_conf_intervals(asym.model)[[2]]
-  output$asym_lower95_CI_sqrt[tree.no] <- get_lower_conf_intervals(asym.model)[[3]]
-  output$asym_upper95_CI_sqrt[tree.no] <- get_upper_conf_intervals(asym.model)[[3]]
+  output$asym_lower95_CI_sqrt[tree.no] <- get_lower_conf_intervals(asym.model)[[2]]
+  output$asym_upper95_CI_sqrt[tree.no] <- get_upper_conf_intervals(asym.model)[[2]]
   output$asym_ess[tree.no] <- get_ess(asym.model)
   output$asym_pMCMC[tree.no]<- get_pMCMC(asym.model)[[1]]
   #saveRDS(asym.model, file = paste0("outputs/", tree.name, tree.no, "_asym_intercepts.rds"))
