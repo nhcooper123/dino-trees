@@ -70,7 +70,7 @@ for(i in 1:length(tree.list)){
       
       # Save the outputs
       write_csv(output, path = "outputs/mcmcglmm_outputs_sakamoto.csv")
-      write_csv(output2, path = "outputs/mcmcglmm_outputs_intercepts_sakamot.csv")
+      write_csv(output2, path = "outputs/mcmcglmm_outputs_intercepts_sakamoto.csv")
       
       # Add to counter
       tree.no <- tree.no + 1
