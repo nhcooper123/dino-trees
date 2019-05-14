@@ -5,6 +5,7 @@
 # Load libraries
 #----------------
 library(tidyverse)
+library(scales)
 
 #648FFF = blue
 #785EF0 = purple
