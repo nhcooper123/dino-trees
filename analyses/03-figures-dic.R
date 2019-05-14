@@ -79,7 +79,7 @@ line_data_new_intercepts <- data.frame(x = c(282, 418, 714,
 #-------------------------------------------------------------------------------
 # Plot all DICs 
 #------------------
-# For clade trees
+# No intercepts
 ggplot(ds, aes(x = DIC, fill = model)) +
   geom_density(alpha = 0.5, colour = NA) +
   facet_wrap(~ tree, scales = "free_x") +
@@ -98,7 +98,7 @@ ggplot(ds, aes(x = DIC, fill = model)) +
 
 ggsave("outputs/figure-dic.png", width = 20, height = 20, units = "cm")
 
-# For clade trees with intercepts
+# With intercepts
 ggplot(ds_intercepts, aes(x = DIC, fill = model)) +
   geom_density(alpha = 0.5, colour = NA) +
   facet_wrap(~ tree, scales = "free_x") +
