@@ -61,17 +61,17 @@ ds_intercepts <-
 #--------------------------------------------------------------------------
 # Create dataset for 4 unit lines which differ depending on the scale
 # of the plot for each tree
-line_data_new <- data.frame(x = c(282, 420, 730,
-                                  133, 312, 392,
+line_data_new <- data.frame(x = c(282, 440, 780,
+                                  135, 312, 420,
                                   132, 112, 225),
                             y = rep(1, 9), 
                             tree = c("Arbour", "Carballido", "Cau", 
                                      "Chiba", "CruzadoC", "GonzalezR", 
                                      "Mallon", "Raven", "Thompson"))
 
-line_data_new_intercepts <- data.frame(x = c(282, 418, 714,
-                                             132, 310, 392.5,
-                                             131, 113, 227),
+line_data_new_intercepts <- data.frame(x = c(281, 418, 713,
+                                             132, 310, 394,
+                                             131, 112.5, 227),
                                        y = rep(1.1, 9), 
                                        tree = c("Arbour", "Carballido", "Cau", 
                                                 "Chiba", "CruzadoC", "GonzalezR", 
@@ -91,10 +91,11 @@ ggplot(ds, aes(x = DIC, fill = model)) +
                    yend = y), inherit.aes = FALSE) +
   scale_fill_manual(values = c("black", "#648FFF", "#DC267F"),
                     labels = c("null", "asymptote", "downturn")) +
+  scale_x_continuous(breaks= pretty_breaks()) + 
   theme(legend.position = "right",
         strip.background = element_rect(fill = "white"),
         legend.spacing.x = unit(0.2, 'cm'),
-        axis.text.x = element_text(angle = 45))
+        axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggsave("outputs/figure-dic.png", width = 20, height = 20, units = "cm")
 
@@ -110,9 +111,10 @@ ggplot(ds_intercepts, aes(x = DIC, fill = model)) +
                    yend = y), inherit.aes = FALSE) +
   scale_fill_manual(values = c("black", "#648FFF", "#DC267F"),
                     labels = c("null", "asymptote", "downturn")) +
+  scale_x_continuous(breaks= pretty_breaks()) + 
   theme(legend.position = "right",
         strip.background = element_rect(fill = "white"),
         legend.spacing.x = unit(0.2, 'cm'),
-        axis.text.x = element_text(angle = 45))
+        axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggsave("outputs/figure-dic-intercepts.png", width = 20, height = 20, units = "cm")
