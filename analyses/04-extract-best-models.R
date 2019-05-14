@@ -26,7 +26,8 @@ sum_all <-
                                 null_asym > 4 & null_slow > 4 & (asym_slow > -4 &  asym_slow < 4) ~ "asymptote/slowdown",
                                 (null_asym < 4 & null_asym > -4) & null_slow > 4 & asym_slow < -4 ~ "null/asympote",
                                 null_asym > 4 & (null_slow < 4 & null_slow > -4) & asym_slow > 4 ~ "null/slowdown",
-                                abs(null_asym) < 4 & abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none"))
+                                abs(null_asym) < 4 & abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none")) %>%
+  mutate(best_model = if_else(is.na(best_model) == TRUE, "none", best_model))
 
 # Get % of trees supporting each model
 to_plot <- 
@@ -55,7 +56,8 @@ sum_all_i <-
                                 null_asym > 4 & null_slow > 4 & (asym_slow > -4 &  asym_slow < 4) ~ "asymptote/slowdown",
                                 (null_asym < 4 & null_asym > -4) & null_slow > 4 & asym_slow < -4 ~ "null/asympote",
                                 null_asym > 4 & (null_slow < 4 & null_slow > -4) & asym_slow > 4 ~ "null/slowdown",
-                                abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none"))
+                                abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none")) %>%
+  mutate(best_model = if_else(is.na(best_model) == TRUE, "none", best_model))
 
 # Get % of trees supporting each model
 to_plot_i <- 
@@ -77,7 +79,6 @@ ds_saka_intercepts <- read_csv("outputs/mcmcglmm_outputs_intercepts_sakamoto.csv
 ds_saka <- ds_saka %>%
   separate(tree, c("tree", "dating"), sep = "_")
 
-
 # Extract best models
 # Get delta DICs then pick best models based on 4 units DIC difference
 sum_all_saka <-
@@ -91,7 +92,8 @@ sum_all_saka <-
                                 null_asym > 4 & null_slow > 4 & (asym_slow > -4 &  asym_slow < 4) ~ "asymptote/slowdown",
                                 (null_asym < 4 & null_asym > -4) & null_slow > 4 & asym_slow < -4 ~ "null/asympote",
                                 null_asym > 4 & (null_slow < 4 & null_slow > -4) & asym_slow > 4 ~ "null/slowdown",
-                                abs(null_asym) < 4 & abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none"))
+                                abs(null_asym) < 4 & abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none")) %>%
+  mutate(best_model = if_else(is.na(best_model) == TRUE, "none", best_model))
 
 # Get % of trees supporting each model
 to_plot_saka <- 
@@ -128,7 +130,8 @@ sum_all_saka_i <-
                                 null_asym > 4 & null_slow > 4 & (asym_slow > -4 &  asym_slow < 4) ~ "asymptote/slowdown",
                                 (null_asym < 4 & null_asym > -4) & null_slow > 4 & asym_slow < -4 ~ "null/asympote",
                                 null_asym > 4 & (null_slow < 4 & null_slow > -4) & asym_slow > 4 ~ "null/slowdown",
-                                abs(null_asym) < 4 & abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none"))
+                                abs(null_asym) < 4 & abs(null_slow) < 4 & abs(asym_slow) < 4 ~ "none")) %>%
+  mutate(best_model = if_else(is.na(best_model) == TRUE, "none", best_model))
 
 # Get % of trees supporting each model
 to_plot_saka_i <- 
