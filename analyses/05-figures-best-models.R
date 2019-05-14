@@ -54,17 +54,21 @@ ggplot(ds, aes(x = tree, y = best, fill = best_model)) +
         strip.background = element_rect(fill = "white"),
         legend.spacing.x = unit(0.2, 'cm'),
         axis.text.x = element_text(angle = 45, hjust = 1)) +
-  add_phylopic(img = steg, alpha = 1, x = 3.5, y = 85, ysize = 15) +
-  add_phylopic(img = pod, alpha = 1, x = 7.5, y = 86, ysize = 22) +
-  add_phylopic(img = raptor, alpha = 1, x = 8.9, y = 83, ysize = 12)
+  add_phylopic(img = steg, alpha = 1, x = 6.5, y = 85, ysize = 15) +
+  add_phylopic(img = pod, alpha = 1, x = 10.5, y = 86, ysize = 22) +
+  add_phylopic(img = raptor, alpha = 1, x = 11.9, y = 83, ysize = 12)
 
-grid.brackets(54, 78, 322, 78, lwd = 2, col = "black",
+# Brackets need to be added individually. Placement is trial and error
+# Use corner screen not zoom as this misplaces them
+# Make it as large as you want the final figure to be first
+grid.brackets(54, 78, 165, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-grid.brackets(326, 78, 413, 78, lwd = 2, col = "black",
+grid.brackets(168, 78, 394, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-grid.brackets(417, 78, 460, 78, lwd = 2, col = "black",
+grid.brackets(397, 78, 470, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-
+grid.brackets(475, 78, 508, 78, lwd = 2, col = "black",
+              type = 4, tick = NA)
 #### Save plot via export or it won't save the brackets####
 
 # Intercept
@@ -78,17 +82,19 @@ ggplot(ds_i, aes(x = tree, y = best, fill = best_model)) +
         strip.background = element_rect(fill = "white"),
         legend.spacing.x = unit(0.2, 'cm'),
         axis.text.x = element_text(angle = 45, hjust = 1)) +
-  add_phylopic(img = steg, alpha = 1, x = 12.5, y = 85, ysize = 15) +
-  add_phylopic(img = pod, alpha = 1, x = 16.5, y = 86, ysize = 22) +
-  add_phylopic(img = raptor, alpha = 1, x = 17.9, y = 83, ysize = 10)
+  add_phylopic(img = steg, alpha = 1, x = 6.5, y = 85, ysize = 15) +
+  add_phylopic(img = pod, alpha = 1, x = 10.5, y = 86, ysize = 22) +
+  add_phylopic(img = raptor, alpha = 1, x = 11.9, y = 83, ysize = 12)
 
-grid.brackets(50, 68, 179, 68, lwd = 2, col = "black",
+# Brackets need to be added individually. Placement is trial and error
+# Use corner screen not zoom as this misplaces them
+# Make it as large as you want the final figure to be first
+grid.brackets(54, 78, 165, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-grid.brackets(181, 68, 268, 68, lwd = 2, col = "black",
+grid.brackets(168, 78, 394, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-grid.brackets(270, 68, 297, 68, lwd = 2, col = "black",
+grid.brackets(397, 78, 470, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-grid.brackets(299, 68, 313, 68, lwd = 2, col = "black",
+grid.brackets(475, 78, 508, 78, lwd = 2, col = "black",
               type = 4, tick = NA)
-
 #### Save plot via export or it won't save the brackets####
