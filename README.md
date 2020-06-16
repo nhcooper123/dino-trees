@@ -13,6 +13,8 @@ To cite the paper:
 To cite this repo: 
 > Natalie Cooper. 2020. GitHub: NaturalHistoryMuseum/dino-trees: Release for publication. DOI.
 
+![alt text](https://github.com/nhcooper123/dino-trees/raw/master/manuscript/outputs/figure-best-models.png)
+
 ------
 
 ## Data
