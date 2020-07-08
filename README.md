@@ -1,5 +1,4 @@
-# Using phylogenies to assess whether non-avian dinosaur speciation rates were in decline before the Cretaceous-Paleogene (K-Pg) mass extinction
- (working title)
+# Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary
 
 *This README is a work in progress...*
 
@@ -8,7 +7,7 @@ Author(s): Joseph A. Bonsor, Paul M. Barrett, Thomas J. Raven and [Natalie Coope
 This repository contains all the code and data used in the manuscript [Link to final published pdf will be here]().
 
 To cite the paper: 
-> Bonsor et al. 2020. TITLE [Journal tbc].
+> Bonsor et al. 2020. Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary [Journal tbc].
 
 To cite this repo: 
 > Natalie Cooper. 2020. GitHub: NaturalHistoryMuseum/dino-trees: Release for publication. DOI.
