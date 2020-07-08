@@ -6,6 +6,7 @@
 # Load libraries and functions
 #--------------------------------------
 library(tidyverse)
+library(ape)
 source("functions/get_node_count.R")
 #--------------------------------------
 # Extract node counts
