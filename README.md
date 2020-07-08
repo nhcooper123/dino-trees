@@ -10,7 +10,7 @@ To cite the paper:
 > Bonsor et al. 2020. Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary [Journal tbc].
 
 To cite this repo: 
-> Natalie Cooper. 2020. GitHub: nhcooper123/dino-trees: Release for publication. DOI: 10.5281/zenodo.3935932.
+> Natalie Cooper. 2020. GitHub: nhcooper123/dino-trees: Code for the paper. DOI: 10.5281/zenodo.3935932.
 
 [![DOI](https://zenodo.org/badge/174182726.svg)](https://zenodo.org/badge/latestdoi/174182726)
 
