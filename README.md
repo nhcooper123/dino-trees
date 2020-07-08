@@ -10,7 +10,9 @@ To cite the paper:
 > Bonsor et al. 2020. Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary [Journal tbc].
 
 To cite this repo: 
-> Natalie Cooper. 2020. GitHub: NaturalHistoryMuseum/dino-trees: Release for publication. DOI.
+> Natalie Cooper. 2020. GitHub: NaturalHistoryMuseum/dino-trees: Release for publication. DOI: 10.5281/zenodo.3935932.
+
+[![DOI](https://zenodo.org/badge/174182726.svg)](https://zenodo.org/badge/latestdoi/174182726)
 
 ![alt text](https://github.com/nhcooper123/dino-trees/raw/master/outputs/figure-best-models.png)
 
@@ -29,7 +31,7 @@ Trees for these analyses came from:
 * Raven, T.J. & Maidment, S.C.R. 2017. A new phylogeny of Stegosauria (Dinosauria, Ornithischia). Palaeontology, 60: 401-408.
 * Thompson, R.S., Parish, J.C., Maidment, S.C.R. & Barrett, P.M. 2012. Phylogeny of the ankylosaurian dinosaurs (Ornithischia: Thyreophora). Journal of Systematic Palaeontology, 10, 301-312.
 
-To aid reproducibility we include all trees and dates in the `data/trees_TNT` and `data\trees_dates` folders - please cite the original papers if you use these. The dated trees are available in the `data\trees` folder. To produce the dated trees we took the published NEXUS matrices and recreated the trees in TNT (following the exact same procedure as in the original papers), then took max and min ages from PBDB and used paleotree to date them.
+To aid reproducibility we include all trees and dates in the `data/trees_TNT` and `data/trees_dates` folders - please cite the original papers if you use these. The dated trees are available in the `data/trees` folder. To produce the dated trees we took the published NEXUS matrices and recreated the trees in TNT (following the exact same procedure as in the original papers), then took max and min ages from PBDB and used paleotree to date them.
 
 We also used the FAD, LAD and midpoint dated trees of Benson et al. (2014) and Lloyd et al. (2008) taken from the supplementary materials of Sakamoto et al. (2016).
 
