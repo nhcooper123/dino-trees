@@ -267,7 +267,7 @@ add_mcmc_output_intercept <- function(output, null.model, slow.model, asym.model
 run_three_models_offset <- function(tree, nodecount.data, prior, nitt, thin, burnin){
   
   # Add a new column to the data specifying the intercept of 1
-  nodecount.data$intercept <- rep(1, length(nodecount.data$node.count))
+  nodecount.data$intercept <- rep(1, length(nodecount.data$nodecount))
   
   # Inverse tree vcv matrix for glmm
   inv <- inverseA(tree, scale = FALSE)$Ainv
