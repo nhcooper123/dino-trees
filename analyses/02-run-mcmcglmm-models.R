@@ -35,7 +35,7 @@ tree.list <- list.files("data/trees", pattern = ".nex")
 # Make output files # 17 trees
 output <- make_mcmc_output(ntrees = 800)
 output2 <- make_mcmc_output_intercept(ntrees = 800)
-
+output3 <- make_mcmc_output(ntrees = 800)
 #----------------------------------------------------------------
 # Run models
 #----------------------------------------------------------------
@@ -60,6 +60,7 @@ for(i in 1:length(tree.list)){
       # Run the models
       model.outputs <- run_three_models(tree1, nodecount.data, prior, nitt, thin, burnin)
       model.outputs2 <- run_three_models_intercept(tree1, nodecount.data, prior, nitt, thin, burnin)
+      model.outputs3 <- run_three_models_offset(tree1, nodecount.data, prior, nitt, thin, burnin)
       
       # Add model outputs
       output <- add_mcmc_output(output, null.model = model.outputs[[1]], 
@@ -74,9 +75,16 @@ for(i in 1:length(tree.list)){
                                            tree.no = tree.no,
                                            tree.name = tree.list[i])
       
+      output3 <- add_mcmc_output(output3, null.model = model.outputs[[1]], 
+                                slow.model = model.outputs[[2]], 
+                                asym.model = model.outputs[[3]], 
+                                tree.no = tree.no,
+                                tree.name = tree.list[i])
+      
       # Save the outputs
       write_csv(output, path = "outputs/mcmcglmm_outputs.csv")
       write_csv(output2, path = "outputs/mcmcglmm_outputs_intercepts.csv")
+      write_csv(output3, path = "outputs/mcmcglmm_outputs_offset.csv")
       
       # Add to counter
       tree.no <- tree.no + 1
