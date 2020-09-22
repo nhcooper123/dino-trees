@@ -186,6 +186,7 @@ plot <-
   scale_fill_manual(values = c("black", "#648FFF", "#DC267F"),
                     labels = c("null", "asymptote", "downturn")) +
   scale_x_continuous(breaks= pretty_breaks()) + 
+  scale_y_continuous(breaks= pretty_breaks()) + 
   theme(legend.position = "right",
         strip.background = element_rect(fill = "white"),
         legend.spacing.x = unit(0.2, 'cm'),
@@ -245,6 +246,7 @@ plot_intercept <-
   scale_fill_manual(values = c("black", "#648FFF", "#DC267F"),
                     labels = c("null", "asymptote", "downturn")) +
   scale_x_continuous(breaks= pretty_breaks()) + 
+  scale_y_continuous(breaks= pretty_breaks()) + 
   theme(legend.position = "right",
         strip.background = element_rect(fill = "white"),
         legend.spacing.x = unit(0.2, 'cm'),
@@ -305,6 +307,7 @@ plot_offset <-
   scale_fill_manual(values = c("black", "#648FFF", "#DC267F"),
                     labels = c("null", "asymptote", "downturn")) +
   scale_x_continuous(breaks= pretty_breaks()) + 
+  scale_y_continuous(breaks= pretty_breaks()) + 
   theme(legend.position = "right",
         strip.background = element_rect(fill = "white"),
         legend.spacing.x = unit(0.2, 'cm'),
