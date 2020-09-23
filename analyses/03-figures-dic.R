@@ -120,8 +120,8 @@ ds_intercepts <-
 # # Offset/intercept = 1 models plots
 #---------------------------------------------------------------------
 # Read in the data
-ds_offset <- read_csv("outputs/mcmcglmm_outputs_offsets.csv")
-ds_offset_sak <- read_csv("outputs/mcmcglmm_outputs_offsets_sakamoto.csv")
+ds_offset <- read_csv("outputs/mcmcglmm_outputs_offset.csv")
+ds_offset_sak <- read_csv("outputs/mcmcglmm_outputs_offset_sakamoto.csv")
 
 # Split up the Benson and Lloyd tree outputs by topology
 ds_offset_sak <- 
@@ -174,7 +174,7 @@ line_data_new <- data.frame(x = c(3600,3500,2500,
 
 # Plot
 plot <-
-  ggplot(ds, aes(x = DIC, fill = model)) +
+  ggplot(ds_offset, aes(x = DIC, fill = model)) +
   geom_density(alpha = 0.5, colour = NA) +
   facet_wrap(~tree, scales = "free", nrow = 4) +
   theme_bw(base_size = 14) +
@@ -194,29 +194,29 @@ plot <-
 
 # Create images to add to the facets
 arbour_img <- annotation_custom2(rasterGrob(steg, interpolate=TRUE), 
-                        xmin = 299, xmax = 309, ymin = 0.75, ymax = 1, data = ds[1, ])
+                        xmin = 299, xmax = 309, ymin = 0.75, ymax = 1, data = ds_offset[1, ])
 chiba_img <- annotation_custom2(rasterGrob(steg, interpolate=TRUE), 
-                                xmin = 147, xmax = 154, ymin = 0.75, ymax = 1, data = ds[301, ])
+                                xmin = 147, xmax = 154, ymin = 0.75, ymax = 1, data = ds_offset[301, ])
 cruz_img <- annotation_custom2(rasterGrob(steg, interpolate=TRUE), 
-                               xmin = 344, xmax = 363, ymin = 0.75, ymax = 1, data = ds[401, ])
+                               xmin = 344, xmax = 363, ymin = 0.75, ymax = 1, data = ds_offset[401, ])
 mallon_img <- annotation_custom2(rasterGrob(steg, interpolate=TRUE), 
-                                xmin = 143, xmax = 149.5, ymin = 0.75, ymax = 1, data = ds[601, ])
+                                xmin = 143, xmax = 149.5, ymin = 0.75, ymax = 1, data = ds_offset[601, ])
 raven_img <- annotation_custom2(rasterGrob(steg, interpolate=TRUE), 
-                                xmin = 117.5, xmax = 120.5, ymin = 0.75, ymax = 1, data = ds[701, ])
+                                xmin = 117.5, xmax = 120.5, ymin = 0.75, ymax = 1, data = ds_offset[701, ])
 thom_img <- annotation_custom2(rasterGrob(steg, interpolate=TRUE), 
-                                xmin = 258, xmax = 275, ymin = 0.75, ymax = 1, data = ds[801, ])
+                                xmin = 258, xmax = 275, ymin = 0.75, ymax = 1, data = ds_offset[801, ])
 carb_img <- annotation_custom2(rasterGrob(pod, interpolate=TRUE), 
-                               xmin = 490, xmax = 520, ymin = 0.75, ymax = 1, data = ds[101, ])
+                               xmin = 490, xmax = 520, ymin = 0.75, ymax = 1, data = ds_offset[101, ])
 gonz_img <- annotation_custom2(rasterGrob(pod, interpolate=TRUE), 
-                               xmin = 438, xmax = 448, ymin = 0.75, ymax = 1, data = ds[501, ])
+                               xmin = 438, xmax = 448, ymin = 0.75, ymax = 1, data = ds_offset[501, ])
 cau_img <- annotation_custom2(rasterGrob(raptor, interpolate=TRUE), 
-                              xmin = 800, xmax = 810, ymin = 0.75, ymax = 1, data = ds[201, ])
+                              xmin = 800, xmax = 810, ymin = 0.75, ymax = 1, data = ds_offset[201, ])
 # Add images
 plot + arbour_img + cruz_img + chiba_img + 
   mallon_img + raven_img + thom_img +
   gonz_img + carb_img + cau_img
 
-#ggsave("outputs/figure-dic-revision.png", width = 20, height = 20, units = "cm")
+#ggsave("outputs/figure-dic-offset.png", width = 20, height = 20, units = "cm")
 
 #---------------------------------------------------------------------
 # Intercept models plots
