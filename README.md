@@ -1,18 +1,16 @@
 # Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary
 
-*This README is a work in progress...*
-
-Author(s): Joseph A. Bonsor, Paul M. Barrett, Thomas J. Raven and [Natalie Cooper](mailto:natalie.cooper.@nhm.ac.uk).
+Author(s): Joseph A. Bonsor, Paul M. Barrett, Thomas J. Raven and Natalie Cooper.
 
 This repository contains all the code and data used in the manuscript [Link to final published pdf will be here]().
 
 To cite the paper: 
-> Bonsor et al. 2020. Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary [Journal tbc].
+> Bonsor et al. 2020. Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary [Royal Society Open Science].
 
 To cite this repo: 
-> Natalie Cooper. 2020. GitHub: nhcooper123/dino-trees: Code for the paper. DOI: 10.5281/zenodo.3935932.
+> Natalie Cooper. 2020. GitHub: nhcooper123/dino-trees: Code for the paper v2. DOI: 10.5281/zenodo.3935932.
 
-[![DOI](https://zenodo.org/badge/174182726.svg)](https://zenodo.org/badge/latestdoi/174182726)
+
 
 ![alt text](https://github.com/nhcooper123/dino-trees/raw/master/outputs/figure-best-models.png)
 
@@ -56,9 +54,12 @@ The main analyses are in the following scripts
 1. *01A-date-TNT-trees.R*. This script dates the nine new trees. Trees are written out to the `data/trees` folder.
 2. *01B-extract-node-counts.R*. This script extracts node counts and time elapsed data for each species in each tree. Node count and time elapsed data are written out to the `data/nodecounts/` folder. 
 3. *02-run-mcmcglmm-models.R* and *02B-run-mcmcglmm-models-sakamoto.R*. These scripts run the three models on each of the trees, both without intercepts and estimating intercepts. They each output two `csv` file with all the required MCMCglmm outputs for all trees. *WARNING This takes a LONG time to run*. 
-4. *03-figures-dic.R*. This script creates Figures 2 and 4.
+4. *03-figures-dic.R*. This script creates Figures 2, S1 and S3.
 5. *04-extract-best-models.R*. This script extracts the best models using DIC from the MCMCglmm outputs.
-6. *05-figures-best-models.R*. Creates Figures 3 and 5
+6. *05-figures-best-models.R*. Creates Figures 3, S2 and S4.
+7. *06-figures-intercepts.R*. Creates Figure S5.
+8. *07-extract-root-ages.R*. Creates Figure S6.
+9. *08-dic-across-intercept-models.R*. Some number crunching as part of the revision.
 
 -------
 ## Other folders
@@ -192,5 +193,5 @@ For reproducibility purposes, here is the output of `devtools:session_info()` us
 To rerun all the code with packages as they existed on CRAN at time of our analyses we recommend using the `checkpoint` package, and running this code prior to the analysis:
 
 ```{r}
-checkpoint("2020-03-01") 
+checkpoint("2020-09-23") 
 ```
