@@ -1,6 +1,7 @@
 # Run MCMCglmm models
 # Run all the models on all trees
 # Natalie Cooper Apr 2019
+# Modified Sept 2020
 
 #------------------------------------
 # Load libraries and source functions
@@ -33,9 +34,9 @@ burnin <- 5E04
 tree.list <- list.files("data/trees", pattern = ".nex")
 
 # Make output files # 17 trees
-output <- make_mcmc_output(ntrees = 800)
-output2 <- make_mcmc_output_intercept(ntrees = 800)
-output3 <- make_mcmc_output(ntrees = 800)
+output <- make_mcmc_output(ntrees = 900)
+output2 <- make_mcmc_output_intercept(ntrees = 900)
+output3 <- make_mcmc_output(ntrees = 900)
 #----------------------------------------------------------------
 # Run models
 #----------------------------------------------------------------
@@ -75,9 +76,9 @@ for(i in 1:length(tree.list)){
                                            tree.no = tree.no,
                                            tree.name = tree.list[i])
       
-      output3 <- add_mcmc_output(output3, null.model = model.outputs[[1]], 
-                                slow.model = model.outputs[[2]], 
-                                asym.model = model.outputs[[3]], 
+      output3 <- add_mcmc_output(output3, null.model = model.outputs3[[1]], 
+                                slow.model = model.outputs3[[2]], 
+                                asym.model = model.outputs3[[3]], 
                                 tree.no = tree.no,
                                 tree.name = tree.list[i])
       
