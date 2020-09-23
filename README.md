@@ -10,7 +10,7 @@ To cite the paper:
 To cite this repo: 
 > Natalie Cooper. 2020. GitHub: nhcooper123/dino-trees: Code for the paper v2. DOI: 10.5281/zenodo.3935932.
 
-
+[![DOI](https://zenodo.org/badge/174182726.svg)](https://zenodo.org/badge/latestdoi/174182726)
 
 ![alt text](https://github.com/nhcooper123/dino-trees/raw/master/outputs/figure-best-models.png)
 
