@@ -5,6 +5,7 @@
 library(ape)
 library(tidyverse)
 library(paleotree)
+library(scales)
 
 #----------------------------------------------
 # Extract root ages for paleotree
@@ -84,7 +85,7 @@ dates <-
   group_by(tree) %>%
   summarise(max_age = max(max),
             min_age = min(min)) %>%
-  mutate(overall_max = c(rep(201,8), 231))
+  mutate(overall_max = c(rep(201,6), rep(231,3)))
   
 # Plot
 ggplot(ages, aes(x = age)) +
