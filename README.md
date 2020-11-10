@@ -2,10 +2,11 @@
 
 Author(s): Joseph A. Bonsor, Paul M. Barrett, Thomas J. Raven and Natalie Cooper.
 
-This repository contains all the code and data used in the manuscript [Link to final published pdf will be here]().
+This repository contains all the code and data used in the manuscript [Link to paper](http://dx.doi.org/10.1098/rsos.201195).
 
 To cite the paper: 
-> Bonsor et al. 2020. Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary [Royal Society Open Science].
+> Bonsor et al. 2020. Dinosaur evolutionary rates were not in decline prior to the K-Pg boundary *Royal Society Open Science*. 7: 201195.
+http://dx.doi.org/10.1098/rsos.201195
 
 To cite this repo: 
 > Natalie Cooper. 2020. GitHub: nhcooper123/dino-trees: Code for the paper v2. DOI: 10.5281/zenodo.4046877.
